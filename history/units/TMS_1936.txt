@@ -1,0 +1,138 @@
+﻿division_template = {
+	name = "Pyýada goşun bölümi"  			# Infantry Division
+
+	division_names_group = TMS_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Dag brigadasy" 				# Mountain Brigade
+
+	division_names_group = TMS_MTN_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Kawalry bölümi" 				# Cavalry Division
+
+	division_names_group = TMS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+	}
+}
+
+units = {
+	######## LAND UNITS ########
+	##### Türkmenistan Ordusu #####
+	
+	division = {
+		#name = "1. Pyýada goşun bölümi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 12333
+		division_template = "Pyýada goşun bölümi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "2. Pyýada goşun bölümi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 12333
+		division_template = "Pyýada goşun bölümi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "3. Pyýada goşun bölümi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 12333
+		division_template = "Pyýada goşun bölümi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "4. Pyýada goşun bölümi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 7491
+		division_template = "Pyýada goşun bölümi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "5. Pyýada goşun bölümi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 10510
+		division_template = "Pyýada goşun bölümi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+}
+
+
+### Air Wings ###
+air_wings = {
+		
+}
+
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "TMS"
+		}
+		requested_factories = 1
+		progress = 0.40
+		efficiency = 100
+	}
+}

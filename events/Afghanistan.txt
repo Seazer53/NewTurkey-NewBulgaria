@@ -1,0 +1,235 @@
+###########################
+# Afghanistan Events
+###########################
+
+add_namespace = afghanistan
+
+#Saadabad Treaty
+country_event = {
+	id = afghanistan.1
+	title = afghanistan.1.t
+	desc = afghanistan.1.d
+	picture = GFX_report_event_saadabad_treaty
+	
+	is_triggered_only = yes
+
+	option = {
+		name = afghanistan.1.a
+		ai_chance = {
+			base = 80
+	
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = -25
+				is_historical_focus_on = no
+			}
+		}
+		
+		AFG = {give_guarantee = TUR}
+		TUR = {give_guarantee = AFG}
+	}
+	
+	option = {
+		name = afghanistan.1.b
+		ai_chance = {
+			base = 20
+	
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = 25
+				is_historical_focus_on = no
+			}
+		}
+	}
+}
+
+#Saadabad Treaty
+country_event = {
+	id = afghanistan.2
+	title = afghanistan.2.t
+	desc = afghanistan.2.d
+	picture = GFX_report_event_saadabad_treaty
+	
+	is_triggered_only = yes
+
+	option = {
+		name = afghanistan.2.a
+		ai_chance = {
+			base = 80
+	
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = -25
+				is_historical_focus_on = no
+			}
+		}
+		
+		AFG = {give_guarantee = PER}
+		PER = {give_guarantee = AFG}
+	}
+	
+	option = {
+		name = afghanistan.2.b
+		ai_chance = {
+			base = 20
+	
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = 25
+				is_historical_focus_on = no
+			}
+		}
+	}
+}
+
+#Saadabad Treaty
+country_event = {
+	id = afghanistan.3
+	title = afghanistan.3.t
+	desc = afghanistan.3.d
+	picture = GFX_report_event_saadabad_treaty
+	
+	is_triggered_only = yes
+
+	option = {
+		name = afghanistan.3.a
+		ai_chance = {
+			base = 80
+	
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = -25
+				is_historical_focus_on = no
+			}
+		}
+		
+		AFG = {give_guarantee = IRQ}
+		IRQ = {give_guarantee = AFG}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					TUR = {
+						has_completed_focus = TUR_treaty_of_saadabad
+						has_guaranteed = AFG
+						has_guaranteed = PER
+						has_guaranteed = IRQ
+					}
+					
+					PER = {
+						has_guaranteed = AFG
+						has_guaranteed = TUR
+						has_guaranteed = IRQ
+					}
+					
+					IRQ = {
+						has_guaranteed = AFG
+						has_guaranteed = TUR
+						has_guaranteed = PER
+					}
+					
+					AFG = {
+						has_guaranteed = PER
+						has_guaranteed = TUR
+						has_guaranteed = IRQ
+					}
+				}
+				
+				news_event = { id = news.339 days = 1}
+				
+			}
+		}
+	}
+	
+	option = {
+		name = afghanistan.3.b
+		ai_chance = {
+			base = 20
+	
+			modifier = {
+					add = -10
+					is_historical_focus_on = yes
+				}
+			
+			modifier = {
+					add = 25
+					is_historical_focus_on = no
+				}
+		}
+	}
+}
+
+#Turkey Invites us to Eurasian Alliance
+country_event = {
+	id = afghanistan.4
+	title = afghanistan.4.t
+	desc = afghanistan.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+
+	option = {
+		name = afghanistan.4.a
+		ai_chance = {
+			base = 45
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 2
+				
+				OR = {
+					has_war = yes
+					strength_ratio = { tag = TUR ratio < 0.5 }
+				}
+			}
+		}
+		
+		TUR = { add_to_faction = AFG }
+		
+	}
+	
+	option = {
+		name = afghanistan.4.b
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.5
+				
+				OR = {
+					has_war = yes
+					strength_ratio = { tag = TUR ratio < 0.5 }
+				}
+			}
+		}
+	}
+}

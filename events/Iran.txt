@@ -1,0 +1,117 @@
+###########################
+# Iran Events
+###########################
+
+add_namespace = iran
+
+#Saadabad Treaty
+country_event = {
+	id = iran.1
+	title = iran.1.t
+	desc = iran.1.d
+	picture = GFX_report_event_saadabad_treaty
+	
+	is_triggered_only = yes
+
+	option = {
+		name = iran.1.a
+		ai_chance = {
+			base = 80
+	
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = -25
+				is_historical_focus_on = no
+			}
+		}
+		
+		PER = {give_guarantee = TUR}
+		TUR = {give_guarantee = PER}
+		
+		hidden_effect = {
+			IRQ = {
+				country_event = { hours = 6 id = iraq.3}
+			}
+			
+			AFG = {
+				country_event = { hours = 6 id = afghanistan.2}
+			}
+		}
+	}
+	
+	option = {
+		name = iran.1.b
+		ai_chance = {
+			base = 20
+	
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = 25
+				is_historical_focus_on = no
+			}
+		}
+	}
+}
+
+#Turkey Invites us to Eurasian Alliance
+country_event = {
+	id = iran.2
+	title = iran.2.t
+	desc = iran.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+
+	option = {
+		name = iran.2.a
+		ai_chance = {
+			base = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 2
+				
+				OR = {
+					has_war = yes
+					strength_ratio = { tag = TUR ratio < 0.5 }
+				}
+			}
+		}
+		
+		TUR = { add_to_faction = PER }
+	
+	}
+	
+	option = {
+		name = iran.2.b
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.5
+				
+				OR = {
+					has_war = yes
+					strength_ratio = { tag = TUR ratio < 0.5 }
+				}
+			}
+		}
+	}
+}

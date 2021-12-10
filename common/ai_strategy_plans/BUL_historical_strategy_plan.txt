@@ -1,0 +1,90 @@
+Bulgaria_historical = {
+	name = "Bulgaria historical plan"
+	desc = "Essentially historical behaviour for Bulgaria"
+
+	enable = {
+		original_tag = BUL
+		AND = {
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = BUL_ai_behavior
+				option = DEFAULT
+			}
+		}
+	}
+	
+	abort = {
+	
+	}
+
+	ai_national_focuses = {
+		# grab as fast as you can if available		
+		BUL_support_civilian_industry
+		BUL_establish_heavy_industry
+		BUL_expand_railway_network
+		BUL_sofia_university
+		BUL_export_focused_economy
+		BUL_mass_production
+		BUL_support_urbanization
+		BUL_industrialization
+		BUL_support_tsar
+		BUL_weakened_opposition
+		BUL_unite_tsars_supporters 
+		BUL_prepare_for_the_worst
+		BUL_suppress_army_officers
+		BUL_long_live_the_tsar
+		BUL_tsar_driven_politics
+		BUL_salonika_agreement
+		BUL_expand_sofia_university
+		BUL_golden_age_of_economy
+		BUL_secret_rearmament
+		BUL_improve_diplomatic_relations
+		BUL_greater_bulgaria
+		BUL_seek_foreign_support
+		BUL_ask_for_german_support
+		BUL_reassert_bulgarian_claims
+		BUL_fate_of_macedonia
+		BUL_demand_western_thrace
+		BUL_revise_bulgaria_greece_border
+		BUL_road_to_bosphorus
+		BUL_proclaim_second_bulgarian_empire
+		BUL_split_yugoslavia
+		BUL_fate_of_greece
+		BUL_crush_romania
+		BUL_fortify_romanian_border
+		BUL_build_military_factories
+		BUL_expand_civilian_industry
+		BUL_student_exchange_program
+		BUL_double_research_efforts
+		BUL_strengthen_army
+		BUL_build_naval_dockyards
+		BUL_construct_airbases
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 5.0
+		support_tech = 10.0
+	}
+
+	ideas = {
+		BUL_dobri_bozhilov = 10
+		BUL_georgi_ivanov_kyoseivanov = 10
+		BUL_bogdan_dimitrov_filov = 10
+	}
+
+	traits = {
+		
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

@@ -1,0 +1,45 @@
+################
+##### BUL ######
+################
+
+BUL_pay_off_war_reparations = {
+	icon = GFX_decision_category_generic_economy
+	
+	picture = GFX_decision_cat_generic_mefo_bills
+
+	allowed = {
+		original_tag = BUL
+	}
+	
+	visible = {
+		OR = {
+			has_idea = BUL_bulgarian_debts
+			has_idea = BUL_bulgarian_debts2
+			has_idea = BUL_bulgarian_debts3
+		}
+	}
+}
+
+BUL_power_struggle = {
+	icon = GFX_decision_category_generic_crisis
+
+	allowed = {
+		original_tag = BUL
+	}
+	
+	visible = {
+		has_country_flag = BUL_communist_coup_happened
+	}
+}
+
+BUL_fortification = {
+	icon = GFX_decision_category_generic_industry
+
+	allowed = {
+		original_tag = BUL
+	}
+	
+	visible = {
+		always = yes
+	}
+}

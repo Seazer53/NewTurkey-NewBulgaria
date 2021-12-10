@@ -1,0 +1,471 @@
+Turkey_alternate_caliph = {
+	name = "Turkey Alternate plan to restore the Ottoman Empire"
+	desc = "Devlet-i ʿAlīye-i ʿOsmānīye!"
+
+	enable = {
+		original_tag = TUR
+		AND = {
+			is_historical_focus_on = no
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = ISLAMISM
+			}
+		}
+	}
+	
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		TUR_montreux_convention
+		TUR_hatay_issue
+		TUR_reestablish_ottoman_empire		
+		TUR_peace_at_home_peace_in_the_world
+		TUR_prepare_for_war
+		TUR_flexible_foreign_policy
+		TUR_reach_an_agreement_with_lenders		
+		TUR_first_development_plan
+		TUR_new_turkeys_industry
+		TUR_railroad_effort
+		TUR_urbanization
+		TUR_militarization
+		TUR_second_development_plan
+		TUR_kardemir_iron_and_steel_factory
+		TUR_istanbul_university
+		TUR_establish_village_institutes		
+		TUR_pay_off_ottoman_debts
+		TUR_embrace_islamism
+		TUR_strengthen_the_government
+		TUR_clodius_agreement
+		TUR_trade_with_allies
+		TUR_treaty_with_the_devil		
+		TUR_government_reforms
+		TUR_prepare_for_the_worst
+		TUR_unite_islamist_supporters
+		TUR_overthrow_the_government
+		TUR_mass_mobilization
+		TUR_propaganda_effort
+		TUR_jihad
+		TUR_war_support_propaganda		
+		TUR_modernize_army
+		TUR_aggressive_tactics
+		TUR_construct_new_airbases
+		TUR_subsidize_demirags_efforts
+		TUR_the_future_is_in_the_skies
+		TUR_expand_naval_dockyards
+		TUR_conquer_greece
+		TUR_conquer_bulgaria
+		TUR_conquer_iraq
+		TUR_caliph_not_just_in_name
+		TUR_rule_the_middleeast
+		TUR_road_to_vienna
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		TUR_mehmet_akif_ersoy = 10
+		TUR_sukru_saracoglu = 0
+		TUR_recep_peker = 0
+		TUR_nuri_demirag = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+	
+	focus_factors = {
+		
+	}
+
+}
+
+Turkey_alternate_misaki_milli = {
+	name = "Turkey Alternate plan to restore Misak-ı Millî"
+	desc = "FOR Father of the Turks!"
+
+	enable = {
+		original_tag = TUR
+		AND = {
+			is_historical_focus_on = no
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		TUR_montreux_convention
+		TUR_hatay_issue
+		TUR_misaki_milli		
+		TUR_peace_at_home_peace_in_the_world
+		TUR_prepare_for_war
+		TUR_flexible_foreign_policy
+		TUR_reach_an_agreement_with_lenders		
+		TUR_first_development_plan
+		TUR_new_turkeys_industry
+		TUR_railroad_effort
+		TUR_urbanization
+		TUR_militarization
+		TUR_second_development_plan
+		TUR_embrace_liberal_economy
+		TUR_kardemir_iron_and_steel_factory
+		TUR_istanbul_university
+		TUR_establish_village_institutes
+		TUR_industrial_revolution
+		TUR_pay_off_ottoman_debts
+		TUR_embrace_kemalism
+		TUR_strengthen_the_government
+		TUR_clodius_agreement
+		TUR_private_sector_investment
+		TUR_war_industry
+		TUR_trade_with_allies
+		TUR_treaty_with_the_devil		
+		TUR_ban_other_parties
+		TUR_republicanism
+		TUR_populism
+		TUR_nationalism
+		TUR_laicism
+		TUR_reformism	
+		TUR_support_fascism
+		TUR_join_axis
+		TUR_retake_western_thrace
+		TUR_secure_aegean_sea
+		TUR_revise_treaty_of_ankara
+		TUR_revise_syria_turkey_border
+		TUR_hold_referendum_in_batumi
+		TUR_fate_of_dodecanese
+		TUR_secure_mediterranean_sea
+		TUR_modernize_army
+		TUR_aggressive_tactics
+		TUR_construct_new_airbases
+		TUR_subsidize_demirags_efforts
+		TUR_the_future_is_in_the_skies
+		TUR_expand_naval_dockyards
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		TUR_huseyin_nihal_atsiz = 10
+		TUR_recep_peker = 5
+		TUR_nuri_demirag = 5
+	}
+
+	traits = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+Turkey_alternate_turan = {
+	name = "Turkey Alternate plan to achieve Turan dream"
+	desc = "TURAN!"
+
+	enable = {
+		original_tag = TUR
+		AND = {
+			is_historical_focus_on = no
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = TURAN
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		TUR_montreux_convention
+		TUR_hatay_issue
+		TUR_turanism		
+		TUR_peace_at_home_peace_in_the_world
+		TUR_prepare_for_war
+		TUR_flexible_foreign_policy
+		TUR_reach_an_agreement_with_lenders		
+		TUR_first_development_plan
+		TUR_new_turkeys_industry
+		TUR_railroad_effort
+		TUR_urbanization
+		TUR_militarization
+		TUR_second_development_plan
+		TUR_embrace_liberal_economy
+		TUR_kardemir_iron_and_steel_factory
+		TUR_istanbul_university
+		TUR_establish_village_institutes
+		TUR_industrial_revolution
+		TUR_pay_off_ottoman_debts
+		TUR_embrace_pan_turkism
+		TUR_clodius_agreement
+		TUR_private_sector_investment
+		TUR_war_industry
+		TUR_trade_with_allies
+		TUR_treaty_with_the_devil		
+		TUR_extend_civilian_support
+		TUR_election_or_war
+		TUR_iron_fist
+		TUR_enact_compulsory_military_service
+		TUR_massive_war_proganda
+		TUR_skip_army_training
+		TUR_prepare_for_turan_uprising
+		TUR_unite_central_asia
+		TUR_unite_caucasus
+		TUR_launch_turan_uprising
+		TUR_reach_caspian_sea
+		TUR_annex_cyprus
+		TUR_form_turan
+		TUR_enact_new_citizenship_law
+		TUR_modernize_army
+		TUR_aggressive_tactics
+		TUR_construct_new_airbases
+		TUR_subsidize_demirags_efforts
+		TUR_the_future_is_in_the_skies
+		TUR_expand_naval_dockyards
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		TUR_huseyin_nihal_atsiz = 15
+	}
+
+	traits = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+
+Turkey_alternate_communist = {
+	name = "Turkey Alternate plan to become Communist"
+	desc = "Welcome aboard comrade!"
+
+	enable = {
+		original_tag = TUR
+		AND = {
+			is_historical_focus_on = no
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = COMMUNIST
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		TUR_montreux_convention
+		TUR_hatay_issue
+		TUR_misaki_milli		
+		TUR_peace_at_home_peace_in_the_world
+		TUR_prepare_for_war
+		TUR_flexible_foreign_policy
+		TUR_reach_an_agreement_with_lenders		
+		TUR_first_development_plan
+		TUR_new_turkeys_industry
+		TUR_railroad_effort
+		TUR_urbanization
+		TUR_militarization
+		TUR_second_development_plan
+		TUR_support_statism
+		TUR_kardemir_iron_and_steel_factory
+		TUR_istanbul_university
+		TUR_establish_village_institutes
+		TUR_proper_use_of_resources
+		TUR_pay_off_ottoman_debts
+		TUR_embrace_kemalism
+		TUR_strengthen_the_government
+		TUR_clodius_agreement
+		TUR_state_sponsored_investment
+		TUR_war_industry
+		TUR_trade_with_allies
+		TUR_treaty_with_the_devil		
+		TUR_statism
+		TUR_republicanism
+		TUR_populism
+		TUR_nationalism
+		TUR_laicism
+		TUR_reformism	
+		TUR_support_communism
+		TUR_join_comintern
+		TUR_modernize_army
+		TUR_aggressive_tactics
+		TUR_construct_new_airbases
+		TUR_subsidize_demirags_efforts
+		TUR_the_future_is_in_the_skies
+		TUR_expand_naval_dockyards
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+Turkey_alternate_democratic = {
+	name = "Turkey Alternate plan to become Democratic State"
+	desc = "FREEDOM!"
+
+	enable = {
+		original_tag = TUR
+		AND = {
+			is_historical_focus_on = no
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		TUR_montreux_convention
+		TUR_hatay_issue
+		TUR_treaty_of_saadabad
+		TUR_peace_at_home_peace_in_the_world
+		TUR_prepare_for_war
+		TUR_flexible_foreign_policy
+		TUR_reach_an_agreement_with_lenders		
+		TUR_first_development_plan
+		TUR_new_turkeys_industry
+		TUR_railroad_effort
+		TUR_urbanization
+		TUR_militarization
+		TUR_second_development_plan
+		TUR_embrace_liberal_economy
+		TUR_kardemir_iron_and_steel_factory
+		TUR_istanbul_university
+		TUR_establish_village_institutes
+		TUR_eurasian_alliance
+		TUR_invite_yugoslavia
+		TUR_invite_romania
+		TUR_invite_greece
+		TUR_pay_off_ottoman_debts
+		TUR_embrace_kemalism
+		TUR_strengthen_the_government
+		TUR_clodius_agreement
+		TUR_industrial_revolution
+		TUR_private_sector_investment
+		TUR_war_industry
+		TUR_trade_with_allies
+		TUR_treaty_with_the_devil		
+		TUR_statism
+		TUR_republicanism
+		TUR_populism
+		TUR_nationalism
+		TUR_laicism
+		TUR_reformism	
+		TUR_democratic_approachment
+		TUR_join_allies
+		TUR_modernize_army
+		TUR_defensive_tactics
+		TUR_construct_new_airbases
+		TUR_subsidize_demirags_efforts
+		TUR_the_future_is_in_the_skies
+		TUR_expand_naval_dockyards
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}

@@ -1,0 +1,32 @@
+state= {
+	id=811
+	name="STATE_811"
+	manpower = 109100
+	resources={
+	}
+	
+	state_category = rural
+
+	history= {
+		owner = SOV
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			3653 = {
+				naval_base = 3
+			}
+		}
+		
+		victory_points = {
+			3653 3
+		}
+
+		add_core_of = SOV
+		add_core_of = GEO
+
+	}
+	provinces=
+	{
+		3653
+	}
+}

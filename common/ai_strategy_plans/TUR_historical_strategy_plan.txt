@@ -1,0 +1,88 @@
+Turkey_historical = {
+	name = "Turkey historical plan"
+	desc = "Essentially historical behaviour for Turkey"
+
+	enable = {
+		original_tag = TUR
+		AND = {
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = DEFAULT
+			}
+		}
+	}
+	
+	abort = {
+	
+	}
+
+	ai_national_focuses = {
+		# grab as fast as you can if available		
+		TUR_montreux_convention
+		TUR_hatay_issue
+		TUR_treaty_of_saadabad	
+		TUR_peace_at_home_peace_in_the_world
+		TUR_prepare_for_war
+		TUR_flexible_foreign_policy
+		TUR_first_development_plan
+		TUR_reach_an_agreement_with_lenders
+		TUR_pay_off_ottoman_debts
+		TUR_new_turkeys_industry
+		TUR_railroad_effort
+		TUR_urbanization
+		TUR_militarization
+		TUR_second_development_plan
+		TUR_support_statism
+		TUR_kardemir_iron_and_steel_factory
+		TUR_istanbul_university
+		TUR_establish_village_institutes
+		TUR_embrace_kemalism
+		TUR_proper_use_of_resources
+		TUR_clodius_agreement
+		TUR_strengthen_the_government
+		TUR_state_sponsored_investment
+		TUR_war_industry
+		TUR_trade_with_allies
+		TUR_treaty_with_the_devil
+		TUR_ban_other_parties
+		TUR_republicanism
+		TUR_populism
+		TUR_nationalism
+		TUR_laicism
+		TUR_reformism
+		TUR_modernize_army
+		TUR_defensive_tactics
+		TUR_construct_new_airbases
+		TUR_subsidize_thk
+		TUR_the_future_is_in_the_skies
+		TUR_expand_naval_dockyards
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		TUR_celal_bayar = 10
+		TUR_hasan_ali_yucel = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

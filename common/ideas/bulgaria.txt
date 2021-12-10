@@ -1,0 +1,1438 @@
+ideas = {
+
+	country = {
+		BUL_treaty_of_neuilly_sur_seine = {
+		
+			name = BUL_treaty_of_neuilly_sur_seine
+		
+			picture = HUN_treaty_of_triannon
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = -0.005
+				production_speed_arms_factory_factor = -0.5
+			}
+		}
+		
+		BUL_bulgarian_debts = {
+		
+			name = BUL_bulgarian_debts
+		
+			picture = chi_hyper_inflation3
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.15
+				stability_factor = -0.1
+			}
+		}
+		
+		BUL_bulgarian_debts2 = {
+		
+			name = BUL_bulgarian_debts
+		
+			picture = chi_hyper_inflation2
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.10
+				stability_factor = -0.05
+			}
+		}
+		
+		BUL_bulgarian_debts3 = {
+		
+			name = BUL_bulgarian_debts
+		
+			picture = chi_hyper_inflation
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+		
+		BUL_export_focused_economy = {
+		
+			name = BUL_export_focused_economy
+		
+			picture = generic_economic_increase
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.05
+				min_export = 0.05
+			}
+		}
+		
+		BUL_reallocated_factories = {
+		
+			name = BUL_reallocated_factories_idea
+		
+			picture = generic_goods_red_bonus
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		BUL_urbanization = {
+		
+			name = BUL_urbanization
+		
+			picture = generic_build_infrastructure
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.15
+			}
+		}
+		
+		BUL_army_tsar_conflict = {
+		
+			name = BUL_army_tsar_conflict
+		
+			picture = chi_war_of_resistance3
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.50
+				stability_factor = -0.20
+				war_support_factor = -0.20
+				disabled_ideas = 1
+			}
+		}
+		
+		BUL_army_tsar_conflict2 = {
+		
+			name = BUL_army_tsar_conflict2
+		
+			picture = chi_war_of_resistance2
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.35
+				stability_factor = -0.15
+				war_support_factor = -0.15
+				disabled_ideas = 1
+			}
+		}
+		
+		BUL_army_tsar_conflict3 = {
+		
+			name = BUL_army_tsar_conflict3
+		
+			picture = chi_war_of_resistance
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				disabled_ideas = 0
+			}
+		}
+		
+		BUL_strengthened_tsar_authority = {
+		
+			name = BUL_strengthened_tsar_authority
+		
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				original_tag = BUL
+				has_government = neutrality
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+			}
+		}
+		
+		BUL_strengthened_tsar_authority2 = {
+		
+			name = BUL_strengthened_tsar_authority
+		
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				original_tag = BUL
+				has_government = neutrality
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.05
+			}
+		}
+		
+		BUL_strengthened_tsar_authority3 = {
+		
+			name = BUL_strengthened_tsar_authority
+		
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				original_tag = BUL
+				has_government = neutrality
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		
+		BUL_strengthened_tsar_authority4 = {
+		
+			name = BUL_strengthened_tsar_authority
+		
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				original_tag = BUL
+				has_government = neutrality
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				political_power_factor = 0.25
+			}
+		}
+		
+		BUL_weakened_tsar_authority = {
+		
+			name = BUL_weakened_tsar_authority
+		
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				party_popularity_stability_factor = -0.10
+				political_power_factor = -0.15
+			}
+		}
+		
+		BUL_army_government = {
+		
+			name = BUL_army_government
+		
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				original_tag = BUL
+				has_government = fascism
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = -0.05
+				war_support_factor = 0.05
+				political_power_factor = 0.25
+			}
+		}
+
+		BUL_balkan_prussia = {
+		
+			name = BUL_balkan_prussia
+		
+			picture = ast_volunteer_defence_corps
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.03
+				war_support_factor = 0.1
+				army_attack_factor = 0.20
+				army_defence_factor = 0.20
+				offensive_war_stability_factor = 0.15
+				surrender_limit = 0.5
+			}
+		}
+		
+		BUL_greater_bulgaria = {
+		
+			name = BUL_greater_bulgaria
+			
+			picture = bra_monarchist_uprising
+
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				justify_war_goal_time = -0.25
+				war_support_factor = 0.2
+			}
+		}
+		
+		BUL_seek_for_soviet_support = {
+			
+			name = BUL_seek_for_soviet_support
+			
+			picture = ast_abandon_the_westminster_system_communism
+			
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				communism_drift = 0.1
+			}
+		}
+		
+		BUL_capitalist_aid = {
+			
+			name = BUL_capitalist_aid
+			
+			picture = generic_production_bonus
+			
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.25
+				production_speed_arms_factory_factor = 0.25
+				production_speed_dockyard_factor = 0.25
+				
+			}
+		}
+		
+		BUL_balkan_defence = {
+		
+			name = BUL_balkan_defence
+		
+			picture = ast_volunteer_defence_corps
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.02
+				war_support_factor = 0.1
+				stability_factor = 0.1
+			}
+		}
+		
+		BUL_rearmament = {
+		
+			name = BUL_rearmament
+		
+			picture = chi_army_corruption2
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.002
+				production_speed_arms_factory_factor = 0.25
+				war_support_factor = 0.1
+			}
+		}
+		
+		BUL_student_exchange = {
+		
+			name = BUL_student_exchange
+		
+			picture = generic_research_bonus
+			
+			allowed = {
+				original_tag = BUL 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+		
+		BUL_officers_purged = {
+			name = BUL_officers_purged
+		
+			picture = generic_purge
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+			
+			removal_cost = -1
+			
+			research_bonus = {
+				land_doctrine = -0.1
+			}
+
+			modifier = {
+				army_org_factor = -0.2
+				send_volunteer_factor = -0.5
+				training_time_factor = 0.2
+			}
+		}
+		
+		BUL_officers_purged2 = {
+			name = BUL_officers_purged
+		
+			picture = generic_purge
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+			
+			removal_cost = -1
+			
+			research_bonus = {
+				land_doctrine = -0.05
+			}
+
+			modifier = {
+				army_org_factor = -0.1
+				send_volunteer_factor = -0.25
+				training_time_factor = 0.1
+			}
+		}
+		
+		BUL_recovering_army = {
+			name = BUL_recovering_army
+		
+			picture = prc_the_long_march2
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				experience_gain_army = 0.1
+			}
+		}
+		
+		BUL_rehabilitated_army = {
+		
+			name = BUL_rehabilitated_army
+			
+			picture = hol_expand_the_colonial_army
+		
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = BUL
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_morale_bonus
+			
+			modifier = {
+				land_reinforce_rate = 0.02
+				army_morale_factor = 0.10
+			}
+		}
+		
+		BUL_light_navy = {
+			name = BUL_light_navy
+
+			picture = generic_coastal_defense_ships
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+						
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				screen_ship = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		BUL_fighter_production = {
+			name = BUL_fighter_production
+
+			picture = generic_fighter_production_diverted
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+						
+			equipment_bonus = {
+				fighter = {
+					build_cost_ic = -0.2 instant = yes
+				}
+			}
+		}
+		
+		BUL_golden_age_economy = {
+			name = BUL_golden_age_economy
+
+			picture = generic_foreign_capital
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				production_factory_max_efficiency_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.15
+			}
+		}
+		
+		BUL_aftermath_treaty_of_neuilly_sur_seine = {
+			name = BUL_aftermath_treaty_of_neuilly_sur_seine
+
+			picture = HUN_treaty_of_triannon
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				mobilization_speed = 0.5
+				recruitable_population_factor = 0.1
+			}
+		}
+		
+		BUL_fatherland_front = {
+			name = BUL_fatherland_front
+
+			picture = BUL_fatherland_front
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				drift_defence_factor = -0.5 
+				stability_factor = -0.15
+				war_support_weekly = -0.005
+				political_power_cost = 1.0
+			}
+		}
+		
+		BUL_red_revolution = {
+			name = BUL_red_revolution
+
+			picture = BUL_fatherland_front
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				drift_defence_factor = 0.5
+				fascism_drift = -0.1
+				neutrality_drift = -0.05
+				democratic_drift = -0.05
+			}
+		}
+		
+		BUL_coalition_government = {
+			name = BUL_coalition_government
+
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				party_popularity_stability_factor = -0.30
+				war_support_factor = -0.15
+				political_power_cost = 1.0
+				surrender_limit = -0.5
+			}
+		}
+		
+		BUL_coalition_government2 = {
+			name = BUL_coalition_government
+
+			picture = generic_disjointed_gov
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				party_popularity_stability_factor = -0.15
+				war_support_factor = -0.05
+				political_power_cost = 0.5
+				surrender_limit = -0.25
+			}
+		}
+		
+		BUL_communist_militia = {
+			name = BUL_communist_militia
+
+			picture = chi_army_corruption3
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				conscription = 0.01
+				mobilization_speed = -0.25
+			}
+		}
+		
+		BUL_dimitrov_constitution = {
+			name = BUL_dimitrov_constitution
+
+			picture = HUN_treaty_of_triannon
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+						
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				surrender_limit = 1.0
+			}
+		}
+	}
+	
+	political_advisor = {
+
+		BUL_konstantin_muraviev = {
+
+			picture = generic_political_advisor_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { smooth_talking_charmer }
+		}
+
+		BUL_dobri_bozhilov = {
+
+			picture = generic_political_advisor_europe_2
+				
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { captain_of_industry }
+		}
+
+		BUL_georgi_ivanov_kyoseivanov = {
+
+			picture = generic_political_advisor_europe_3
+			
+			available = {
+				has_idea = BUL_rearmament
+			}
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { rearmer2 }
+		}
+		
+		BUL_bogdan_dimitrov_filov = {
+
+			picture = generic_political_advisor_europe_4
+			
+			available = {
+				has_completed_focus = BUL_support_tsar
+				NOT = { has_idea = BUL_army_tsar_conflict3 }
+			}
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { staunch_monarchist }
+		}
+		
+		BUL_aleksandar_tsankov = {
+
+			picture = generic_political_advisor_europe_2
+			
+			available = {
+				has_government = fascism
+			}
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { professor }
+		}
+		
+		BUL_kimon_georgiev_stoyanov = {
+
+			picture = generic_political_advisor_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { prince_of_terror }
+		}
+		
+		BUL_prince_kiril = {
+
+			picture = generic_political_advisor_europe_3
+			
+			available = {
+				has_government = neutrality
+				has_country_leader = {
+					name = "Simeon II"
+					ruling_only = yes
+				}
+			}
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { popular_figurehead2 }
+		}
+		
+		BUL_petar_gabrovski = {
+
+			picture = generic_political_advisor_europe_2
+			
+			available = {
+				has_completed_focus = BUL_support_army
+			}
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { fascist_demagogue }
+		}
+	}
+
+
+	army_chief = {
+
+		BUL_teodosi_petrov_daskalov = {
+			picture = generic_army_europe_3
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { army_chief_drill_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BUL_hristo_lukov = {
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+
+		BUL_vasil_boydev = {
+			picture = generic_air_europe_3
+
+			allowed = {
+				original_tag = BUL
+			}
+						
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BUL_asen_dobrev_nikolov = {
+			picture = generic_air_europe_2
+
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { air_chief_safety_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	navy_chief = {
+
+		BUL_nikola_totev_markov = {
+			picture = generic_navy_europe_1
+
+			allowed = {
+				original_tag = BUL
+			}
+						
+			traits = { navy_chief_decisive_battle_1 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BUL_bonyu_stoev_pironkov = {
+			picture = generic_navy_europe_2
+
+			allowed = {
+				original_tag = BUL
+			}
+						
+			traits = { navy_naval_air_defense_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+	}
+	high_command = {
+
+		BUL_stoyan_stoyanov = {
+			ledger = air
+			
+			picture = generic_air_europe_2
+
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { air_air_combat_training_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BUL_blagoi_ivanov = {
+			ledger = army
+
+			picture = generic_army_europe_4
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { army_regrouping_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BUL_kiril_dimitrov_yanchule = {
+			ledger = army
+
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BUL_atanas_pavlov_zhilkov = {
+			ledger = army
+
+			picture = generic_army_europe_5
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { army_cavalry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		BUL_konstantin_lukash = {
+			ledger = army
+
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { army_entrenchment_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		BUL_konstantin_avramov = {
+			ledger = army
+
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { army_artillery_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		BUL_dimitar_airanov = {
+			ledger = army
+
+			picture = generic_army_europe_3
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		BUL_shteryu_atanasov_georgiev = {
+			ledger = army
+
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+					
+			traits = { army_logistics_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	tank_manufacturer = {
+		light_tank_company = {
+		
+			picture = generic_tank_manufacturer_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {
+				has_completed_focus = BUL_modern_bulgarian_tanks
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+			
+			traits = { fast_tank_manufacturer }
+		}
+	}
+	
+	naval_manufacturer = {
+			
+		designer = yes
+		
+		varna_shipyard = {
+			
+			picture = generic_naval_manufacturer_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {
+				NOT = { has_idea = BUL_treaty_of_neuilly_sur_seine }
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { coastal_defence_naval_manufacturer }
+		}
+		
+		burgas_shipyard = {
+			
+			picture = generic_naval_manufacturer_2
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {
+				NOT = { has_idea = BUL_treaty_of_neuilly_sur_seine }
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { convoy_escort_naval_manufacturer }
+		}
+	}
+	
+	aircraft_manufacturer = { 
+		
+		designer = yes
+		
+		dar = {
+			
+			picture = generic_air_manufacturer_1
+
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {
+				NOT = { has_idea = BUL_treaty_of_neuilly_sur_seine }
+			}
+						
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			# licenced Focke-Wulf Fw 44, built own trainers DAR 6 and DAR 9.
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}	
+	}
+	
+	industrial_concern = {
+		petrol_ad = {
+		
+			picture = generic_industrial_concern_2
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {
+				has_completed_focus = BUL_establish_oil_drilling_company
+			}
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.15			
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			
+			traits = { refinery_concern }
+		}
+		
+		cumerio_med = {
+		
+			picture = generic_industrial_concern_3
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {
+				has_completed_focus = BUL_exploit_national_resources
+				has_tech = excavation1		
+			}
+			
+			research_bonus = {
+				industry = 0.05
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			
+			traits = { industrial_concern3 }
+		}
+		
+		kamenitza = {
+		
+			picture = generic_industrial_concern_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			available = {	
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+			
+			traits = { industrial_concern }
+		}
+	}
+	
+	materiel_manufacturer = {
+			
+		designer = yes
+		
+		arsenal_ad = {
+			
+			picture = generic_infantry_equipment_manufacturer_1
+
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			equipment_bonus = {
+				# rifles and pistols
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+	}
+
+
+	theorist = {
+		BUL_kiril_stanchev = {
+			ledger = army
+			
+			picture = generic_army_europe_1
+
+			allowed = {
+				original_tag = BUL
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.10
+			}
+			
+			traits = { military_theorist }
+		}
+		
+		BUL_ivan_gaidimitriv = {
+			ledger = air
+			
+			picture = generic_air_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			research_bonus = {
+				air_doctrine = 0.10
+			}
+			
+			traits = { air_warfare_theorist }
+		}
+
+		BUL_georgi_petsov = {
+			ledger = navy
+
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			research_bonus = {
+				naval_doctrine = 0.10
+			}
+			
+			traits = { naval_theorist }
+		}
+
+	}
+}

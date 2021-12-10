@@ -1,0 +1,64 @@
+################
+##### TUR ######
+################
+
+TUR_pay_off_ottoman_debts = {
+	icon = GFX_decision_category_generic_economy
+	
+	picture = GFX_decision_category_duyunu_umumiye
+
+	allowed = {
+		original_tag = TUR
+	}
+	
+	visible = {
+		OR = {
+			has_idea = TUR_unpaid_ottoman_debts
+			has_idea = TUR_unpaid_ottoman_debts2
+			has_idea = TUR_unpaid_ottoman_debts3
+			has_idea = TUR_unpaid_ottoman_debts4
+			has_idea = TUR_unpaid_ottoman_debts5
+		}
+	}
+}
+
+TUR_support_village_institutes = {
+	icon = GFX_decision_category_generic_industry
+	
+	picture = GFX_decision_category_village_institutes
+
+	allowed = {
+		original_tag = TUR
+	}
+	
+	visible = {
+		has_completed_focus = TUR_establish_village_institutes
+	}
+}
+
+TUR_trade_with_germans = {
+	icon = GFX_decision_category_generic_arms_trade
+	
+	picture = GFX_decision_category_cloudius_agreement
+
+	allowed = {
+		original_tag = TUR
+	}
+	
+	visible = {
+		has_completed_focus = TUR_clodius_agreement
+		has_opinion_modifier = turkish_german_treaty_of_friendship
+	}
+}
+
+TUR_form_turkic_state = {
+	icon = GFX_decision_category_generic_formable_nations
+
+	allowed = {
+		original_tag = TUR
+	}
+	
+	visible = {
+		has_completed_focus = TUR_form_turan
+	}
+}

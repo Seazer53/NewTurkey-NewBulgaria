@@ -1,0 +1,268 @@
+﻿division_template = {
+	name = "Piyoda bo'limi"  			# Infantry Division
+
+	division_names_group = UZB_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Tog 'brigadasi" 				# Mountain Brigade
+
+	division_names_group = UZB_MTN_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Otliqlar diviziyasi" 				# Cavalry Division
+
+	division_names_group = UZB_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+	}
+}
+
+units = {
+	######## LAND UNITS ########
+	##### Uzbekistan Ordusu #####
+	
+	division = {
+		#name = "1. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1459
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "2. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1459
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "3. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 1459
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "4. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 1459
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "5. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 1459
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "6. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 12239
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+
+	division = {
+		#name = "7. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 12722
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "8. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 7639
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "9. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 1573
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "10. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 12161
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "11. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 10470
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "12. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 4499
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "13. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 1576
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "14. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 12465
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		#name = "15. Piyoda bo'limi"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 10435
+		division_template = "Piyoda bo'limi" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+}
+
+
+### Air Wings ###
+air_wings = {
+		
+}
+
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "UZB"
+		}
+		requested_factories = 1
+		progress = 0.40
+		efficiency = 100
+	}
+}

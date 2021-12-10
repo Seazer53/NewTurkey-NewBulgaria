@@ -1,0 +1,1554 @@
+TUR_unit_production = {
+	enable = {
+		original_tag = TUR
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = 4
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = 3
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = 3
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 3
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
+	}
+	
+	#Air unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = tactical_bomber
+		value = 3
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = strategic_bomber
+		value = 3
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = naval_bomber
+		value = 2
+	}
+	
+	
+	# Naval unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = 5
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = 40
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 40
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 20
+	}
+	
+	#Equipment Production
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 40
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 40
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -25
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -50
+	}
+}
+
+TUR_role_ratios = {
+	enable = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+		original_tag = TUR
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_capital
+		value = 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_carrier
+		value = 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_sub
+		value = 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 100
+	}
+}
+
+TUR_role_ratios = {
+	enable = {
+		has_dlc = "Man the Guns"
+		original_tag = TUR
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_capital_bb
+		value = -80
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_capital_bc
+		value = -20
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_carrier
+		value = -70
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 65
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_escort
+		value = 35
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = 25
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_heavy
+		value = 15
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_sweeper
+		value = 15
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_layer
+		value = 15
+	}
+}
+
+convoy_voy_voy_voy = {
+	enable = {
+		has_dlc = "Man the Guns"
+		original_tag = TUR
+		convoy_threat > 0.2
+	}
+	abort = {
+		convoy_threat < 0.2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = -20
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_escort
+		value = 25
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_layer
+		value = -10
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 30
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = -10
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 25
+	}
+}
+
+ill_show_you_mine = {
+	enable = {
+		has_dlc = "Man the Guns"
+		mine_threat > 0.2
+		original_tag = TUR
+	}
+	abort = {
+		mine_threat < 0.2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_heavy
+		value = -20
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_sweeper
+		value = 30
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_layer
+		value = -10
+	}
+}
+
+ill_show_you_mine_2 = {
+	enable = {
+		has_dlc = "Man the Guns"
+		mine_threat > 0.5
+		original_tag = TUR
+	}
+	abort = {
+		mine_threat < 0.5
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = -20
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_sweeper
+		value = 35
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_layer
+		value = -10
+	}
+}
+
+default_pp_spend_amount = {
+	enable = {
+		always = yes
+	}
+	
+	ai_strategy = {
+		type = pp_spend_amount
+		id = idea
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = 100
+	}
+}
+
+TUR_paratroopers_production = {
+	enable = {
+		ai_wants_divisions >  12 #Massively decreasing the amount of paratroopers the AI wants
+		original_tag = TUR
+	}
+	abort = {
+		ai_wants_divisions < 13 #Massively decreasing the amount of paratroopers the AI wants
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = 0
+	}
+}
+
+TUR_garrison_production = {
+	enable = {
+		original_tag = TUR
+		ai_wants_divisions >  12 #Massively decreasing the amount of garrison and suppression the AI wants
+	}
+	abort = {
+		ai_wants_divisions < 13 #Massively decreasing the amount of garrison and suppression the AI wants
+		is_major = no
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 5
+	}
+	
+	# Old garrison system against resistance
+	# ai_strategy = {
+	# 	type = role_ratio
+	# 	id = suppression
+	# 	value = 2
+	# }
+}
+
+TUR_mountaineers_production = {
+	enable = {
+		original_tag = TUR
+		ai_wants_divisions > 11 #Decreasing the amount of mountaineers the AI wants
+	}
+	abort = {
+		ai_wants_divisions < 12 #Decreasing the amount of mountaineers the AI wants
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = 3
+	}
+}
+
+TUR_marines_production = {
+	enable = {
+		original_tag = TUR
+		ai_wants_divisions > 49
+	}
+	abort = {
+		ai_wants_divisions < 50
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 0
+	}
+}
+
+TUR_mobile_production = {
+	enable = {
+		original_tag = TUR
+		ai_wants_divisions > 11
+		has_tech = motorised_infantry
+		has_completed_focus = TUR_motorized_army
+	}
+	abort = {
+		ai_wants_divisions < 12
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mobile
+		value = 3
+	}
+}
+
+TUR_armored_production = {
+	enable = {
+		original_tag = TUR
+		has_completed_focus = TUR_national_tank_production
+		ai_wants_divisions > 49
+	}
+	abort = {
+		ai_wants_divisions < 50
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 0
+	}
+}
+
+highered_armored_production = {
+	enable = {
+		original_tag = TUR
+		num_of_military_factories > 59
+	}
+	abort = {
+		num_of_military_factories < 60
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 5
+	}
+}
+
+
+TUR_area_priority = {
+	enable = {
+		original_tag = TUR
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = 100
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = scandinavia
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = north_america
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = south_america
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = 85
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = suez
+		value = 75
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = pacific
+		value = 30
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = oceania
+		value = 40
+	}
+
+}
+
+TUR_area_priority_non_africa = {
+    enable = {
+        original_tag = TUR
+		has_government = islamism
+    }
+
+    ai_strategy = {
+        type = area_priority
+        id = africa
+        value = 50
+    }
+    ai_strategy = {
+        type = area_priority
+        id = suez
+        value = 75
+    }
+}
+
+TUR_stockpile_management = {
+	enable = {
+		original_tag = TUR
+		num_divisions > 150
+	}
+
+	abort = {
+		num_divisions < 130
+	}
+
+	ai_strategy = {
+		type = equipment_stockpile_surplus_ratio
+		value = 35 # double base stockpile #from 25 to 35
+	}
+}
+
+TUR_template_design = {
+	enable = {
+		original_tag = TUR
+		date < 1940.1.1				
+	}
+	abort = { 
+		date > 1940.1.1
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = motorized
+		value = 15
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = cavalry
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = light_armor
+		value = 50
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = -15
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = heavy_armor
+		value = -60
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = paratroopers
+		value = -50
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 80
+	}
+}
+
+TUR_template_design = {
+	enable = {
+		original_tag = TUR
+		date > 1940.1.1				
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = mechanized
+		value = 10
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = cavalry
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = light_armor
+		value = 15
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 30
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 60
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = heavy_armor
+		value = 15
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = paratroopers
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 80
+	}
+}
+
+save_admiral_pp_for_later = {
+	enable = {
+		original_tag = TUR
+		has_war = no
+		threat < 0.3
+		has_political_power < 200		
+	}
+	abort = {
+		OR = {
+			has_war = yes	
+			threat > 0.3
+			has_political_power > 200
+		}
+	}
+
+	ai_strategy = { # dont burn PP on admirals (can still get free ones)
+		type = pp_spend_priority
+		id = admiral
+		value = -100
+	}
+}
+
+do_not_waste_pp_if_saving_for_manpower_laws = {
+
+	enable = {
+		original_tag = TUR
+		manpower_per_military_factory < 500
+		has_war = yes
+	}
+	abort = {
+		OR = {
+			manpower_per_military_factory > 500
+			has_war = no
+		}
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = relation
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = guarantee
+		value = -9999
+	}
+}
+
+build_intelligence_agency_as_major = {
+	enable = {
+		original_tag = TUR
+		is_major = yes
+		OR = {
+			has_war = yes
+			date > 1938.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 5
+	}
+
+}
+
+build_intelligence_agency = {
+	enable = {
+		original_tag = TUR
+		date > 1940.1.1
+		has_war = no
+		num_of_civilian_factories > 25
+	}
+	abort = {
+		OR = {
+			has_war = yes
+			num_of_civilian_factories < 25
+		}
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 5
+	}
+
+}
+
+upgrade_intelligence_agency = {
+	enable = {
+		original_tag = TUR
+		date > 1940.1.1
+		num_of_civilian_factories > 50
+	}
+	abort = {
+		OR = {
+			num_of_civilian_factories < 40
+		}
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 5
+	}
+}
+
+upgrade_intelligence_agency_as_spy_master = {
+	enable = {
+		original_tag = TUR
+		is_spymaster = yes
+		OR = {
+			has_war = no
+			num_of_civilian_factories > 50
+		}
+	}
+	abort = {
+		is_spymaster = no
+		num_of_civilian_factories < 40
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 10
+	}
+}
+
+addintelligence_agency_normal_upgrade_prio = {
+	enable = {
+		original_tag = TUR
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_intelligence
+		value = 1000
+	}
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_defense
+		value = 1000
+	}
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_operation
+		value = 500
+	}
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_operative
+		value = 100
+	}
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_crypto
+		value = 2000
+	}	
+}
+
+ask_foreign_manpower_as_major = {
+	enable = {
+		original_tag = TUR
+		is_major = yes
+		garrison_manpower_need > 200000
+	}
+	
+	abort = {
+		garrison_manpower_need < 100000
+	}
+
+	ai_strategy = {
+		type = asking_foreign_garrison
+		value = 100
+		# id = ITA # id is optionnal. If it is filled, the value will just apply for this country. If not, the value will apply for all countries.
+	}
+}
+
+more_upgrades_as_spymaster = {
+
+	enable = {
+		original_tag = TUR
+		is_spymaster = yes
+	}
+	
+	abort = {
+		is_spymaster = no
+	}
+
+	ai_strategy = {
+		type = agency_ai_base_num_factories_factor
+		value = -50    # -50% on the define
+	}
+
+	ai_strategy = {
+		type = agency_ai_per_upgrade_factories_factor
+		value = -25    # -25% on the define
+	}
+}
+
+
+put_garrisons_on_high_prio = {
+	enable = {
+		original_tag = TUR
+		always = yes
+	}
+	
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = 100 # positive is high prio, negative is low prio
+	}
+}
+
+default_spyplanes_production = {
+	enable = {
+		original_tag = TUR
+		has_tech = scout_plane1
+		is_major = yes
+		#OR = {
+		#	has_equipment = {
+		#		scout_plane_equipment > 50
+		#	}
+		#	has_deployed_air_force_size = {
+		#		size > 50
+		#		type = scout_plane
+		#	}
+		#}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = unit_ratio
+		id = scout_plane
+		value = -99
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -99
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = 1
+	}
+}
+
+minors_dont_spy = {
+	enable = {
+		original_tag = TUR
+		has_tech = scout_plane1
+		is_major = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = unit_ratio
+		id = scout_plane
+		value = -10
+	}
+}
+
+claims_on_iraq = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_revise_treaty_of_ankara
+		country_exists = IRQ
+	}
+	abort = {
+		NOT = {
+			country_exists = IRQ
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "IRQ"			
+		value = 200
+	}	
+}
+
+claims_on_greece = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_retake_western_thrace
+		country_exists = GRE
+	}
+	abort = {
+		NOT = {
+			country_exists = GRE
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "GRE"			
+		value = 200
+	}	
+}
+
+claims_on_syria = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_revise_syria_turkey_border
+		country_exists = FRA
+	}
+	abort = {
+		NOT = {
+			country_exists = FRA
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "FRA"			
+		value = 100
+	}	
+}
+
+claims_on_dodecanese = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_fate_of_dodecanese
+		country_exists = ITA
+	}
+	abort = {
+		NOT = {
+			country_exists = ITA
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "ITA"			
+		value = 100
+	}	
+}
+
+claims_on_cyprus = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_secure_mediterranean_sea
+		country_exists = ENG
+	}
+	abort = {
+		NOT = {
+			country_exists = ENG
+		}
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "ENG"			
+		value = 100
+	}	
+}
+
+war_with_bulgaria = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_conquer_bulgaria
+		country_exists = BUL
+	}
+	abort = {
+		NOT = {
+			country_exists = BUL
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "BUL"			
+		value = 200
+	}	
+}
+
+war_with_greece = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_conquer_greece
+		country_exists = GRE
+	}
+	abort = {
+		NOT = {
+			country_exists = GRE
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "GRE"			
+		value = 200
+	}	
+}
+
+war_with_iraq = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_conquer_iraq
+		country_exists = IRQ
+	}
+	abort = {
+		NOT = {
+			country_exists = IRQ
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "IRQ"			
+		value = 200
+	}	
+}
+
+war_with_arabs = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_caliph_not_just_in_name
+		country_exists = SAU
+		country_exists = YEM
+	}
+	abort = {
+		NOT = {
+			country_exists = SAU
+			country_exists = YEM
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "SAU"			
+		value = 200
+	}	
+	
+	ai_strategy = {
+		type = conquer
+		id = "YEM"			
+		value = 200
+	}	
+}
+
+war_with_imperials = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_rule_the_middleeast
+		country_exists = ENG
+		country_exists = FRA
+	}
+	abort = {
+		NOT = {
+			country_exists = ENG
+			country_exists = FRA
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "ENG"			
+		value = 100
+	}	
+	
+	ai_strategy = {
+		type = conquer
+		id = "FRA"			
+		value = 100
+	}	
+}
+
+war_with_balkans = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_road_to_vienna
+		country_exists = YUG
+		country_exists = ROM
+		country_exists = HUN
+	}
+	abort = {
+		NOT = {
+			country_exists = YUG
+			country_exists = ROM
+			country_exists = HUN
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "YUG"			
+		value = 100
+	}	
+	
+	ai_strategy = {
+		type = conquer
+		id = "ROM"			
+		value = 200
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "HUN"			
+		value = 200
+	}
+}
+
+saadabad_pact = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_treaty_of_saadabad
+		country_exists = IRQ
+		country_exists = PER
+		country_exists = AFG
+	}
+	abort = {
+		NOT = {
+			country_exists = IRQ
+			country_exists = PER
+			country_exists = AFG
+		}
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "IRQ"			
+		value = 100
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "PER"			
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "AFG"			
+		value = 100
+	}
+}
+
+eurasian_alliance = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_treaty_of_saadabad
+		
+		is_in_faction_with = IRQ
+		is_in_faction_with = PER
+		is_in_faction_with = AFG
+		
+		country_exists = IRQ
+		country_exists = PER
+		country_exists = AFG
+	}
+	abort = {
+		NOT = {
+			country_exists = IRQ
+			country_exists = PER
+			country_exists = AFG
+		}
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "IRQ"			
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "PER"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "AFG"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "IRQ"			
+		value = 200
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "PER"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "AFG"			
+		value = 200
+	}
+}
+
+invite_yugoslavia = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_invite_yugoslavia
+		is_in_faction_with = YUG
+		country_exists = YUG
+	}
+	abort = {
+		NOT = {
+			country_exists = YUG
+		}
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "YUG"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "YUG"			
+		value = 200
+	}
+}
+
+invite_greece = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_invite_greece
+		is_in_faction_with = GRE
+		country_exists = GRE
+	}
+	abort = {
+		NOT = {
+			country_exists = GRE
+		}
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "GRE"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "GRE"			
+		value = 200
+	}
+}
+
+invite_romania = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_invite_romania
+		is_in_faction_with = ROM
+		country_exists = ROM
+	}
+	abort = {
+		NOT = {
+			country_exists = ROM
+		}
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "ROM"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "ROM"			
+		value = 200
+	}
+}
+
+invite_bulgaria = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_invite_bulgaria
+		is_in_faction_with = BUL
+		country_exists = BUL
+	}
+	abort = {
+		NOT = {
+			country_exists = BUL
+		}
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "BUL"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "BUL"			
+		value = 200
+	}
+}
+
+turan_uprising = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_launch_turan_uprising
+		country_exists = SOV
+		
+		is_in_faction_with = AZR
+		is_in_faction_with = KAZ
+		is_in_faction_with = UZB
+		is_in_faction_with = TMS
+		is_in_faction_with = KYR
+		is_in_faction_with = TAJ
+		
+		
+		country_exists = AZR
+		country_exists = KAZ
+		country_exists = UZB
+		country_exists = TMS
+		country_exists = KYR
+		country_exists = TAJ
+		
+	}
+	abort = {
+		NOT = {
+			country_exists = SOV
+			country_exists = AZR
+			country_exists = KAZ
+			country_exists = UZB
+			country_exists = TMS
+			country_exists = KYR
+			country_exists = TAJ
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "SOV"			
+		value = 200
+	}	
+	
+	ai_strategy = {
+		type = alliance
+		id = "AZR"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "AZR"			
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "KAZ"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "KAZ"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "UZB"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "UZB"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "TMS"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "TMS"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "KYR"			
+		value = 200
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "KYR"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "TAJ"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "TAJ"			
+		value = 200
+	}
+	
+}
+
+war_with_iran = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_reach_caspian_sea
+		country_exists = PER
+	}
+	abort = {
+		NOT = {
+			country_exists = PER
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "PER"			
+		value = 200
+	}	
+}
+
+war_with_uk = {
+	enable = {
+		tag = TUR
+		has_completed_focus = TUR_annex_cyprus
+		country_exists = ENG
+	}
+	abort = {
+		NOT = {
+			country_exists = ENG
+		}
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "ENG"			
+		value = 100
+	}	
+}

@@ -1,0 +1,804 @@
+﻿###########################
+# Bulgarian Events
+###########################
+
+add_namespace = bulgaria
+
+# Treaty of Craiova - Romania Accepts
+country_event = {
+	id = bulgaria.1
+	title = bulgaria.1.t
+	desc = bulgaria.1.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.1.a
+		BUL = { 
+			transfer_state = 77
+			add_state_core = 77
+		}
+		if = {
+			limit = {
+				77 = { is_core_of = ROM }
+			}
+			ROM = {
+				remove_state_core = 77
+			}
+		}
+		hidden_effect = {
+			news_event = { days = 1 id = news.21 }
+		}
+	}
+}
+
+# Treaty of Craiova - Romania Refuses
+country_event = {
+	id = bulgaria.2
+	title = bulgaria.2.t
+	desc = bulgaria.2.d
+	picture = GFX_report_event_finnish_letter
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.2.a
+		create_wargoal = {
+			type = take_state_focus
+			target = ROM
+			generator = { 77 }
+		}
+		#generate wargoal for romania
+	}
+}
+
+# Bulgaria (First Ljubljana Award) from german focus
+country_event = {
+	id = bulgaria.3
+	title = bulgaria.3.t
+	desc = bulgaria.3.d
+	picture = GFX_report_event_vienna_award_negotiations
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.3.a
+		if = {
+			limit = {
+				OR = {
+					106 = { is_owned_by = YUG }
+					106 = { is_owned_by = GER }
+				}
+			}
+			transfer_state = 106
+		}
+	}
+}
+
+# Treaty of Craiova - Hungary gets land. So should we
+country_event = {
+	id = bulgaria.4
+	title = bulgaria.4.t
+	desc = bulgaria.4.d
+	picture = GFX_report_event_vienna_award_negotiations
+	
+	trigger = {
+		tag = BUL
+		NOT = { has_country_flag = bulgaria.4_fired }
+		BUL = {
+			NOT = { is_in_faction_with = ROM }
+		}
+		BUL = {
+			NOT = { is_subject_of = ROM }
+		}
+		ROM = {
+			OR = { 
+				has_country_flag = second_vienna_accepted_north
+				has_country_flag = second_vienna_accepted_all
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 5 } 
+	
+	immediate = { set_country_flag = bulgaria.4_fired	}
+
+	#make demands
+	option = {
+		ai_chance = { factor = 10 }
+		name = bulgaria.4.a
+		GER = { country_event = germany.106 }
+	}	
+	#dont make demands
+	option = {
+		ai_chance = { factor = 0 }
+		name = bulgaria.4.b
+	}
+}
+
+# Treaty of Craiova - Germany will not back us
+country_event = {
+	id = bulgaria.5
+	title = bulgaria.5.t
+	desc = bulgaria.5.d
+	picture = GFX_report_event_vienna_award_negotiations
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.5.a
+	}
+}
+
+#Civil War for Fascism Ended
+country_event = {
+	id = bulgaria.6
+	title = bulgaria.6.t
+	desc = bulgaria.6.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_civil_war = no
+		has_country_flag = fascist_civil_war_started
+		has_government = fascism		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.6.a
+		add_stability = 0.1
+		
+		hidden_effect = {
+			set_capital = 48
+			812 = { set_demilitarized_zone = yes }
+		}
+	}
+}
+
+#Civil War for Fascism Ended
+country_event = {
+	id = bulgaria.7
+	title = bulgaria.7.t
+	desc = bulgaria.7.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_civil_war = no
+		has_country_flag = fascist_civil_war_started
+		has_government = neutrality		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.7.a
+		add_stability = 0.1
+		
+		hidden_effect = {
+			812 = { set_demilitarized_zone = yes }
+		}		
+	}
+}
+
+#Permission for Rearmament
+country_event = {
+	id = bulgaria.8
+	title = bulgaria.8.t
+	desc = bulgaria.8.d
+	
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = bulgaria.8.a
+		if = {
+			limit = {
+				TUR = {
+					has_variable = votes_for_rearm
+					
+					check_variable = {
+						var = votes_for_rearm
+						value = 2
+						compare = greater_than
+					}
+				}
+			}
+			
+			add_stability = 0.1
+		
+			remove_ideas = BUL_treaty_of_neuilly_sur_seine
+			add_ideas = BUL_aftermath_treaty_of_neuilly_sur_seine
+			
+			set_country_flag = BUL_rearmed
+			
+			812 = { set_demilitarized_zone = no }
+			
+		}
+		
+		else = {
+			set_country_flag = BUL_permission_for_armament_denied
+		}
+	}
+}
+
+#Balkan Entente Broken!
+country_event = {
+	id = bulgaria.9
+	title = bulgaria.9.t
+	desc = bulgaria.9.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			GER = {
+				has_war = yes
+			}
+			
+			ITA = {
+				AND = {
+					has_war = yes
+					NOT = { has_war_with = ETH }
+				}
+			}
+		}
+		
+		has_completed_focus = BUL_join_balkan_entente
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.9.a
+		ai_chance = {
+			factor = 60
+			
+			modifier = {
+				factor = 2
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.75
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.25
+				strength_ratio = {
+					tag = GER
+					ratio < 1
+				}
+			}
+		}
+		
+		diplomatic_relation = { country = TUR relation = guarantee active = no }
+		diplomatic_relation = { country = ROM relation = guarantee active = no }
+		diplomatic_relation = { country = GRE relation = guarantee active = no }
+		diplomatic_relation = { country = YUG relation = guarantee active = no }
+		
+		TUR = { diplomatic_relation = { country = BUL relation = guarantee active = no } }
+		ROM = { diplomatic_relation = { country = BUL relation = guarantee active = no } }
+		GRE = { diplomatic_relation = { country = BUL relation = guarantee active = no } }
+		YUG = { diplomatic_relation = { country = BUL relation = guarantee active = no } }
+		
+		add_war_support = -0.10
+			
+	}
+	
+	option = {
+		name = bulgaria.9.b
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.25
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 4
+				strength_ratio = {
+					tag = GER
+					ratio < 1
+				}
+			}
+		}
+		
+		add_war_support = 0.10	
+	}
+}
+
+#Death of Tsar
+country_event = {
+	id = bulgaria.10
+	title = bulgaria.10.t
+	desc = bulgaria.10.d
+	picture = GFX_report_event_europe_funeral
+	
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = BUL
+		date > 1943.01.08
+		has_government = neutrality
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {
+				name = "Simeon II"
+				desc = "POLITICS_SIMEON_DESC"
+				picture = "Portrait_Bulgaria_Simeon_II.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					child_tsar
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = bulgaria.10.a
+		add_stability = -0.05
+		every_country = {
+			limit = {
+				has_unit_leader = 10454
+			}
+			remove_unit_leader = 10454
+		}
+	}
+}
+
+#Fatherland Front Established!
+country_event = {
+	id = bulgaria.11
+	title = bulgaria.11.t
+	desc = bulgaria.11.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = BUL
+		date > 1942.07.17
+		OR = {
+			has_government = neutrality
+			has_country_flag = BUL_tsar_won_conflict
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.11.a
+		set_country_flag = BUL_fatherland_front_established
+		add_ideas = BUL_fatherland_front
+	}
+}
+
+#Fatherland Front Coup Attempt!
+country_event = {
+	id = bulgaria.12
+	title = bulgaria.12.t
+	desc = bulgaria.12.d
+	picture = GFX_report_event_bulgaria_coup
+	
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = BUL
+		date > 1944.09.09
+		has_government = neutrality
+		OR = {
+			is_in_faction_with = SOV
+			
+			AND = {
+				SOV = { NOT = { surrender_progress > 0.25 } }
+				is_neighbor_of = SOV
+			}
+			
+			OR = {
+				communism > 0.2
+				neutrality < 0.8
+				has_capitulated = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.12.a
+		add_stability = -0.1
+		remove_ideas = BUL_fatherland_front
+		
+		add_ideas = BUL_red_revolution
+		add_ideas = BUL_coalition_government
+		
+		set_country_flag = BUL_communist_coup_happened
+		
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		
+		hidden_effect = {
+			news_event = { id = news.343 days = 1 }
+		}
+	}
+}
+
+#Germany Wants to Donate Planes
+country_event = {
+	id = bulgaria.13
+	title = bulgaria.13.t
+	desc = bulgaria.13.d
+	picture = GFX_report_event_fighters
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = BUL
+		date > 1937.01.01
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.13.a
+		ai_chance = {
+			factor = 60
+		}
+		
+		GER = {
+			send_equipment = {
+				target = BUL
+				type = fighter_equipment
+				amount = 60
+			}
+		}
+		
+		add_popularity = { ideology = fascism popularity = 0.05}
+
+	}
+	
+	option = {
+		name = bulgaria.13.b
+		ai_chance = {
+			factor = 40
+		}
+	}		
+}
+
+#Army Officers Purged
+country_event = {
+	id = bulgaria.14
+	title = bulgaria.14.t
+	desc = bulgaria.14.d
+	picture = GFX_report_event_fighters
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_completed_focus = BUL_suppress_army_officers
+		NOT = { has_idea = BUL_officers_purged }
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.14.a	
+		add_timed_idea = { idea = BUL_officers_purged2 days = 180 }
+
+	}			
+}
+
+#Fatherland Front Disbanded!
+country_event = {
+	id = bulgaria.15
+	title = bulgaria.15.t
+	desc = bulgaria.15.d
+	picture = GFX_report_event_bulgaria_coup
+	
+	fire_only_once = yes
+
+	trigger = {
+		date > 1942.08.01
+		has_government = neutrality
+		
+		NOT = { has_war_with = SOV }
+		NOT = { is_neighbor_of = SOV }
+		
+		OR = {
+			SOV = { is_subject = yes }	
+			NOT = { country_exists = SOV }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.15.a
+		add_stability = 0.1
+		remove_ideas = BUL_fatherland_front
+	}
+}
+
+#Eurasian Alliance Invited by Turkey
+country_event = {
+	id = bulgaria.16
+	title = bulgaria.16.t
+	desc = bulgaria.16.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = bulgaria.16.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.2
+				is_guaranteed_by = TUR
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.5
+				}
+			}
+		}
+
+		TUR = { add_to_faction = BUL }
+		
+	}
+	
+	option = {
+		name = bulgaria.16.b
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.8
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.8
+				is_guaranteed_by = TUR
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.5
+				}
+			}		
+		}
+	}
+}
+
+#Seek Foreign Support for Rearmament
+country_event = {
+	id = bulgaria.17
+	title = bulgaria.17.t
+	desc = bulgaria.17.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_completed_focus = BUL_salonika_agreement
+		NOT = { has_country_flag = BUL_rearmed }
+		has_idea = BUL_treaty_of_neuilly_sur_seine
+		has_country_flag = BUL_permission_for_armament_denied
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = bulgaria.17.a
+		GER = { country_event = { id = germany.1006 days = 1 } }
+	}
+	
+	option = {
+		name = bulgaria.17.b
+		ENG = { country_event = { id = britain.28 days = 1 } }
+	}
+	
+	option = {
+		name = bulgaria.17.c
+		SOV = { country_event = { id = soviet.68 days = 1 } }
+	}
+	
+	option = {
+		name = bulgaria.17.e
+		remove_ideas = BUL_treaty_of_neuilly_sur_seine
+		add_ideas = BUL_aftermath_treaty_of_neuilly_sur_seine
+		add_war_support = 0.1
+		
+		TUR = { add_opinion_modifier = { target = BUL modifier = sanctions } }
+		ROM = { add_opinion_modifier = { target = BUL modifier = sanctions } }
+		GRE = { add_opinion_modifier = { target = BUL modifier = sanctions } }
+		YUG = { add_opinion_modifier = { target = BUL modifier = sanctions } }
+		
+		TUR = { add_opinion_modifier = { target = BUL modifier = condemn_aggression } }
+		ROM = { add_opinion_modifier = { target = BUL modifier = condemn_aggression } }
+		GRE = { add_opinion_modifier = { target = BUL modifier = condemn_aggression } }
+		YUG = { add_opinion_modifier = { target = BUL modifier = condemn_aggression } }
+		
+		hidden_effect = {
+			TUR = {
+				add_ai_strategy = {
+					type = antagonize
+					id = BUL
+					value = 100
+				}
+			}
+			
+			GRE = {
+				add_ai_strategy = {
+					type = antagonize
+					id = BUL
+					value = 100
+				}
+			}
+			
+			ROM = {
+				add_ai_strategy = {
+					type = antagonize
+					id = BUL
+					value = 100
+				}
+			}
+			
+			YUG = {
+				add_ai_strategy = {
+					type = antagonize
+					id = BUL
+					value = 100
+				}
+			}
+		}
+	}
+}
+
+#UK Accepts Rearmament
+country_event = {
+	id = bulgaria.18
+	title = bulgaria.18.t
+	desc = bulgaria.18.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.18.a
+		remove_ideas = BUL_treaty_of_neuilly_sur_seine
+		add_ideas = BUL_aftermath_treaty_of_neuilly_sur_seine
+	}
+}
+
+#Germany Accepts Rearmament
+country_event = {
+	id = bulgaria.19
+	title = bulgaria.19.t
+	desc = bulgaria.19.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.19.a
+		remove_ideas = BUL_treaty_of_neuilly_sur_seine
+		add_ideas = BUL_aftermath_treaty_of_neuilly_sur_seine
+	}
+}
+
+#Soviet Accepts Rearmament
+country_event = {
+	id = bulgaria.20
+	title = bulgaria.20.t
+	desc = bulgaria.20.d
+	picture = GFX_report_event_generic_read_write
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = bulgaria.20.a
+		remove_ideas = BUL_treaty_of_neuilly_sur_seine
+		add_ideas = BUL_aftermath_treaty_of_neuilly_sur_seine
+	}
+}
+
+#Permission for Rearmament Denied!
+country_event = {
+	id = bulgaria.21
+	title = bulgaria.21.t
+	desc = bulgaria.21.d
+	
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = bulgaria.21.a
+		set_country_flag = BUL_permission_for_armament_denied
+	}
+}

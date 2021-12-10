@@ -1,0 +1,43 @@
+state= {
+	id=813
+	name="STATE_813"
+	manpower = 718665
+	resources={
+		chromium= 12
+	}
+	
+	state_category = rural
+
+	history= {
+		owner = TUR
+		buildings = {
+			infrastructure = 3
+			9887 = {
+				coastal_bunker = 5
+				bunker = 5
+			}	
+		
+			6864 = {
+				coastal_bunker = 5
+				bunker = 5
+			}
+			
+			849 = {
+				coastal_bunker = 5
+				bunker = 5
+			}
+		}
+		
+		victory_points = {
+			9887 10 
+		}
+
+		add_core_of = TUR
+		set_demilitarized_zone = yes
+
+	}
+	provinces=
+	{
+		849 6864 6912 9799 9887 11778
+	}
+}

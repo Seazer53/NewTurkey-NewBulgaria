@@ -1,0 +1,1115 @@
+﻿###########################
+# Greek Events
+###########################
+
+add_namespace = greece
+
+# Soviet Demands
+country_event = {
+	id = greece.1
+	title = greece.1.t
+	desc = greece.1.d
+	picture = GFX_report_event_stalin_02
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = greece.1.a
+		ai_chance = {	
+			modifier = {
+				factor = 0
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = GRE
+					}
+					any_other_country = {
+
+						is_in_faction_with = GRE
+					}
+				}
+			}
+			factor = 100	
+		}
+
+		SOV = { transfer_state = 187 }
+		if = {
+			limit = {
+				BUL = { 
+					OR = { 
+						is_in_faction_with = SOV 
+						is_in_faction = no
+					}
+				}
+			}
+			BUL = { 
+				transfer_state = 184
+				add_opinion_modifier = { target = SOV modifier = SOV_ultimatum_to_greece_thrace }
+			}
+		}
+		hidden_effect = {
+			news_event = { id = news.197 }
+		}
+	}
+	option = { # Refuse
+		name = greece.1.b
+		ai_chance = {	
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						any_other_country = {
+
+							has_guaranteed = GRE
+						}
+						any_other_country = {
+
+							is_in_faction_with = GRE
+						}
+					}
+				}
+			}
+			factor = 5	
+		}
+		hidden_effect = {
+			news_event = { id = news.198 hours = 6 }
+		}
+	}
+}
+
+# German demands to hand over territory to friends or self
+country_event = {
+	id = greece.2
+	title = greece.2.t
+
+	desc = { 
+		text = greece.2.d_GER_demand
+		trigger = {
+			OR = {
+				731 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
+				185 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
+				47 = { has_state_flag = GER_second_ljubljana_award_GER_demand }
+			}
+		}
+	}
+
+	desc = {
+		text = greece.2.d_ITA
+		trigger = {
+			OR = {
+				has_global_flag = GER_second_ljubljana_award_ITA_185
+				has_global_flag = GER_second_ljubljana_award_ITA_186
+				has_global_flag = GER_second_ljubljana_award_ITA_47
+			}
+			NOT = { has_global_flag = GER_second_ljubljana_award_BUL_184 }
+		}
+	}
+	
+	desc = {
+		text = greece.2.d_BUL
+		trigger = {
+			NOT = { has_global_flag = GER_second_ljubljana_award_ITA_185 }
+			NOT = { has_global_flag = GER_second_ljubljana_award_ITA_186 }
+			NOT = { has_global_flag = GER_second_ljubljana_award_ITA_47 }
+			has_global_flag = GER_second_ljubljana_award_BUL_184
+		}
+	}
+
+	desc = {
+		text = greece.2.d_ITA_BUL
+		trigger = {
+			OR = {
+				has_global_flag = GER_second_ljubljana_award_ITA_185
+				has_global_flag = GER_second_ljubljana_award_ITA_186
+				has_global_flag = GER_second_ljubljana_award_ITA_47
+			}
+			has_global_flag = GER_second_ljubljana_award_BUL_184
+		}
+	}
+
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = greece.2.a
+		ai_chance = {	
+			modifier = {
+				factor = 0
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = GRE
+					}
+					any_other_country = {
+
+						is_in_faction_with = GRE
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_puppet = yes
+			}
+			factor = 100	
+		}
+
+		hidden_effect = {
+			news_event = { id = news.170 hours = 2}
+		}
+		if = {
+			limit = {
+				has_global_flag = GER_second_ljubljana_award_BUL_184
+			}
+			BUL = { transfer_state = 184 }
+		}
+
+		if = {
+			limit = {
+				has_global_flag = GER_second_ljubljana_award_ITA_185
+			}
+			ITA = { transfer_state = 185 }
+		}
+		if = {
+			limit = {
+				has_global_flag = GER_second_ljubljana_award_ITA_186
+			}
+			ITA = { transfer_state = 186 }
+		}
+		if = {
+			limit = {
+				has_global_flag = GER_second_ljubljana_award_ITA_47
+			}
+			ITA = { transfer_state = 47 }
+		}
+
+		if = {
+			limit = { 
+				has_global_flag = GER_second_ljubljana_award_GER_731
+			}
+			GER = { transfer_state = 731 }
+		}
+		if = {
+			limit = { 
+				has_global_flag = GER_second_ljubljana_award_GER_185
+				NOT = { has_global_flag = GER_second_ljubljana_award_GER_731 }
+			}
+			GER = { transfer_state = 185 }
+		}
+		if = {
+			limit = { 
+				has_global_flag = GER_second_ljubljana_award_GER_47
+				NOT = { has_global_flag = GER_second_ljubljana_award_GER_731 }
+				NOT = { has_global_flag = GER_second_ljubljana_award_GER_185 }
+			}
+			GER = { transfer_state = 47 }
+		}
+	}
+	
+	option = { # Refuse
+		name = greece.2.b
+		ai_chance = {	
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						any_other_country = {
+
+							has_guaranteed = GRE
+						}
+						any_other_country = {
+
+							is_in_faction_with = GRE
+						}
+					}
+				}
+			}
+			factor = 5	
+		}
+		GER = { country_event = { id = germany.102 hours = 6 } }
+		news_event = { id = news.171 hours = 2 }
+		effect_tooltip = {
+			GER = {
+				create_wargoal = {
+					type = annex_everything
+					target = GRE		
+				}
+			}			
+		}
+	}
+}
+
+# Germany demands Greece become puppet
+country_event = {
+	id = greece.3
+	title = greece.3.t
+	desc = greece.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = greece.3.a
+		ai_chance = {	
+			modifier = {
+				factor = 0
+				OR = {
+					any_other_country = {
+	
+						has_guaranteed = GRE
+					}
+					any_other_country = {
+
+						is_in_faction_with = GRE
+					}
+				}
+			}
+			factor = 100	
+		}
+		GER = { puppet = GRE }
+		hidden_effect = {
+			news_event = { id = news.172 hours = 2 }
+		}
+	}
+
+	option = { # Refuse
+		name = greece.3.b
+		ai_chance = {	
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						any_other_country = {
+
+							has_guaranteed = GRE
+						}
+						any_other_country = {
+
+							is_in_faction_with = GRE
+						}
+					}
+				}
+			}
+			factor = 5	
+		}
+		GER = { country_event = { id = germany.102 hours = 6 } }
+		effect_tooltip = {
+			GER = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = GRE		
+				}
+			}			
+		}
+	}
+}
+
+# Greece gets wargoal - From Italian focus tree
+country_event = {
+	id = greece.4
+	title = greece.4.t
+	desc = greece.4.d
+	picture = GFX_report_event_fascist_militia
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = greece.4.a
+		ai_chance = {	factor = 100	}
+		create_wargoal = {
+			type = take_state_focus
+			target = TUR
+			generator = { 339 }
+		}
+		
+	}
+}
+
+#Turkey Demands Western Thrace
+country_event = {
+	id = greece.5
+	title = greece.5.t
+	desc = greece.5.d
+	picture = GFX_report_event_soldiers_marching
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = greece.5.a
+		ai_chance = {
+			base = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 0.7
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = GRE
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = GRE
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = GRE
+						has_guaranteed = GRE
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 2
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+		}
+		
+		184 = {
+			if = {
+				limit = { is_owned_by = GRE }
+				add_core_of = TUR
+			}
+		}
+		
+		TUR = {
+			set_state_owner = 184
+			set_state_controller = 184
+		}
+		
+		add_named_threat = { threat = 1 name = "Annexation of Western Thrace" }
+		
+		BUL = {
+			add_state_claim = 184
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = TUR
+				generator = { 184 }
+			}
+		}
+	}
+	
+	option = {
+		name = greece.5.b
+		ai_chance = {
+			base = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = BUL
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 0.7
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = GRE
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = GRE
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = GRE
+						has_guaranteed = GRE
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 2
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+		}
+		
+		184 = {
+			if = {
+				limit = { is_owned_by = GRE }
+				add_core_of = BUL
+			}
+		}
+		
+		BUL = {
+			set_state_owner = 184
+			set_state_controller = 184
+		}
+		
+		add_named_threat = { threat = 1 name = "Annexation of Western Thrace" }
+		
+		TUR = {
+			add_state_claim = 184
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = BUL
+				generator = { 184 }
+			}
+		}
+	}
+	
+	option = {
+		name = greece.5.c
+		ai_chance = {
+			base = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+				
+			modifier = {
+				factor = 0.8
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 0.8
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = GRE
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = GRE
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 2
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = GRE
+						has_guaranteed = GRE
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 0.5
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+			
+		}
+		
+		TUR = {
+			add_state_claim = 184
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = GRE
+				generator = { 184 }
+			}
+		}
+		
+		BUL = {
+			add_state_claim = 184
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = GRE
+				generator = { 184 }
+			}
+		}
+	}
+}
+
+#Turkish Occupation of Aegean Islands
+country_event = {
+	id = greece.6
+	title = greece.6.t
+	desc = greece.6.d
+	picture = GFX_report_event_soldiers_marching
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = greece.6.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.8
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				184 = {  is_controlled_by = TUR }	
+			}
+			
+			modifier = {
+				factor = 0.8
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 0.25
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+			
+			modifier = {
+				factor = 2
+				any_other_country = {
+					is_in_faction_with = GRE
+				}			
+			}
+		}
+		
+		declare_war_on = {
+			target = TUR
+			type = take_core_state
+		}
+		
+	}
+	
+	option = {
+		name = greece.6.b
+		ai_chance = {
+			base = 40
+			
+			modifier = {
+				factor = 1.4
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 0.6
+				184 = {  is_controlled_by = TUR }	
+			}
+			
+			modifier = {
+				factor = 2
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_in_faction_with = GRE
+				}			
+			}
+			
+		}
+	}
+}
+
+#Eurasian Alliance Invited by Turkey
+country_event = {
+	id = greece.7
+	title = greece.7.t
+	desc = greece.7.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = greece.7.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.2
+				is_guaranteed_by = TUR
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.5
+				}
+			}
+		}
+
+		TUR = { add_to_faction = GRE }
+		
+	}
+	
+	option = {
+		name = greece.7.b
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.8
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.8
+				is_guaranteed_by = TUR
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = {
+					tag = TUR
+					ratio < 0.5
+				}
+			}		
+		}
+	}
+}
+
+#Balkan Entente Broken!
+country_event = {
+	id = greece.8
+	title = greece.8.t
+	desc = greece.8.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = GRE
+		
+		OR = {
+			GER = {
+				has_war = yes
+			}
+			
+			ITA = {
+				AND = {
+					has_war = yes
+					NOT = { has_war_with = ETH }
+				}
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = greece.8.a
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 2
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.75
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 4
+				strength_ratio = {
+					tag = GER
+					ratio < 1
+				}
+			}
+		}
+		
+		diplomatic_relation = { country = YUG relation = guarantee active = no }
+		diplomatic_relation = { country = ROM relation = guarantee active = no }
+		diplomatic_relation = { country = TUR relation = guarantee active = no }
+		
+		YUG = { diplomatic_relation = { country = GRE relation = guarantee active = no } }
+		ROM = { diplomatic_relation = { country = GRE relation = guarantee active = no } }
+		TUR = { diplomatic_relation = { country = GRE relation = guarantee active = no } }
+		
+		add_war_support = -0.10
+	}
+	
+	option = {
+		name = greece.8.b
+		
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.25
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.25
+				strength_ratio = {
+					tag = GER
+					ratio < 1
+				}
+			}
+		}
+		
+		add_war_support = 0.10	
+	}
+}
+
+#Salonika Agreement
+country_event = {
+	id = greece.9
+	title = greece.9.t
+	desc = greece.9.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = greece.9.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0
+				BUL = { has_war = yes }
+			}
+			
+			modifier = {
+				factor = 1.5
+				threat > 0.25
+			}
+			
+			modifier = {
+				factor = 1.5
+				BUL = { is_in_faction_with = GRE }
+			}
+		}
+
+		TUR = {
+			add_to_variable = {
+				var = votes_for_rearm
+				value = 1
+			}
+		}
+		
+		hidden_effect = {
+			YUG = { country_event = { id = yugoslavia.12 days = 1 } }
+		}	
+	}
+	
+	option = {
+		name = greece.9.b
+		ai_chance = {
+			base = 40
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 100
+				BUL = { has_war = yes }
+			}
+			
+			modifier = {
+				factor = 0.5
+				threat > 0.25
+			}
+			
+			modifier = {
+				factor = 0.5
+				BUL = { is_in_faction_with = GRE }
+			}
+		}
+		
+		TUR = {
+			add_to_variable = {
+				var = votes_for_rearm
+				value = 0
+			}
+		}
+		
+		hidden_effect = {
+			YUG = { country_event = { id = yugoslavia.12 days = 1 } }
+		}	
+	}
+}
+
+#Bulgaria Demands Central Macedoina
+country_event = {
+	id = greece.10
+	title = greece.10.t
+	desc = greece.10.d
+	picture = GFX_report_event_soldiers_marching
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = greece.10.a
+		ai_chance = {
+			base = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = BUL
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 0
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = GRE
+						has_guaranteed = GRE
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 2
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+			
+			modifier = {
+				factor = 0.5
+				184 = { is_controlled_by = BUL }	
+			}
+		}
+		
+		731 = {
+			if = {
+				limit = { is_owned_by = GRE }
+				add_core_of = BUL
+			}
+		}
+		
+		BUL = {
+			set_state_owner = 731
+			set_state_controller = 731
+		}
+		
+		add_named_threat = { threat = 1 name = "Annexation of Central Macedoina" }
+	}
+	
+	option = {
+		name = greece.10.b
+		ai_chance = {
+			base = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+				
+			modifier = {
+				factor = 0.8
+				strength_ratio = {
+					tag = BUL
+					ratio < 0.6
+				}
+			}
+			
+			modifier = {
+				factor = 0.8
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 2
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = GRE
+						has_guaranteed = GRE
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 0.5
+				47 = { NOT = { is_controlled_by = GRE } }	
+			}
+			
+			modifier = {
+				factor = 1.5
+				184 = { is_controlled_by = BUL }	
+			}
+			
+		}
+		
+		BUL = {
+			add_state_claim = 731
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = GRE
+				generator = { 731 }
+			}
+		}
+	}
+}

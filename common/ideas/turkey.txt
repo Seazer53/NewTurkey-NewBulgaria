@@ -1,0 +1,2220 @@
+ideas = {
+
+	country = {
+		TUR_recovering_from_turkish_war_of_independence = {
+		
+			name = TUR_recovering_from_turkish_war_of_independence
+		
+			picture = chi_army_corruption
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_factor = -0.25
+				conscription = -0.002
+				war_support_factor = -0.25
+			}
+		}
+		
+		TUR_recovering_from_turkish_war_of_independence2 = {
+		
+			name = TUR_recovering_from_turkish_war_of_independence2
+		
+			picture = chi_army_corruption2
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_factor = -0.15
+				conscription = -0.001
+				war_support_factor = -0.20
+			}
+		}
+		
+		TUR_recovering_from_turkish_war_of_independence3 = {
+		
+			name = TUR_recovering_from_turkish_war_of_independence3
+		
+			picture = chi_army_corruption3
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_factor = -0.05
+				war_support_factor = -0.15
+			}
+		}
+		
+		TUR_unpaid_ottoman_debts = {
+		
+			name = TUR_unpaid_ottoman_debts
+		
+			picture = chi_hyper_inflation5
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.25
+				stability_factor = -0.2
+			}
+		}
+		
+		TUR_unpaid_ottoman_debts2 = {
+		
+			name = TUR_unpaid_ottoman_debts
+		
+			picture = chi_hyper_inflation4
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.20
+				stability_factor = -0.15
+			}
+		}
+		
+		TUR_unpaid_ottoman_debts3 = {
+		
+			name = TUR_unpaid_ottoman_debts
+		
+			picture = chi_hyper_inflation3
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.15
+				stability_factor = -0.10
+			}
+		}
+		
+		TUR_unpaid_ottoman_debts4 = {
+		
+			name = TUR_unpaid_ottoman_debts
+		
+			picture = chi_hyper_inflation2
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.10
+				stability_factor = -0.05
+			}
+		}
+		
+		TUR_unpaid_ottoman_debts5 = {
+		
+			name = TUR_unpaid_ottoman_debts
+		
+			picture = chi_hyper_inflation
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+	
+		TUR_urbanization = {
+		
+			name = TUR_urbanization
+		
+			picture = generic_build_infrastructure
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+		
+		TUR_government_reforms = {
+		
+			name = TUR_government_reforms
+		
+			picture = generic_oppression
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = 0.005
+			}
+		}
+		
+		TUR_prepare_for_the_worst = {
+		
+			name = TUR_prepare_for_the_worst
+		
+			picture = generic_morale_bonus
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				war_support_weekly = 0.005
+			}
+		}
+		
+		TUR_misaki_milli = {
+		
+			name = TUR_misaki_milli
+		
+			picture = generic_morale_bonus
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				war_support_factor = 0.1
+			}
+		}
+		
+		TUR_kemalism = {
+		
+			name = TUR_kemalism
+		
+			picture = tur_legacy_of_ataturk
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+			}
+		}
+		
+		TUR_kemalism2 = {
+		
+			name = TUR_kemalism2
+		
+			picture = tur_legacy_of_ataturk
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.1
+			}
+		}
+		
+		TUR_kemalism3 = {
+		
+			name = TUR_kemalism3
+		
+			picture = tur_legacy_of_ataturk
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		TUR_kemalism4 = {
+		
+			name = TUR_kemalism4
+		
+			picture = tur_legacy_of_ataturk
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.1
+				conscription = 0.015
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		TUR_kemalism5 = {
+		
+			name = TUR_kemalism5
+		
+			picture = tur_legacy_of_ataturk
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.1
+				conscription = 0.015
+				consumer_goods_factor = -0.05
+				political_power_factor = 0.25
+			}
+		}
+		
+		TUR_kemalism6 = {
+		
+			name = TUR_kemalism6
+		
+			picture = tur_legacy_of_ataturk
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				stability_factor = 0.1
+				conscription = 0.015
+				consumer_goods_factor = -0.05
+				political_power_factor = 0.25
+				research_speed_factor = 0.02
+			}
+		}
+		
+		TUR_boost_islamism = {
+		
+			name = TUR_boost_islamism
+		
+			picture = generic_monarchist_uprising
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				islamism_drift = 0.1
+			}
+		}
+		
+		TUR_islamist = {
+		
+			name = TUR_islamist
+		
+			picture = generic_monarchist_uprising
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = islamism
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.03
+			}
+		}
+		
+		TUR_islamist2 = {
+		
+			name = TUR_islamist2
+		
+			picture = generic_monarchist_uprising
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = islamism
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.03
+				drift_defence_factor = 0.5
+			}
+		}
+		
+		TUR_islamist3 = {
+		
+			name = TUR_islamist3
+		
+			picture = generic_monarchist_uprising
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = islamism
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.03
+				drift_defence_factor = 0.5
+				army_core_attack_factor = 0.2
+				army_core_defence_factor = 0.2
+			}
+		}
+		
+		TUR_islamist4 = {
+		
+			name = TUR_islamist4
+		
+			picture = generic_monarchist_uprising
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = islamism
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.03
+				drift_defence_factor = 0.5
+				army_core_attack_factor = 0.2
+				army_core_defence_factor = 0.2
+				war_support_factor = 0.2
+				
+			}
+		}
+		
+		TUR_wealth_tax = {
+		
+			name = TUR_wealth_tax
+		
+			picture = generic_economic_increase
+			
+			allowed = {
+				original_tag = TUR 
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.10
+			}
+		}
+		
+		TUR_infantry_focus = {
+		
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_infantry_bonus
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 
+					instant = yes
+				}
+			}
+		}
+		
+		TUR_support_focus = {
+		
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_morale_bonus
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				support_equipment = {
+					build_cost_ic = -0.1 
+					instant = yes
+				}
+			}
+		}
+		
+		TUR_submarine_discount = {
+
+			picture = generic_coastal_defense_ships
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+						
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		TUR_battleship_discount = {
+
+			picture = generic_navy_bonus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+						
+			equipment_bonus = {
+				ship_hull_heavy = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		TUR_support_thk = {
+
+			picture = generic_fighter_production_diverted
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+				research_speed_factor = -0.04
+			}
+			
+		}
+		
+		TUR_support_thk2 = {
+
+			picture = generic_fighter_production_diverted
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = 0.02
+			}
+			
+			equipment_bonus = {
+				fighter = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+			
+		}
+		
+		TUR_support_demirag = {
+
+			picture = generic_fighter_production_diverted
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = 0.05
+				consumer_goods_factor = 0.10
+			}
+			
+			equipment_bonus = {
+				fighter = {
+					build_cost_ic = -0.15 instant = yes
+				}
+			}
+			
+		}
+		
+		TUR_kemalist_strikes = {
+
+			picture = generic_secret_police
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = islamism
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.002
+				political_power_factor = -0.25
+			}
+			
+		}
+		
+		TUR_islamist_strikes = {
+
+			picture = generic_secret_police
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.002
+				political_power_factor = -0.25
+			}
+			
+		}
+		
+		TUR_dersim_rebellion_crush = {
+
+			picture = generic_secret_police
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.001
+				political_power_factor = -0.10
+			}
+			
+		}
+		
+		TUR_dersim_rebellion_crush2 = {
+
+			picture = generic_secret_police
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.001
+				political_power_factor = -0.25
+			}
+			
+		}
+		
+		TUR_dersim_rebellion_peace = {
+
+			picture = generic_secret_police
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				political_power_factor = -0.10
+				consumer_goods_factor = 0.05
+			}
+			
+		}
+		
+		TUR_dersim_rebellion_peace2 = {
+
+			picture = generic_secret_police
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				political_power_factor = -0.25
+				consumer_goods_factor = 0.05				
+			}
+			
+		}
+		
+		TUR_village_institutes_1 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.01
+				political_power_cost = 0.2
+			}
+		}
+
+		TUR_village_institutes_2 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.02
+				political_power_cost = 0.35
+			}
+		}
+
+		TUR_village_institutes_3 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.03
+				political_power_cost = 0.5
+			}
+		}
+
+		TUR_village_institutes_4 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.04
+				political_power_cost = 0.65
+			}
+		}
+
+		TUR_village_institutes_5 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_cost = 0.8
+			}
+		}
+
+		TUR_village_institutes_6 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.06
+				political_power_cost = 0.95
+			}
+		}
+
+		TUR_village_institutes_7 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.07
+				political_power_cost = 1.1
+			}
+		}
+
+		TUR_village_institutes_8 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.08
+				political_power_cost = 1.25
+			}
+		}
+
+		TUR_village_institutes_9 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.09
+				political_power_cost = 1.4
+			}
+		}
+
+		TUR_village_institutes_10 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.10
+				political_power_cost = 1.55
+			}
+		}
+
+		TUR_village_institutes_11 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.11
+				political_power_cost = 1.7
+			}
+		}
+
+		TUR_village_institutes_12 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.12
+				political_power_cost = 1.85
+			}
+		}
+
+		TUR_village_institutes_13 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.13
+				political_power_cost = 2
+			}
+		}
+
+		TUR_village_institutes_14 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.14
+				political_power_cost = 2.15
+			}
+		}
+
+		TUR_village_institutes_15 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.15
+				political_power_cost = 2.3
+			}
+		}
+
+		TUR_village_institutes_16 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.16
+				political_power_cost = 2.45
+			}
+		}
+
+		TUR_village_institutes_17 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.17
+				political_power_cost = 2.6
+			}
+		}
+
+		TUR_village_institutes_18 = {
+			name = TUR_village_institutes
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				research_speed_factor = 0.18
+				political_power_cost = 2.75
+			}
+		}
+
+		TUR_village_institutes_ended = {
+			name = TUR_village_institutes_ended
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				political_power_factor = -0.20
+				consumer_goods_factor = 0.05
+				stability_factor = -0.10
+			}
+		}
+		
+		TUR_village_institutes_embraced = {
+			name = TUR_village_institutes_embraced
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+
+			modifier = {
+				consumer_goods_factor = -0.10
+				research_speed_factor = 0.20
+			}
+		}
+		
+		TUR_chromium_trade = {
+			name = TUR_chromium_trade
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = can_wartime_prices_and_trade_board
+
+			modifier = {
+				consumer_goods_factor = -0.05			
+			}
+		}
+		
+		TUR_chromium_trade2 = {
+			name = TUR_chromium_trade2
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = can_wartime_prices_and_trade_board
+
+			modifier = {
+				consumer_goods_factor = -0.05			
+			}
+		}
+		
+		TUR_chromium_trade3 = {
+			name = TUR_chromium_trade3
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = can_wartime_prices_and_trade_board
+
+			modifier = {
+				consumer_goods_factor = -0.10	
+			}
+		}
+		
+		TUR_chromium_trade4 = {
+			name = TUR_chromium_trade4
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = can_wartime_prices_and_trade_board
+
+			modifier = {
+				consumer_goods_factor = -0.10
+			}
+		}
+		
+		TUR_chromium_trade_with_britain = {
+			name = TUR_chromium_trade_with_britain
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = can_wartime_prices_and_trade_board
+
+			modifier = {
+				consumer_goods_factor = -0.05	
+			}
+		}
+		
+		TUR_turan = {
+			name = TUR_turan
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = tur_ottoman_spirit
+
+			modifier = {
+				party_popularity_stability_factor = 0.1
+			}
+		}
+		
+		TUR_turan2 = {
+			name = TUR_turan
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = tur_ottoman_spirit
+
+			modifier = {
+				party_popularity_stability_factor = 0.1
+				conscription = 0.025
+			}
+		}
+		
+		TUR_turan3 = {
+			name = TUR_turan
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = tur_ottoman_spirit
+
+			modifier = {
+				party_popularity_stability_factor = 0.1
+				conscription = 0.025
+				war_support_weekly = 0.001
+			}
+		}
+		
+		TUR_turan4 = {
+			name = TUR_turan
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = tur_ottoman_spirit
+
+			modifier = {
+				party_popularity_stability_factor = 0.1
+				conscription = 0.025
+				war_support_weekly = 0.001
+				training_time_army_factor = -0.1
+			}
+		}
+		
+		TUR_recovering_from_civil_war = {
+			name = TUR_recovering_from_civil_war
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = spa_recovering_from_the_civil_war
+
+			modifier = {
+				ai_get_ally_desire_factor = -200
+				ai_call_ally_desire_factor = -200
+				ai_join_ally_desire_factor = -200
+				stability_weekly = 0.001
+				industry_repair_factor = 0.5
+				industry_free_repair_factor = 0.5			
+			}
+		}
+		
+		TUR_death_before_surrender = {
+
+			name = TUR_death_before_surrender
+
+			picture = chi_forced_conscription
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+				has_government = democratic
+			}
+
+			modifier = {
+				war_support_factor = 0.25
+				surrender_limit = 1
+				max_surrender_limit_offset = 0.15
+			}
+		}
+		
+		TUR_statism = {
+
+			name = TUR_statism
+
+			picture = tur_etatism
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_infrastructure_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				production_speed_dockyard_factor = 0.05
+			}
+		}
+		
+		TUR_liberalism = {
+
+			name = TUR_liberalism
+
+			picture = generic_economic_increase
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = 0.05
+				global_building_slots_factor = 0.20
+				production_factory_efficiency_gain_factor = 0.05 
+			}
+		}
+		
+		TUR_economic_unstability = {
+
+			name = TUR_economic_unstability
+
+			picture = usa_great_depression_3
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				stability_weekly = -0.002
+				political_power_factor = -0.10
+			}
+		}
+		
+		TUR_industrial_revolution = {
+
+			name = TUR_industrial_revolution
+
+			picture = man_five_year_plan_industry
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+				production_lack_of_resource_penalty_factor = 0.25
+			}
+		}
+		
+		TUR_mta = {
+
+			name = TUR_mta
+
+			picture = generic_production_bonus
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				local_resources_factor = 0.1
+				production_lack_of_resource_penalty_factor = -0.25
+			}
+		}
+	
+	}
+	
+	political_advisor = {
+
+		TUR_hasan_ali_yucel = {
+
+			picture = generic_political_advisor_europe_5
+			
+			available = {
+				AND = {
+					has_completed_focus = TUR_establish_village_institutes
+					has_government = neutrality	
+				}
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { founder_of_village_institutes }
+		}
+
+		TUR_hasan_saka = {
+
+			picture = tur_hasan_saka
+				
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { captain_of_industry }
+		}
+
+		TUR_kazim_ozalp = {
+
+			picture = tur_kazim_ozalp
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { war_industrialist }
+		}
+		
+		TUR_nuri_demirag = {
+
+			picture = tur_nuri_demirag
+			
+			available = {
+				if = {
+					has_completed_focus = TUR_subsidize_demirags_efforts
+				}
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { railroad_enthusiast2 }
+		}
+		
+		TUR_mehmet_akif_ersoy = {
+
+			picture = generic_political_advisor_europe_1
+			
+			available = {
+				if = {
+					has_completed_focus = TUR_embrace_islamism
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { islamist_reactionary }
+		}
+		
+		TUR_huseyin_nihal_atsiz = {
+
+			picture = tur_nihal_atsiz
+			
+			available = {
+				if = {
+					has_completed_focus = TUR_embrace_pan_turkism
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { fascist_demagogue }
+		}
+		
+		TUR_sukru_saracoglu = {
+
+			picture = tur_sukru_saracoglu
+			
+			available = {
+				if = {
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { staunch_monarchist }
+		}
+		
+		TUR_recep_peker = {
+
+			picture = tur_recep_peker
+			
+			available = {
+				if = {
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { prince_of_terror }
+		}
+		
+		TUR_celal_bayar = {
+
+			picture = tur_celal_bayar
+			
+			available = {
+				has_completed_focus = TUR_prepare_for_war
+				NOT = { has_country_flag = resigned_celal }
+			}
+
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { economic_reformer2 }
+		}
+	}
+
+	theorist = {
+
+	TUR_asim_gunduz = {
+				
+		picture = generic_army_europe_2
+
+		allowed = {
+			original_tag = TUR
+		}
+		
+		research_bonus = {
+			land_doctrine = 0.10
+		}
+		
+		traits = { military_theorist }
+		
+		ledger = army
+	}
+
+	TUR_zeki_dogan = {
+				
+		picture = tur_zeki_dogan
+
+		allowed = {
+			original_tag = TUR
+		}
+		
+		research_bonus = {
+			air_doctrine = 0.10
+		}
+		
+		traits = { air_warfare_theorist }
+		
+		ledger = air
+	}
+}
+
+	army_chief = {
+
+		TUR_kazim_orbay = {
+			
+			picture = tur_kazim_orbay
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+			
+			ledger = army
+		}
+		
+		TUR_fevzi_cakmak = {
+			
+			picture = tur_fevzi_cakmak_high_command
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = army
+			
+			traits = { army_chief_defensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+
+		TUR_sabiha_gokcen = {
+			
+			picture = sabiha_gocen
+			
+			allowed = {
+				original_tag = TUR
+			}
+					
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+			
+			ledger = air
+		}
+
+		TUR_ahmet_ali_celikten = {
+			
+			picture = tur_ahmet_ali_celikten
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = air
+			
+			traits = { air_air_combat_training_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	navy_chief = {
+		
+		TUR_necip_okaner = {
+			
+			picture = generic_navy_europe_3
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = navy
+			
+			traits = { navy_chief_decisive_battle_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		TUR_rauf_orbay = {
+			
+			picture = tur_rauf_orbay
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = navy
+			
+			traits = { navy_chief_maneuver_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	high_command = {
+
+		TUR_muzaffer_goksenin = {
+			
+			picture = tur_muzaffer_goksenin
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = air
+			
+			traits = { air_strategic_bombing_3 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		TUR_yakup_sevki_subasi = {
+			
+			picture = generic_army_europe_5
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = army
+
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		TUR_fahrettin_altay = {
+			
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			ledger = army
+
+			traits = { army_armored_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		TUR_mehmet_ali_ulgen = {
+			
+			picture = tur_mehmet_ali_ulgen
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			ledger = navy
+			
+			traits = { navy_submarine_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		TUR_sadik_altincan = {
+			
+			picture = generic_navy_europe_2
+			
+			allowed = {
+				original_tag = TUR
+			}
+
+			ledger = navy
+			
+			traits = { navy_fleet_logistics_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	aircraft_manufacturer = { 
+		
+		designer = yes
+		
+			thk = {
+				
+				picture = generic_air_manufacturer_2
+				
+				available = {
+					if = {
+						has_completed_focus = TUR_subsidize_thk
+					}
+				}
+				
+				allowed = {
+					original_tag = TUR
+				}
+				
+				research_bonus = {
+					air_equipment = 0.15
+				}
+				
+				traits = { light_aircraft_manufacturer }
+				
+				equipment_bonus = {
+					# trainers, and air ambulances?
+				}
+				
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+		demirags_air_company = {
+			
+			picture = tur_nud
+			
+			available = {
+				has_completed_focus = TUR_subsidize_demirags_efforts
+				has_idea_with_trait = TUR_nuri_demirag				
+			}
+			
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				air_equipment = 0.20
+			}
+			
+			traits = { light_aircraft_manufacturer_2 }
+			
+			equipment_bonus = {
+				# assembled license aircrafts from across the world 
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	naval_manufacturer = {
+			
+		designer = yes
+		
+		golcuk_nsy = {
+			
+			picture = generic_naval_manufacturer_1
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_montreux_convention
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { raiding_fleet_naval_manufacturer }
+		}
+		
+		pendik_nsy = {
+			
+			picture = generic_naval_manufacturer_2
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_montreux_convention
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { coastal_defence_naval_manufacturer }
+		}
+	}
+	
+	industrial_concern = {
+		koc = {
+		
+			picture = tur_koc_ticaret_as
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_industrial_revolution		
+			}
+			
+			research_bonus = {				
+				
+			}
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { industrial_concern4 }
+		}
+		
+		mta = {
+		
+			picture = generic_industrial_concern_1
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_proper_use_of_resources
+			}
+			
+			research_bonus = {
+				synth_resources = 0.10
+			}
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { industrial_concern3 }
+		}
+		
+		sumerbank = {
+		
+			picture = generic_industrial_concern_3
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_first_development_plan
+			}
+			
+			research_bonus = {
+				
+			}
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { industrial_concern2 }
+		}
+		
+		petrol_ofisi = {
+		
+			picture = tur_petrol_ofisi
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_second_development_plan
+			}
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.15
+			}
+			
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { refinery_concern }
+		}
+	}
+	
+	tank_manufacturer = {
+		national_tank_company = {
+		
+			picture = generic_tank_manufacturer_2
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			available = {
+				has_completed_focus = TUR_national_tank_production
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+			
+			traits = { medium_tank_manufacturer }
+		}
+	}
+	
+	materiel_manufacturer = {
+			
+		designer = yes
+		
+		mke = {
+			
+			picture = generic_infantry_equipment_manufacturer_1
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			equipment_bonus = {
+				# rifles and pistols
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+	}
+}

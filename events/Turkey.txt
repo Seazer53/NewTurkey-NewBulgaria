@@ -1,0 +1,3050 @@
+﻿###########################
+# Turkey Events
+###########################
+
+add_namespace = turkey
+
+# President dies
+country_event = {
+	id = turkey.1
+	title = turkey.1.t
+	desc = turkey.1.d
+	picture = GFX_report_event_ataturks_death
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		#has_government = neutrality
+		date > 1938.11.1
+		has_start_date < 1936.01.02
+	}	
+
+	mean_time_to_happen = {
+		days = 30
+		modifier = {
+			factor = 0.5
+			date > 1938.12.1
+		}
+		modifier = {
+			factor = 0.2
+			date > 1939.1.1
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {
+				name = "Ismet Inönü"
+				desc = "POLITICS_ISMET_INÖNÜ_DESC"
+				picture = "Portrait_Turkey_Ismet_Inonu.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					diplomatic_mastermind
+					national_chief
+				}
+			}
+		}
+	}
+
+	option = {
+		name = turkey.1.a
+		every_country = {
+	 		limit = {
+				has_unit_leader = 59
+			}
+	 		remove_unit_leader = 59
+	 	}
+
+		hidden_effect = {
+			news_event = {id = news.341 days = 1}
+		}
+	}			
+}
+	
+# Montreux Convention Signed
+country_event = {
+	id = turkey.2
+	title = turkey.2.t
+	desc = turkey.2.d
+	picture = GFX_report_event_montreux_convention
+	
+	is_triggered_only = yes
+
+	option = {
+		name = turkey.2.a
+		797 = {
+			set_demilitarized_zone = no
+		}
+		813 = {
+			set_demilitarized_zone = no
+		}
+		
+		add_named_threat = { threat = 1 name = "Montreux Convention" }
+		
+		hidden_effect = {
+			news_event = { hours = 6 id = news.337 }
+		}
+	}
+}
+
+#Treaty With Nazis
+country_event = {
+	id = turkey.3
+	title = turkey.3.t
+	desc = turkey.3.d
+	picture = GFX_report_event_german_turkish_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = turkey.3.a
+		ai_chance = {
+			base = 70
+			
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = -10
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				add = 20
+				strength_ratio = {
+					tag = GER
+					ratio < 0.7
+				}
+			}
+		}
+		
+		set_country_flag = TUR_trade_with_german_reich
+		
+		diplomatic_relation = { country = GER relation = non_aggression_pact }
+		
+		add_named_threat = { threat = 1 name = "Turkish-German Treaty Of Friendship" }
+		
+		add_opinion_modifier = { target = GER modifier = turkish_german_treaty_of_friendship }
+		
+		GER = {
+			add_opinion_modifier = { target = TUR modifier = turkish_german_treaty_of_friendship }
+		}
+		
+		if = {
+			limit = {
+				GER = {
+					has_government = fascism
+				}
+			}
+			add_timed_idea = { idea = fascist_influence days = 1095 }
+			
+		}
+		
+		if = {
+			limit = {
+				GER = {
+					has_government = communism
+				}
+			}
+			add_timed_idea = { idea = communist_influence days = 1095 }
+		}
+		
+		if = {
+			limit = {
+				GER = {
+					has_government = democratic
+				}
+			}
+			add_timed_idea = { idea = democratic_influence days = 1095 }
+		}
+
+		hidden_effect = {
+			country_event = { hours = 6 id = news.338 }
+		}
+	}
+	
+	option = {
+		name = turkey.3.b	
+		ai_chance = {
+			base = 30
+	
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = GER
+					ratio > 0.7
+				}
+			}
+		}
+		
+		hidden_effect = {
+			GER = { country_event = { hours = 6 id = germany.1002 } }
+		}
+	}
+}
+
+# Subsidized THK
+country_event = {
+	id = turkey.4
+	title = turkey.4.t
+	desc = turkey.4.d
+	picture = GFX_report_event_airplane_factory
+	
+	is_triggered_only = yes
+
+	option = {
+		name = turkey.4.a
+		
+		add_timed_idea = { idea = TUR_support_thk days = 180 }
+		
+	}
+}
+
+# Subsidized THK 2
+country_event = {
+	id = turkey.5
+	title = turkey.5.t
+	desc = turkey.5.d
+	picture = GFX_report_event_airplane_factory
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		
+		NOT = {
+			has_idea = TUR_support_thk
+		}
+		
+		has_completed_focus = TUR_subsidize_thk
+	}
+
+	option = {
+		name = turkey.5.a
+		
+		add_ideas = TUR_support_thk2
+		
+	}
+}
+
+# Subsidized Demirağ's Air Company
+country_event = {
+	id = turkey.6
+	title = turkey.6.t
+	desc = turkey.6.d
+	picture = GFX_report_event_airplane_factory
+	
+	is_triggered_only = yes
+
+	option = {
+		name = turkey.6.a
+		
+		add_ideas = TUR_support_demirag
+		
+	}
+}
+
+#Islamist Supporters Strikes!
+country_event = {
+	id = turkey.7
+	title = turkey.7.t
+	desc = turkey.7.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = TUR_strikes_started
+		}
+	}
+	
+	trigger = {
+		original_tag = TUR
+		
+		has_completed_focus = TUR_republicanism
+	}
+
+	option = {
+		name = turkey.7.a
+		add_timed_idea = { idea = TUR_islamist_strikes days = 365}		
+	}
+}
+
+#Order Restored!
+country_event = {
+	id = turkey.8
+	title = turkey.8.t
+	desc = turkey.8.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		NOT = { has_idea = TUR_islamist_strikes }
+		has_completed_focus = TUR_republicanism
+		has_global_flag = TUR_strikes_started		
+	}
+
+	option = {
+		name = turkey.8.a	
+		add_stability = 0.15
+		add_political_power = 120
+	}
+}
+
+#Balkan Entente Broken!
+country_event = {
+	id = turkey.9
+	title = turkey.9.t
+	desc = turkey.9.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		
+		OR = {
+			GER = {
+				has_war = yes
+			}
+			
+			ITA = {
+				AND = {
+					has_war = yes
+					NOT = { has_war_with = ETH }
+				}
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = turkey.9.a
+		ai_chance = {
+			factor = 60
+			
+			modifier = {
+				factor = 2
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.75
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.25
+				strength_ratio = {
+					tag = GER
+					ratio < 1
+				}
+			}
+		}
+		
+		diplomatic_relation = { country = YUG relation = guarantee active = no }
+		diplomatic_relation = { country = ROM relation = guarantee active = no }
+		diplomatic_relation = { country = GRE relation = guarantee active = no }
+		
+		YUG = { diplomatic_relation = { country = TUR relation = guarantee active = no } }
+		ROM = { diplomatic_relation = { country = TUR relation = guarantee active = no } }
+		GRE = { diplomatic_relation = { country = TUR relation = guarantee active = no } }
+		
+		add_war_support = -0.10
+	}
+	
+	option = {
+		name = turkey.9.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.25
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 4
+				strength_ratio = {
+					tag = GER
+					ratio < 1
+				}
+			}
+		}
+		
+		add_war_support = 0.10	
+	}
+}
+
+#Refah Tragedy!
+country_event = {
+	id = turkey.10
+	title = turkey.10.t
+	desc = turkey.10.d
+	picture = GFX_report_event_refah_tragedy
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1941.06.01
+		original_tag = TUR
+		GER = { 
+			has_war_with = ENG 
+			has_war_with = FRA
+		}
+	}
+
+	option = {
+		name = turkey.10.a
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = GER
+					ratio < 0.5
+				}
+			}
+		}
+		
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		
+		add_war_support = 0.10
+		
+	}
+	
+	option = {
+		name = turkey.10.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = GER
+					ratio < 0.5
+				}
+			}
+		}
+		
+		declare_war_on = {
+			target = ITA
+			type = annex_everything
+		}
+		
+		add_war_support = 0.10
+		
+	}
+	
+	option = {
+		name = turkey.10.c
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = GER
+					ratio < 0.5
+				}
+			}
+		}
+		
+		declare_war_on = {
+			target = ENG
+			type = annex_everything
+		}
+		
+		add_war_support = 0.10
+		
+	}
+	
+	option = {
+		name = turkey.10.e
+		
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.5
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.2
+				strength_ratio = {
+					tag = GER
+					ratio < 0.5
+				}
+			}
+		}
+		
+		add_stability = -0.10
+		add_war_support = 0.05
+		
+	}
+}
+
+#Dersim Rebellion!
+country_event = {
+	id = turkey.11
+	title = turkey.11.t
+	desc = turkey.11.d
+	picture = GFX_report_event_dersim_rebellion
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		date > 1937.03.20
+		has_start_date < 1936.01.02
+		has_civil_war = no
+		has_government = neutrality
+	}	
+
+	mean_time_to_happen = {
+		days = 10
+		modifier = {
+			factor = 0.2
+			date > 1937.03.22
+		}
+	}
+
+	option = {
+		name = turkey.11.a
+		
+		ai_chance = {
+			factor = 60
+			
+			modifier = {
+				factor = 1.2
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				num_divisions > 35
+			}
+		}
+		
+		add_timed_idea = { idea = TUR_dersim_rebellion_crush days = 210 }
+		
+		hidden_effect = {
+			349 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}	
+		}
+	}
+	
+	option = {
+		name = turkey.11.b
+		
+		ai_chance = {
+			factor = 45
+			
+			modifier = {
+				factor = 0.8
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.2
+				num_divisions < 35
+			}
+		}
+
+		add_timed_idea = { idea = TUR_dersim_rebellion_peace days = 210 }
+		
+	}
+}
+
+#Dersim Rebellion 2!
+country_event = {
+	id = turkey.12
+	title = turkey.12.t
+	desc = turkey.12.d
+	picture = GFX_report_event_dersim_rebellion
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		date > 1938.01.02
+		has_start_date < 1936.01.02
+		has_civil_war = no
+		has_government = neutrality
+	}	
+
+	mean_time_to_happen = {
+		days = 10
+		modifier = {
+			factor = 0.2
+			date > 1938.01.05
+		}
+	}
+
+	option = {
+		name = turkey.12.a
+		
+		ai_chance = {
+			factor = 60
+			
+			modifier = {
+				factor = 1.2
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				num_divisions > 40
+			}
+		}
+		
+		hidden_effect = {
+			349 = {
+				damage_building = {
+					type = infrastructure
+					damage = 3
+				}
+			}	
+		}
+		
+		add_timed_idea = { idea = TUR_dersim_rebellion_crush2 days = 330 }
+		
+	}
+	
+	option = {
+		name = turkey.12.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.8
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.2
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.2
+				num_divisions < 40
+			}
+		}
+
+		add_timed_idea = { idea = TUR_dersim_rebellion_peace2 days = 330 }
+		
+	}
+}
+
+#Land Reform!
+country_event = {
+	id = turkey.13
+	title = turkey.13.t
+	desc = turkey.13.d
+	picture = GFX_report_event_generic_parliament
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			date > 1945.01.01
+			has_government = neutrality
+		}
+	}	
+
+	mean_time_to_happen = {
+		days = 10
+		modifier = {
+			factor = 0.5
+			date > 1945.01.5
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {
+				name = "Celal Bayar"
+				desc = "POLITICS_CELAL_BAYAR_DESC"
+				picture = "Portrait_Turkey_Celal_Bayar.dds"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = { }
+			}
+		}
+	}
+	
+	option = {
+		name = turkey.13.a
+		
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = TUR_celal_bayar
+		set_country_flag = resigned_celal
+		
+		hidden_effect = {
+			remove_ideas = TUR_celal_bayar
+			every_country = {
+				limit = {
+					has_unit_leader = 10453
+				}
+				remove_unit_leader = 10453
+			}
+		}
+		
+		add_popularity = { ideology = democratic popularity = 0.2 }		
+	}
+}
+
+#Islamist Strikes Chaos!
+country_event = {
+	id = turkey.14
+	title = turkey.14.t
+	desc = turkey.14.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		has_idea = TUR_islamist_strikes
+	}	
+
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	option = {
+		name = turkey.14.a
+		
+		ai_chance = {
+			factor = 60
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.1
+				has_government = neutrality
+			}
+			
+			modifier = {
+				factor = 1.3
+				has_stability < 0.5
+			}
+		}
+		
+		add_popularity = { ideology = islamism popularity = 0.1 }
+		
+		modify_timed_idea = {
+			idea = TUR_islamist_strikes
+			days = -60
+		}
+		
+	}
+	
+	option = {
+		name = turkey.14.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.9
+				has_government = neutrality
+			}
+			
+			modifier = {
+				factor = 2
+				has_stability > 0.5
+			}
+		}
+		
+		modify_timed_idea = {
+			idea = TUR_islamist_strikes
+			days = 90
+		}
+		
+	}
+}
+
+#Enact Wealth Tax!
+country_event = {
+	id = turkey.15
+	title = turkey.15.t
+	desc = turkey.15.d
+	picture = GFX_report_event_generic_parliament
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		has_government = neutrality
+		date > 1942.01.01
+		has_start_date < 1936.01.02
+	}	
+
+	mean_time_to_happen = {
+		days = 10
+		modifier = {
+			factor = 0.5
+			date > 1942.01.5
+		}
+	}
+	
+	option = {
+		name = turkey.15.a
+		
+		ai_chance = {
+			factor = 50
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.1
+				has_government = neutrality
+			}
+			
+			modifier = {
+				factor = 1.2
+				num_of_available_civilian_factories < 15
+			}
+		}
+		
+		add_timed_idea = { idea = TUR_wealth_tax days = 365 }
+		add_popularity = { ideology = democratic popularity = 0.1 }
+		add_stability = -0.05
+		
+	}
+	
+	option = {
+		name = turkey.15.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.9
+				has_government = neutrality
+			}
+			
+			modifier = {
+				factor = 1.6
+				num_of_available_civilian_factories > 15
+			}
+		}
+		
+		add_popularity = { ideology = neutrality popularity = 0.1 }	
+		
+	}
+}
+
+#Opposition Against Statism Reform!
+country_event = {
+	id = turkey.16
+	title = turkey.16.t
+	desc = turkey.16.d
+	picture = GFX_report_event_generic_rally2
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		has_completed_focus = TUR_statism
+	}	
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	option = {
+		name = turkey.16.a
+		
+		add_popularity = { ideology = democratic popularity = 0.05 }	
+		
+	}
+}
+
+#Populism Boosts Communism!
+country_event = {
+	id = turkey.17
+	title = turkey.17.t
+	desc = turkey.17.d
+	picture = GFX_report_event_generic_rally2
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		has_completed_focus = TUR_populism
+	}	
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	option = {
+		name = turkey.17.a
+		
+		add_popularity = { ideology = communism popularity = 0.05 }	
+		
+	}
+}
+
+#Nationalism Boosts Fascism!
+country_event = {
+	id = turkey.18
+	title = turkey.18.t
+	desc = turkey.18.d
+	picture = GFX_report_event_generic_rally2
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		has_completed_focus = TUR_nationalism
+	}	
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	option = {
+		name = turkey.18.a
+		
+		add_popularity = { ideology = fascism popularity = 0.05 }	
+		
+	}
+}
+
+
+#Reformism and Laicism Boosts Islamism!
+country_event = {
+	id = turkey.19
+	title = turkey.19.t
+	desc = turkey.19.d
+	picture = GFX_report_event_generic_rally2
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			has_completed_focus = TUR_reformism
+			has_completed_focus = TUR_laicism
+		}
+	}	
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	option = {
+		name = turkey.19.a
+		
+		add_popularity = { ideology = islamism popularity = 0.15 }	
+		
+	}
+}
+
+#Straits Crisis 1!
+country_event = {
+	id = turkey.20
+	title = turkey.20.t
+	desc = turkey.20.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		date > 1945.01.01
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {		
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}		
+	}	
+
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = turkey.20.a
+		
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_soviet_demands
+		
+			SOV = {
+				set_state_owner = 341
+				set_state_controller = 341
+				
+				set_state_owner = 340
+				set_state_controller = 340
+				
+				set_state_owner = 797
+				set_state_controller = 797
+				
+				set_state_owner = 813
+				set_state_controller = 813
+			}
+		
+	}
+	
+	option = {
+		name = turkey.20.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		add_political_power = -25
+		set_country_flag = TUR_refused_soviet_demands_1
+		
+	}
+}
+
+
+#Straits Crisis 2!
+country_event = {
+	id = turkey.21
+	title = turkey.21.t
+	desc = turkey.21.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			NOT = { has_country_flag = TUR_accepted_soviet_demands }
+			has_country_flag = TUR_refused_soviet_demands_1
+		}
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+		
+		date > 1945.01.01	
+	}	
+
+	mean_time_to_happen = {
+		days =180
+	}
+	
+	option = {
+		name = turkey.21.a
+		
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_soviet_demands
+		
+			SOV = {
+				set_state_owner = 341
+				set_state_controller = 341
+				
+				set_state_owner = 340
+				set_state_controller = 340
+				
+				set_state_owner = 797
+				set_state_controller = 797
+				
+				set_state_owner = 813
+				set_state_controller = 813
+			}
+		
+	}
+	
+	option = {
+		name = turkey.21.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		add_political_power = -50
+		set_country_flag = TUR_refused_soviet_demands_2
+		
+	}
+}
+
+
+#Straits Crisis 3!
+country_event = {
+	id = turkey.22
+	title = turkey.22.t
+	desc = turkey.22.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			NOT = { has_country_flag = TUR_accepted_soviet_demands }
+			has_country_flag = TUR_refused_soviet_demands_2
+		}
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+		
+		date > 1945.01.01
+	}	
+
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = turkey.22.a
+		
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_soviet_demands
+		
+			SOV = {
+				set_state_owner = 341
+				set_state_controller = 341
+				
+				set_state_owner = 340
+				set_state_controller = 340
+				
+				set_state_owner = 797
+				set_state_controller = 797
+				
+				set_state_owner = 813
+				set_state_controller = 813
+			}
+		
+	}
+	
+	option = {
+		name = turkey.22.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		add_political_power = -75
+		set_country_flag = TUR_refused_soviet_demands_3
+		
+	}
+}
+
+
+#Straits Crisis 4!
+country_event = {
+	id = turkey.23
+	title = turkey.23.t
+	desc = turkey.23.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			NOT = { has_country_flag = TUR_accepted_soviet_demands }
+			has_country_flag = TUR_refused_soviet_demands_3
+		}
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+		
+		date > 1945.01.01
+	}	
+
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = turkey.23.a
+		
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_soviet_demands
+		
+		SOV = {
+			set_state_owner = 341
+			set_state_controller = 341
+			
+			set_state_owner = 340
+			set_state_controller = 340
+			
+			set_state_owner = 797
+			set_state_controller = 797
+			
+			set_state_owner = 813
+			set_state_controller = 813
+		}
+		
+	}
+	
+	option = {
+		name = turkey.23.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		add_political_power = -100
+		set_country_flag = TUR_refused_soviet_demands_4
+		
+	}
+}
+
+
+#Straits Crisis 5!
+country_event = {
+	id = turkey.24
+	title = turkey.24.t
+	desc = turkey.24.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			NOT = { has_country_flag = TUR_accepted_soviet_demands }
+			has_country_flag = TUR_refused_soviet_demands_4
+		}
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+		
+		date > 1945.01.01
+	}	
+
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = turkey.24.a
+		
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_soviet_demands
+		
+			SOV = {
+				set_state_owner = 341
+				set_state_controller = 341
+				
+				set_state_owner = 340
+				set_state_controller = 340
+				
+				set_state_owner = 797
+				set_state_controller = 797
+				
+				set_state_owner = 813
+				set_state_controller = 813
+			}
+		
+	}
+	
+	option = {
+		name = turkey.24.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		add_political_power = -125
+		set_country_flag = TUR_refused_soviet_demands_5
+		
+	}
+}
+
+
+#Straits Crisis 6!
+country_event = {
+	id = turkey.25
+	title = turkey.25.t
+	desc = turkey.25.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		AND = {
+			NOT = { has_country_flag = TUR_accepted_soviet_demands }
+			has_country_flag = TUR_refused_soviet_demands_5	
+		}
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+		date > 1945.01.01
+	}	
+
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = turkey.25.a
+		
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_soviet_demands
+		
+		SOV = {
+			set_state_owner = 341
+			set_state_controller = 341
+			
+			set_state_owner = 340
+			set_state_controller = 340
+			
+			set_state_owner = 797
+			set_state_controller = 797
+			
+			set_state_owner = 813
+			set_state_controller = 813
+		}
+		
+	}
+	
+	option = {
+		name = turkey.25.b
+		
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		add_political_power = -150
+		set_country_flag = TUR_refused_soviet_demands_6
+		
+		USA = { give_guarantee = TUR }
+		
+		hidden_effect = {
+			SOV = {
+				add_state_claim = 341
+				add_state_claim = 340
+				add_state_claim = 797
+				add_state_claim = 813
+				
+				create_wargoal = {
+					type = take_state_focus
+					target = SOV
+					generator = { 341 }
+				}
+				
+				create_wargoal = {
+					type = take_state_focus
+					target = SOV
+					generator = { 340 }
+				}
+				
+				create_wargoal = {
+					type = take_state_focus
+					target = SOV
+					generator = { 797 }
+				}
+				
+				create_wargoal = {
+					type = take_state_focus
+					target = SOV
+					generator = { 813 }
+				}
+			}
+		}
+		
+	}
+}
+
+
+#Crisis Averted!
+country_event = {
+	id = turkey.26
+	title = turkey.26.t
+	desc = turkey.26.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		has_country_flag = TUR_refused_soviet_demands_6
+		NOT = { has_war_with = SOV }
+		
+		AND = {
+			NOT = { 
+				341 = { is_controlled_by = SOV }
+				340 = { is_controlled_by = SOV }
+				797 = { is_controlled_by = SOV }
+				813 = { is_controlled_by = SOV }
+				
+				341 = { is_owned_by = SOV }
+				340 = { is_owned_by = SOV }
+				797 = { is_owned_by = SOV }
+				813 = { is_owned_by = SOV }
+			}
+		}
+		
+		date > 1948.01.01
+	}	
+
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = turkey.28.a
+		
+		add_stability = 0.1
+		add_war_support = 0.1
+		
+		add_popularity = { ideology = neutrality popularity = 0.1 }	
+		
+	}
+}
+
+#Soviet Union Demands Kars!
+country_event = {
+	id = turkey.27
+	title = turkey.27.t
+	desc = turkey.27.d
+	picture = GFX_report_event_generic_army
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUR
+		date > 1944.09.01
+		
+		AND = {
+			NOT = { 
+				809 = { is_controlled_by = SOV }
+				809 = { is_owned_by = SOV }
+			}
+		}
+		
+		SOV = {
+			country_exists = SOV
+			OR = {
+				has_war = no
+				NOT = { surrender_progress > 0.25 }
+			}
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+	}	
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = turkey.27.a
+		ai_chance = {
+			factor = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 0.8
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_accepted_cede_kars
+		
+		802 = {
+			if = {
+				limit = { is_owned_by = TUR }
+				
+				SOV = {
+					set_state_owner = 809
+					set_state_controller = 809
+				}
+			
+				add_named_threat = { threat = 3 name = "Soviet Union's Ocuppation of Kars" }
+			}
+		}
+	}
+	
+	option = {
+		name = turkey.27.b
+		ai_chance = {
+			factor = 40
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.6
+				strength_ratio = { tag = SOV ratio < 1 }
+			}
+			
+			modifier = {
+				factor = 1.2
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+		}
+		
+		set_country_flag = TUR_refused_cede_kars
+		
+		SOV = {
+			add_state_claim = 809
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = SOV
+				generator = { 809 }
+			}
+		}
+
+	}
+}
+
+#Salonika Agreement
+country_event = {
+	id = turkey.28
+	title = turkey.28.t
+	desc = turkey.28.d
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = turkey.28.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0
+				BUL = { has_war = yes }
+			}
+			
+			modifier = {
+				factor = 1.5
+				threat > 0.25
+			}
+			
+			modifier = {
+				factor = 1.5
+				BUL = { is_in_faction_with = TUR }
+			}
+		}
+
+		set_variable = {
+			var = votes_for_rearm
+			value = 1
+		}
+		
+		hidden_effect = {
+			GRE = { country_event = { id = greece.9 days = 1 } }
+		}
+	}
+	
+	option = {
+		name = turkey.28.b
+		ai_chance = {
+			base = 35
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 100
+				BUL = { has_war = yes }
+			}
+			
+			modifier = {
+				factor = 0.5
+				threat > 0.25
+			}
+			
+			modifier = {
+				factor = 0.5
+				BUL = { is_in_faction_with = TUR }
+			}
+		}
+		
+		set_variable = {
+			var = votes_for_rearm
+			value = 0
+		}
+		
+		hidden_effect = {
+			GRE = { country_event = { id = greece.9 days = 1 } }
+		}
+	}
+}
+
+#Bulgaria Demands Eastern Thrace
+country_event = {
+	id = turkey.29
+	title = turkey.29.t
+	desc = turkey.29.d
+	picture = GFX_report_event_soldiers_marching
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = turkey.29.a
+		ai_chance = {
+			base = 20
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = BUL
+					ratio < 1
+				}
+			}
+			
+			modifier = {
+				factor = 1.2
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 0.7
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 2
+				47 = { NOT = { is_controlled_by = TUR } }	
+			}
+		}
+		
+		341 = {
+			if = {
+				limit = { is_owned_by = TUR }
+				BUL = {
+					set_state_owner = 341
+					set_state_controller = 341
+				}
+			
+			add_named_threat = { threat = 1 name = "Annexation of Eastern Thrace" }
+			}
+		}
+	}
+	
+	option = {
+		name = turkey.29.b
+		ai_chance = {
+			base = 30
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+				
+			modifier = {
+				factor = 0.5
+				strength_ratio = {
+					tag = BUL
+					ratio < 1
+				}
+			}
+			
+			modifier = {
+				factor = 0.8
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.25
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					any_other_country = {
+
+						has_guaranteed = TUR
+					}
+					
+					any_other_country = {
+
+						is_in_faction_with = TUR
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 2
+				any_other_country = {
+					is_major = yes
+					
+					OR = {
+						is_in_faction_with = TUR
+						has_guaranteed = TUR
+					}
+					
+				}			
+			}
+			
+			modifier = {
+				factor = 0.5
+				47 = { NOT = { is_controlled_by = TUR } }	
+			}
+			
+		}
+		
+		BUL = {
+			add_state_claim = 341
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = TUR
+				generator = { 341 }
+			}
+		}
+	}
+}
+
+#United Kingdom Demands to Stop Trade with Nazis
+country_event = {
+	id = turkey.30
+	title = turkey.30.t
+	desc = turkey.30.d
+	picture = GFX_report_event_generic_conference
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = turkey.30.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 1.1
+				is_historical_focus_on = yes
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			modifier = {
+				factor = 1.1
+				has_war = no
+			}
+			
+			modifier = {
+				factor = 0.2
+				has_government = fascism
+			}
+		}
+		
+		set_country_flag = TUR_trade_with_brits
+		
+	}
+	
+	option = {
+		name = turkey.30.b
+		ai_chance = {
+			base = 30
+			
+			modifier = {
+				factor = 0.9
+				is_historical_focus_on = no
+			}
+			
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			modifier = {
+				factor = 0.9
+				has_war = no
+			}
+			
+			modifier = {
+				factor = 2
+				has_government = fascism
+			}
+			
+		}
+		
+		ENG = { 
+			add_opinion_modifier = { 
+				target = TUR
+				modifier = embargo
+			} 
+		}
+		
+	}
+}
+
+#Soviet Union Offers Peace
+country_event = {
+	id = turkey.31
+	title = turkey.31.t
+	desc = turkey.31.d
+	picture = GFX_report_event_generic_conference
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = turkey.31.a
+		ai_chance = {
+			base = 50
+			
+			modifier = {
+				factor = 1.5
+				SOV = { surrender_progress > 0.75 }
+			}
+			
+			modifier = {
+				factor = 0.6
+				has_government = fascism
+			}
+		}
+		
+		AZR = {  
+			set_truce = {
+				target = SOV
+				days = 365
+			}
+			
+			transfer_state = 230
+			transfer_state = 232			
+		}
+		
+		KAZ = {  
+			set_truce = {
+				target = SOV
+				days = 365
+			}
+			
+			transfer_state = 236		
+		}
+		
+		UZB = {  
+			set_truce = {
+				target = SOV
+				days = 365
+			}		
+		}
+		
+		TMS = {  
+			set_truce = {
+				target = SOV
+				days = 365
+			}		
+		}
+		
+		KYR = {  
+			set_truce = {
+				target = SOV
+				days = 365
+			}		
+		}
+		
+		TAJ = {  
+			set_truce = {
+				target = SOV
+				days = 365
+			}		
+		}
+		
+		set_truce = {
+			target = SOV
+			days = 365
+		}
+		
+		transfer_state = 805
+		
+		set_country_flag = TUR_peace_with_soviets
+		
+		hidden_effect = {
+			news_event = { id = news.344 days = 1 }
+		}
+		
+	}
+	
+	option = {
+		name = turkey.31.b
+		ai_chance = {
+			base = 30
+			
+			modifier = {
+				factor = 0.5
+				SOV = { surrender_progress > 0.75 }
+			}
+			
+			modifier = {
+				factor = 1.5
+				has_government = fascism
+			}
+			
+		}
+		
+		set_country_flag = TUR_refused_peace_with_soviets
+		
+	}
+}
+
+#Civil War for Fascism
+country_event = {
+	id = turkey.32
+	title = turkey.32.t
+	desc = turkey.32.d
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = turkey.32.a
+		
+		hidden_effect = {
+			if = {
+				limit = { original_tag = TUR }
+				add_ideas = TUR_death_before_surrender
+			}
+		}
+		
+		if = {
+			limit = {
+				has_government = democratic
+			}
+	
+			set_variable = {
+				var = civil_war_size_var
+				value = party_popularity@democratic
+			}
+		}
+
+		if = {
+			limit = {
+				has_government = communism
+			}
+			
+			set_variable = {
+				var = civil_war_size_var
+				value = party_popularity@communism
+			}
+		}
+
+		if = {
+			limit = {
+				has_government = neutrality
+			}
+			set_variable = {
+				var = civil_war_size_var
+				value = party_popularity@neutrality
+			}
+		}
+
+		set_variable = {
+			var = fascism_support_size
+			value = party_popularity@fascism
+		}
+		
+		subtract_from_variable = {
+			var = fascism_support_size
+			value = 0.3
+		}
+		
+		subtract_from_variable = {
+			var = civil_war_size_var
+			value = fascism_support_size
+		}
+
+		if = {
+			limit = {
+				check_variable = {
+					var = civil_war_size_var
+					value = 0.3
+					compare = less_than
+				}
+			}
+			
+			set_variable = {
+				var = civil_war_size_var
+				value = 0.3
+			}
+		}
+
+		start_civil_war = {
+			ideology = neutrality
+			size = civil_war_size_var
+		}
+		
+		set_country_flag = civil_war_in_turkey
+		
+	}
+}
+
+#Civil War for Fascism Ended
+country_event = {
+	id = turkey.33
+	title = turkey.33.t
+	desc = turkey.33.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_civil_war = no
+		has_country_flag = civil_war_in_turkey
+		has_government = fascism		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = turkey.33.a
+		set_capital = 49
+		add_stability = 0.1
+		
+		add_timed_idea = {
+			idea = TUR_recovering_from_civil_war
+			days = 240
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_completed_focus = TUR_montreux_convention }
+			}
+			
+			hidden_effect = {
+				797 = { set_demilitarized_zone = yes }
+				813 = { set_demilitarized_zone = yes }
+			}
+		}
+	}
+}
+
+#Civil War for Fascism Ended
+country_event = {
+	id = turkey.34
+	title = turkey.34.t
+	desc = turkey.34.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_civil_war = no
+		has_country_flag = civil_war_in_turkey
+		has_government = neutrality		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = turkey.34.a
+		add_stability = 0.1
+		remove_ideas = TUR_death_before_surrender
+		
+		add_timed_idea = {
+			idea = TUR_recovering_from_civil_war
+			days = 240
+		}
+
+		if = {
+			limit = {
+				NOT = { has_completed_focus = TUR_montreux_convention }
+			}
+			
+			hidden_effect = {
+				797 = { set_demilitarized_zone = yes }
+				813 = { set_demilitarized_zone = yes }
+			}
+		}
+	}
+}
+
+#Civil War for Islamism Ended
+country_event = {
+	id = turkey.35
+	title = turkey.35.t
+	desc = turkey.35.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_civil_war = no
+		has_country_flag = islamist_civil_war
+		has_government = islamism		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = turkey.35.a
+		add_stability = 0.1
+		
+		add_timed_idea = {
+			idea = TUR_recovering_from_civil_war
+			days = 240
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_completed_focus = TUR_montreux_convention }
+			}
+			
+			hidden_effect = {
+				797 = { set_demilitarized_zone = yes }
+				813 = { set_demilitarized_zone = yes }
+			}
+		}
+	}
+}
+
+#Civil War for Islamism Ended
+country_event = {
+	id = turkey.36
+	title = turkey.36.t
+	desc = turkey.36.d
+	picture = GFX_report_event_ger_civil_war
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_civil_war = no
+		has_country_flag = islamist_civil_war
+		has_government = neutrality		
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = turkey.36.a
+		set_capital = 49
+		add_stability = 0.1
+		
+		remove_ideas = TUR_death_before_surrender
+		
+		add_timed_idea = {
+			idea = TUR_recovering_from_civil_war
+			days = 240
+		}
+
+		if = {
+			limit = {
+				NOT = { has_completed_focus = TUR_montreux_convention }
+			}
+			
+			hidden_effect = {
+				797 = { set_demilitarized_zone = yes }
+				813 = { set_demilitarized_zone = yes }
+			}
+		}
+	}
+}

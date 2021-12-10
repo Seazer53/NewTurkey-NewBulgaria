@@ -1,0 +1,5956 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = turkish_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = TUR
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1100 }
+	
+	################################
+	# FOCUS FIRST DEVELOPMENT PLAN #
+	################################
+	
+	focus = {
+		id = TUR_first_development_plan
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = TUR_first_development_plan
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			custom_effect_tooltip = TUR_sumerbank_tt
+		}
+	}
+	
+	###############################
+	# FOCUS NEW TURKEY'S INDUSTRY #
+	###############################
+	
+	focus = {
+		id = TUR_new_turkeys_industry
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = TUR_first_development_plan }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+				random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+
+		}
+	}
+	
+	###########################
+	#   FOCUS RAILROAD EFFORT #
+	###########################
+	
+	focus = {
+		id = TUR_railroad_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TUR_first_development_plan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		available = {
+			OR = {
+				has_full_control_of_state = 340
+				has_full_control_of_state = 341
+				has_full_control_of_state = 49
+				has_full_control_of_state = 347
+			}
+		}
+		
+		completion_reward = {
+				340 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				801 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				49 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				341 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				347 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}		
+		}
+	}
+	
+	##############################
+	#     FOCUS URBANIZATION     #
+	##############################
+	
+	focus = {
+		id = TUR_urbanization
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = TUR_railroad_effort }
+		x = 1
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+				add_ideas = TUR_urbanization
+				
+				random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+
+		}
+	
+	}
+	
+	##############################
+	#    FOCUS MILITARIZATION    #
+	##############################
+	
+	focus = {
+		id = TUR_militarization
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TUR_new_turkeys_industry }
+		x = -1
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+				random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = arms_factory
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = arms_factory
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+
+		}
+	}
+	
+	###############################
+	#FOCUS SECOND DEVELOPMENT PLAN#
+	###############################
+	
+	focus = {
+		id = TUR_second_development_plan
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = TUR_militarization }
+		prerequisite = { focus = TUR_urbanization }
+		x = 0
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = TUR_second_development_plan
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+			
+			add_tech_bonus = {
+				name = TUR_second_development_plan
+				bonus = 1.0
+				uses = 1
+				category = excavation_tech
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			custom_effect_tooltip = TUR_petrol_ofisi_tt
+		}
+	}
+	
+	#################################################
+	#     FOCUS KARDEMIR IRON AND STEEL FACTORY     #
+	#################################################
+	
+	focus = {
+		id = TUR_kardemir_iron_and_steel_factory
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = TUR_second_development_plan }
+		x = 0
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			ROOT = { has_full_control_of_state = 347 }
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			347 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+				
+				add_building_construction = {
+					 type = industrial_complex
+					 level = 1
+					 instant_build = yes
+					}
+			}
+		}
+	}
+	
+	################################
+	#   FOCUS ISTANBUL UNIVERSITY  #
+	################################
+	
+	focus = {
+		id = TUR_istanbul_university
+		icon = GFX_focus_research
+		prerequisite = { focus = TUR_kardemir_iron_and_steel_factory}
+		x = 0
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		
+		available = {
+			num_of_factories > 35
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	#########################################
+	#   FOCUS ESTABLISH VILLAGE INSTITUTES  #
+	#########################################
+	
+	focus = {
+		id = TUR_establish_village_institutes
+		icon = GFX_focus_research2
+		prerequisite = { focus = TUR_istanbul_university}
+		x = 0
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TUR_hasan_ali_yucel
+			
+			add_ideas = TUR_village_institutes_1
+			
+			unlock_decision_tooltip = TUR_support_village
+		}
+
+	}
+	
+	#############################################
+	#   FOCUS PEACE AT HOME PEACE IN THE WORLD  #
+	#############################################
+	
+	focus = {
+		id = TUR_peace_at_home_peace_in_the_world
+		icon = GFX_goal_generic_propaganda
+		x = 19
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 15
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 120
+		}
+
+	}
+	
+	################################
+	#   FOCUS MONTREUX CONVENTION  #
+	################################
+	
+	focus = {
+		id = TUR_montreux_convention
+		icon = GFX_focus_TUR_the_montreux_convention
+		prerequisite = {focus = TUR_peace_at_home_peace_in_the_world}
+		x = 14
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 14
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			797 = {is_controlled_by = ROOT}
+			813 = {is_controlled_by = ROOT}
+			
+			threat > 0.09 
+		}
+		
+		completion_reward = {
+			country_event = { id = turkey.2 days = 1 }
+		}
+
+	}
+
+	####################################
+	#   FOCUS FLEXIBLE FOREIGN POLICY  #
+	####################################
+	
+	focus = {
+		id = TUR_flexible_foreign_policy
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = TUR_peace_at_home_peace_in_the_world}
+		x = 26
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_political_power = 120
+			add_ideas = ROM_flexible_foreign_policy
+		}
+	}
+	
+	###############################
+	#   FOCUS CLOUDIUS AGREEMENT  #
+	###############################
+	
+	focus = {
+		id = TUR_clodius_agreement
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = TUR_flexible_foreign_policy}
+		x = 25
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			is_puppet = no 
+			NOT = { has_war_with = GER }
+			GER = {
+				exists = yes
+				is_puppet = no
+				has_completed_focus = GER_turkey_friend
+			}
+		}
+		
+		completion_reward = {
+			add_opinion_modifier = { target = TUR modifier = turkish_german_treaty_of_friendship_trade }
+			add_opinion_modifier = { target = GER modifier = turkish_german_treaty_of_friendship_trade }
+			
+			custom_effect_tooltip = needs_decision
+			
+			effect_tooltip = {
+				unlock_decision_tooltip = TUR_sell_chromium_to_germans
+			}
+		} 
+	}
+	
+	####################################
+	#   FOCUS DEMOCRATIC APPROACHMENT  #
+	####################################
+	
+	focus = {
+		id = TUR_democratic_approachment
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TUR_trade_with_allies}
+		mutually_exclusive = { focus = TUR_support_fascism}
+		mutually_exclusive = { focus = TUR_government_reforms}
+		mutually_exclusive = { focus = TUR_support_communism}
+		x = 23
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 0
+				has_government = islamism
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			is_puppet = no 
+			NOT = { has_war_with = ENG }
+			ENG = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		
+		completion_reward = {
+			if = {
+				limit = { has_government = democratic }
+				add_political_power = 120
+			}
+			
+			if = {
+				limit = { has_government = neutrality }
+				add_stability = -0.05
+			}
+			
+			else = {
+				add_stability = -0.1
+			}
+			
+			add_timed_idea = { idea = democratic_influence days = 1095 }
+		}
+	}
+	
+	##################################
+	#   FOCUS TREATY WITH THE DEVIL  #
+	##################################
+	
+	focus = {
+		id = TUR_treaty_with_the_devil
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = TUR_flexible_foreign_policy}
+		x = 27
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			is_puppet = no 
+			NOT = { has_war_with = SOV }
+			SOV = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		
+		completion_reward = {
+			add_opinion_modifier = { target = TUR modifier = large_increase }
+			add_opinion_modifier = { target = SOV modifier = large_increase }
+		}
+	}
+	
+	######################################
+	#   FOCUS STRENGTHEN THE GOVERNMENT  #
+	######################################
+	
+	focus = {
+		id = TUR_strengthen_the_government
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = TUR_flexible_foreign_policy}
+		x = 29
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			has_government = neutrality
+		}
+		
+		completion_reward = {
+			add_popularity = { ideology = neutrality popularity = 0.05 }
+		}
+	}
+	
+	###############################
+	#   FOCUS TREATY OF SAADABAD  #
+	###############################
+	
+	focus = {
+		id = TUR_treaty_of_saadabad
+		icon = GFX_focus_TUR_treaty_of_saadabad
+		prerequisite = { focus = TUR_montreux_convention}
+		mutually_exclusive = { focus = TUR_misaki_milli }
+		mutually_exclusive = { focus = TUR_turanism }
+		mutually_exclusive = { focus = TUR_reestablish_ottoman_empire }
+		x = 7
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			date > 1937.07.08
+			
+			PER = {
+				is_in_faction = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+				NOT = { has_war_with = ROOT }
+			}
+			
+			IRQ = {
+				is_in_faction = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+				NOT = { has_war_with = ROOT }
+			}
+			
+			AFG = {
+				is_in_faction = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+				NOT = { has_war_with = ROOT }
+			}
+			
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		bypass = {
+			PER = {
+				is_in_faction_with = TUR
+				has_war_with = ROOT
+			}
+			
+			IRQ = {
+				is_in_faction_with = TUR
+				has_war_with = ROOT 
+			}
+			
+			AFG = {
+				is_in_faction_with = TUR
+				has_war_with = ROOT 
+			}
+		}
+		
+		completion_reward = {
+			PER = {
+				country_event = { id = iran.1 days = 1 }
+			}
+			
+			IRQ = {
+				country_event = { id = iraq.2 days = 1}
+			}
+			
+			AFG = {
+				country_event = { id = afghanistan.1 days = 1}
+			}
+		}
+	}
+	
+	########################
+	#   FOCUS HATAY ISSUE  #
+	########################
+	
+	focus = {
+		id = TUR_hatay_issue
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = TUR_montreux_convention}
+		x = 21
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		available = {
+			OR = {
+				date > 1939.06.29
+				threat > 0.3
+			}
+		
+			NOT = {
+				has_war_with = FRA
+				has_full_control_of_state = 799
+			}
+			
+			FRA = {
+				has_full_control_of_state = 799
+			}
+		}
+		
+		bypass = {
+			799 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			FRA = {
+				country_event = { hours = 6 id = france.35}
+			}
+		}
+	
+	}
+
+	
+	####################################
+	#   FOCUS REVISE TREATY OF ANKARA  #
+	####################################
+	
+	focus = {
+		id = TUR_revise_treaty_of_ankara
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = TUR_misaki_milli}
+		x = 13
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		available = {
+		
+			ROOT = {
+				NOT = {
+					has_war_with = IRQ
+					has_full_control_of_state = 676
+				}
+			}
+			
+			IRQ = {
+				has_full_control_of_state = 676
+			}
+		}
+		
+		bypass = {
+			676 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			IRQ = {
+				country_event = { hours = 6 id = iraq.1}
+			}
+		}
+	}
+	
+	##############################
+	#   FOCUS EURASIAN ALLIANCE  #
+	##############################
+	
+	focus = {
+		id = TUR_eurasian_alliance
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = TUR_treaty_of_saadabad }
+		x = 7
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		
+			is_in_faction = no
+			
+			PER = {
+				is_in_faction = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+				NOT = { has_war_with = ROOT }
+			}
+			
+			IRQ = {
+				is_in_faction = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+				NOT = { has_war_with = ROOT }
+			}
+			
+			AFG = {
+				is_in_faction = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+				NOT = { has_war_with = ROOT }
+			}
+			
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		bypass = {
+			PER = {
+				has_war_with = ROOT
+			}
+			
+			IRQ = {
+				has_war_with = ROOT 
+			}
+			
+			AFG = {
+				has_war_with = ROOT 
+			}
+		}
+		
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			
+			create_faction = TUR_eurasian_alliance
+			set_cosmetic_tag = TUR_eurasian_alliances
+			
+			
+			PER = {
+				country_event = {id = iran.2 days = 1}
+			}
+			
+			IRQ = {
+				country_event = {id = iraq.4 days = 1}
+			}
+			
+			AFG = {
+				country_event = {id = afghanistan.4 days = 1} 
+			}
+			
+			
+		}
+	}
+	
+	#########################
+	#   FOCUS MISAK-I MİLLİ #
+	#########################
+	
+	focus = {
+		id = TUR_misaki_milli
+		icon = GFX_focus_TUR_misak_i_milli
+		prerequisite = { focus = TUR_montreux_convention}
+		mutually_exclusive = { focus = TUR_treaty_of_saadabad }
+		mutually_exclusive = { focus = TUR_turanism }
+		mutually_exclusive = { focus = TUR_reestablish_ottoman_empire }
+		x = 11
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				is_puppet = no
+			}
+		}
+		
+		completion_reward = {
+			add_ideas = TUR_misaki_milli
+			811 = { add_core_of = TUR }
+			187 = { add_core_of = TUR }
+			184 = { add_core_of = TUR }
+			676 = { add_core_of = TUR }
+			807 = { add_core_of = TUR }
+			183 = { add_core_of = TUR }
+			164 = { add_core_of = TUR }
+			
+			add_named_threat = { name = TUR_misaki_milli threat = 1 }
+		}
+	}
+	
+	###############################
+	#   FOCUS FATE OF DODECANESE  #
+	###############################
+	
+	focus = {
+		id = TUR_fate_of_dodecanese
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TUR_secure_aegean_sea focus = TUR_revise_syria_turkey_border focus = TUR_hold_referendum_in_batumi }
+		x = 11
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = ITA
+					has_full_control_of_state = 164
+				}
+			}
+			
+			ITA = {
+				has_full_control_of_state = 164
+			}
+		}
+		
+		bypass = {
+			164 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			ITA = {
+				country_event = {id = italy.17 days = 1}
+			}		
+		}
+	}
+	
+	##################################
+	#   FOCUS RETAKE WESTERN THRACE  #
+	##################################
+	
+	focus = {
+		id = TUR_retake_western_thrace
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TUR_misaki_milli}
+		x = 10
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = GRE
+					has_full_control_of_state = 184
+				}
+			}
+			
+			GRE = {
+				has_full_control_of_state = 184
+			}
+		}
+		
+		bypass = {
+			OR = {
+				184 = {
+					is_controlled_by = ROOT
+					is_owned_by = ROOT
+				}
+				
+				BUL = { has_completed_focus = BUL_demand_western_thrace }
+			}
+		}
+		
+		completion_reward = {
+			GRE = {
+				country_event = {id = greece.5 days = 1}
+			}		
+		}
+	}
+	
+	##############################
+	#   FOCUS SECURE AEGEAN SEA  #
+	##############################
+	
+	focus = {
+		id = TUR_secure_aegean_sea
+		icon = GFX_focus_generic_aegean_sea_focus
+		prerequisite = { focus = TUR_retake_western_thrace}
+		x = 10
+		y = 4
+		cost = 4
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = GRE
+					has_full_control_of_state = 187
+				}
+			}
+			
+			GRE = {
+				has_full_control_of_state = 187
+			}
+		}
+		
+		bypass = {
+			187 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			187 = {
+			if = {
+				limit = { is_owned_by = GRE }
+				add_core_of = TUR
+			}
+		}
+		
+		TUR = {
+			set_state_owner = 187
+			set_state_controller = 187
+		}
+		
+		add_named_threat = { threat = 3 name = "Turkey's Occupation of Aegean Islands" }
+			
+			hidden_effect = {
+				GRE = { country_event = {id = greece.6 days = 1} }		
+			}
+		}
+	}
+	
+	#######################################
+	#   FOCUS REVISE SYRIA-TURKEY BORDER  #
+	#######################################
+	
+	focus = {
+		id = TUR_revise_syria_turkey_border
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = TUR_revise_treaty_of_ankara}
+		x = 12
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				OR = {
+					NOT = {
+						has_war_with = FRA
+						has_full_control_of_state = 807
+					}
+					
+					NOT = {
+						has_war_with = VIC
+						has_full_control_of_state = 807
+					}
+				
+				}
+			}
+			
+			OR = {
+			
+				FRA = {
+					has_full_control_of_state = 807
+				}
+				
+				VIC = {
+					has_full_control_of_state = 807
+				}
+			}
+		}
+		
+		bypass = {
+			807 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			if = {
+				limit = { 
+					FRA = { has_full_control_of_state = 807 }
+				}
+				
+				FRA = { country_event = {id = france.36 days = 1} }
+			}
+			
+			if = {
+				limit = { 
+					VIC = { has_full_control_of_state = 807 }
+				}
+				
+				VIC = { country_event = {id = france.36 days = 1} }
+			}
+		}
+	}
+	
+	#####################################
+	#   FOCUS SECURE MEDITERRANEAN SEA  #
+	#####################################
+	
+	focus = {
+		id = TUR_secure_mediterranean_sea
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = TUR_revise_syria_turkey_border focus = TUR_secure_aegean_sea focus = TUR_hold_referendum_in_batumi}
+		x = 13
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = ENG
+					has_full_control_of_state = 183
+				}
+			}
+			
+			ENG = {
+				has_full_control_of_state = 183
+			}
+		}
+		
+		bypass = {
+			183 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			ENG = { country_event = {id = britain.25 days = 1} }
+		}
+	}
+	
+	##########################
+	#   FOCUS INVITE GREECE  #
+	##########################
+	
+	focus = {
+		id = TUR_invite_greece
+		icon = GFX_focus_generic_befriend_greece
+		prerequisite = { focus = TUR_eurasian_alliance}
+		x = 6
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = GRE
+				}
+			}
+			
+			GRE = {
+				is_in_faction = no
+				exists = yes
+				is_puppet = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+		}
+		
+		bypass = {
+			GRE = {
+				OR = {
+					is_in_faction_with = TUR 
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		completion_reward = {
+			GRE = { country_event = {id = greece.7 days = 1} }
+		}
+	}
+	
+	###########################
+	#   FOCUS INVITE ROMANIA  #
+	###########################
+	
+	focus = {
+		id = TUR_invite_romania
+		icon = GFX_focus_invite_romania
+		prerequisite = { focus = TUR_eurasian_alliance}
+		x = 8
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = ROM
+				}
+			}
+			
+			ROM = {
+				is_in_faction = no
+				exists = yes
+				is_puppet = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+		}
+		
+		bypass = {
+			ROM = {
+				OR = {
+					is_in_faction_with = TUR 
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		completion_reward = {
+			ROM = { country_event = {id = romania.7 days = 1} }
+		}
+	}
+	
+	##############################
+	#   FOCUS INVITE YUGOSLAVIA  #
+	##############################
+	
+	focus = {
+		id = TUR_invite_yugoslavia
+		icon = GFX_focus_invite_yugoslavia
+		prerequisite = { focus = TUR_eurasian_alliance}
+		x = 7
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = YUG
+				}
+			}
+			
+			YUG = {
+				is_in_faction = no
+				exists = yes
+				is_puppet = no
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+		}
+		
+		bypass = {
+			ROM = {
+				OR = {
+					is_in_faction_with = TUR 
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		completion_reward = {
+			YUG = { country_event = {id = yugoslavia.10 days = 1} }
+		}
+	}
+	
+	##############################
+	#   FOCUS TRADE WITH ALLIES  #
+	##############################
+	
+	focus = {
+		id = TUR_trade_with_allies
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = TUR_flexible_foreign_policy}
+		x = 23
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			is_puppet = no 
+			NOT = { has_war_with = ENG }
+			ENG = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = large_increase }
+			
+			ENG = {
+				add_opinion_modifier = { target = TUR modifier = large_increase }
+			}
+				
+		}
+	}
+	
+	############################
+	#   FOCUS SUPPORT FASCISM  #
+	############################
+	
+	focus = {
+		id = TUR_support_fascism
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = TUR_clodius_agreement}
+		mutually_exclusive = { focus = TUR_democratic_approachment}
+		mutually_exclusive = { focus = TUR_support_communism}
+		mutually_exclusive = { focus = TUR_government_reforms}
+		x = 25
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7.5
+			modifier = {
+				factor = 0
+				has_government = islamism
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+		
+		}
+		
+		completion_reward = {
+			add_timed_idea = { idea = fascist_influence days = 1095 }
+			
+			if = {
+				limit = { has_government = fascism }
+				add_political_power = 120
+			}
+			
+			else = {
+				add_stability = -0.1
+			}	
+		}
+	}
+	
+	##############################
+	#   FOCUS SUPPORT COMMUNISM  #
+	##############################
+	
+	focus = {
+		id = TUR_support_communism
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = TUR_treaty_with_the_devil}
+		mutually_exclusive = { focus = TUR_support_fascism}
+		mutually_exclusive = { focus = TUR_government_reforms}
+		mutually_exclusive = { focus = TUR_democratic_approachment}
+		x = 27
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_government = islamism
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+		
+		}
+		
+		completion_reward = {
+			add_timed_idea = { idea = communist_influence days = 1095 }
+			
+			if = {
+				limit = { has_government = communism }
+				add_political_power = 120
+			}
+			
+			else = {
+				add_stability = -0.1
+			}		
+		}
+	}
+	
+	###############################
+	#   FOCUS GOVERNMENT REFORMS  #
+	###############################
+	
+	focus = {
+		id = TUR_government_reforms
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = TUR_strengthen_the_government}
+		mutually_exclusive = { focus = TUR_support_communism}
+		mutually_exclusive = { focus = TUR_support_fascism}
+		mutually_exclusive = { focus = TUR_democratic_approachment}
+		x = 29
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available = {
+			has_government = neutrality
+			has_stability < 0.6
+		}
+		
+		completion_reward = {
+			add_timed_idea = { idea = TUR_government_reforms days = 210}
+		}
+	}
+	
+	########################
+	#   FOCUS JOIN ALLIES  #
+	########################
+	
+	focus = {
+		id = TUR_join_allies
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = TUR_democratic_approachment}
+		x = 23
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			OR = {
+				OR = {
+					has_government = democratic
+					ENG = {
+						has_completed_focus = uk_turkey_focus
+					}
+				}
+				
+			}
+			
+			is_in_faction = no
+
+		}
+		
+		bypass = {
+			OR = {
+				is_in_faction = yes
+				TUR = {
+					is_subject = yes		
+				}
+			}
+		}
+		
+		completion_reward = {
+			ENG = {
+				country_event = { id = britain.26 days = 1}
+			}
+		}
+	}
+	
+	######################
+	#   FOCUS JOIN AXIS  #
+	######################
+	
+	focus = {
+		id = TUR_join_axis
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TUR_support_fascism}
+		x = 25
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 7.5
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			is_in_faction = no
+			has_government = fascism
+
+		}
+		
+		bypass = {
+			is_in_faction = yes
+			
+			OR = {
+				is_in_faction = yes
+				TUR = {
+					is_subject = yes			
+				}
+			}
+		}
+		
+		completion_reward = {
+			GER = {
+				country_event = { id = germany.1003 days = 1}
+			}
+		}
+	}
+	
+	###########################
+	#   FOCUS JOIN COMINTERN  #
+	###########################
+	
+	focus = {
+		id = TUR_join_comintern
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = TUR_support_communism}
+		x = 27
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			is_in_faction = no
+			has_government = communism
+			NOT = {
+				SOV = {
+					has_completed_focus = SOV_claim_on_the_straits
+				}
+			}
+		}
+		
+		bypass = {
+			is_in_faction = yes
+			
+			OR = {
+				is_in_faction = yes
+				TUR = {
+					is_subject = yes			
+				}
+			}
+		}
+		
+		completion_reward = {
+			SOV = {
+				country_event = { id = soviet.65 days = 1}
+			}
+		}
+	}
+	
+	##################################
+	#   FOCUS PREPARE FOR THE WORST  #
+	##################################
+	
+	focus = {
+		id = TUR_prepare_for_the_worst
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = TUR_government_reforms}
+		x = 29
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		
+		available = {
+			has_war_support < 0.6
+			has_government = neutrality
+		}
+		
+		completion_reward = {
+			add_timed_idea = { idea = TUR_prepare_for_the_worst days = 210}
+		}
+	}
+	
+	############################
+	#   FOCUS PREPARE FOR WAR  #
+	############################
+	
+	focus = {
+		id = TUR_prepare_for_war
+		icon = GFX_focus_generic_military_academy
+		x = 33
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 15
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			threat > 0.05
+			has_country_flag = TUR_debts_paid1
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_recovering_from_turkish_war_of_independence
+				add_idea = TUR_recovering_from_turkish_war_of_independence2
+			}
+			
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TUR_celal_bayar
+			
+		}
+
+	}
+	
+	##################################
+	#   FOCUS FORTIFY SOVIET BORDER  #
+	##################################
+	
+	focus = {
+		id = TUR_fortify_soviet_border
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = TUR_prepare_for_war}
+		x = 31
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		available = {
+			354 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			809 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			800 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+		}
+		
+		completion_reward = {
+			354 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 11753
+					instant_build = yes
+				}
+			}
+			
+			809 = {				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 7454
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 10403
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 10472
+					instant_build = yes
+				}
+			}
+			
+			800 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 12376
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 4583
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	###################################
+	#   FOCUS FORTIFY EASTERN THRACE  #
+	###################################
+	
+	focus = {
+		id = TUR_fortify_eastern_thrace
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = TUR_prepare_for_war}
+		x = 35
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 7
+		}
+		
+		available = {
+			341 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			has_completed_focus = TUR_montreux_convention
+		}
+		
+		completion_reward = {
+			341 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 3893
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 11842
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 922
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	#####################################
+	#   FOCUS EXPAND MILITARY INDUSTRY  #
+	#####################################
+	
+	focus = {
+		id = TUR_expand_military_industry
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = TUR_fortify_soviet_border focus = TUR_fortify_eastern_thrace focus = TUR_fortify_marmara_region}
+		x = 33
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	##########################
+	#   FOCUS ARMY RESEARCH  #
+	##########################
+	
+	focus = {
+		id = TUR_army_research
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = TUR_reach_an_agreement_with_lenders}
+		x = 33
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {
+			num_of_factories > 50
+		}
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	#########################
+	#   FOCUS MOBILIZATION  #
+	#########################
+	
+	focus = {
+		id = TUR_mobilization
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = TUR_army_research}
+		x = 31
+		y = 5
+		cost = 20
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		
+		available = {
+			OR = {
+				has_country_flag = TUR_recovered_from_turkish_war_of_independence
+				has_defensive_war = yes
+			}
+		}
+		
+		completion_reward = {
+			add_manpower = 200000
+		}
+	}
+	
+	###################################
+	#   FOCUS FORTIFY MARMARA REGION  #
+	###################################
+	
+	focus = {
+		id = TUR_fortify_marmara_region
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = TUR_prepare_for_war}
+		x = 33
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		available = {
+			797 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			341 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			813 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			340 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			has_completed_focus = TUR_montreux_convention
+		}
+		
+		completion_reward = {
+			797 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 9833
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 9833
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 11829
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 11829
+					instant_build = yes
+				}
+			}
+			
+			341 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 3879
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 6895
+					instant_build = yes
+				}
+			}
+			
+			813 = {				
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 6912
+					instant_build = yes
+				}
+			}
+			
+			340 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 3851
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 947
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 11867
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	#####################
+	#   FOCUS KEMALISM  #
+	#####################
+	
+	focus = {
+		id = TUR_embrace_kemalism
+		icon = GFX_focus_TUR_ratify_the_six_arrows
+		mutually_exclusive = { focus = TUR_embrace_islamism }
+		mutually_exclusive = { focus = TUR_embrace_pan_turkism }
+		x = 38
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		completion_reward = {
+			add_ideas = TUR_kemalism
+		}
+	}
+	
+	##############################
+	#   FOCUS BAN OTHER PARTIES  #
+	##############################
+	
+	focus = {
+		id = TUR_ban_other_parties
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = TUR_embrace_kemalism}
+		x = 38
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			OR = {
+				AND = {
+					has_government = neutrality
+					neutrality > 0.75
+				}
+				
+				AND = {
+					has_government = democratic
+					democratic > 0.75
+				}
+			}		
+			
+			has_political_power > 25
+		}
+		
+		completion_reward = {
+			add_political_power = -25
+		
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				
+				set_popularities = {
+					democratic = 0
+					neutrality = 100
+					fascism = 0
+					communism = 0
+					islamism = 0
+				}
+			}
+			
+			if = {
+				limit = {
+					has_government = democratic
+				}
+				
+				set_popularities = {
+					democratic = 100
+					neutrality = 0
+					fascism = 0
+					communism = 0
+					islamism = 0
+				}
+			}
+		}
+	}
+	
+	##########################
+	#   FOCUS REPUBLICANISM  #
+	##########################
+	
+	focus = {
+		id = TUR_republicanism
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TUR_ban_other_parties}
+		x = 38
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		completion_reward = {		
+			swap_ideas = {
+				remove_idea = TUR_kemalism
+				add_idea = TUR_kemalism2
+			}
+		}
+	}
+	
+	#####################
+	#   FOCUS POPULISM  #
+	#####################
+	
+	focus = {
+		id = TUR_populism
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = TUR_republicanism}
+		x = 38
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		completion_reward = {		
+			swap_ideas = {
+				remove_idea = TUR_kemalism2
+				add_idea = TUR_kemalism3
+			}
+		}
+	}
+	
+	########################
+	#   FOCUS NATIONALISM  #
+	########################
+	
+	focus = {
+		id = TUR_nationalism
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = TUR_populism}
+		x = 38
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		completion_reward = {		
+			swap_ideas = {
+				remove_idea = TUR_kemalism3
+				add_idea = TUR_kemalism4
+			}
+		}
+	}
+	
+	####################
+	#   FOCUS LAICISM  #
+	####################
+	
+	focus = {
+		id = TUR_laicism
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = TUR_nationalism}
+		x = 38
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		completion_reward = {	
+			swap_ideas = {
+				remove_idea = TUR_kemalism4
+				add_idea = TUR_kemalism5
+			}
+		}
+	}
+	
+	######################
+	#   FOCUS REFORMISM  #
+	######################
+	
+	focus = {
+		id = TUR_reformism
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = TUR_laicism}
+		x = 38
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_kemalism5
+				add_idea = TUR_kemalism6
+			}
+		}
+	}
+	
+	##################################
+	#   FOCUS STUDY THE NEW WARFARE  #
+	##################################
+	
+	focus = {
+		id = TUR_study_the_new_warfare
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = TUR_expand_civilian_industry}
+		x = 33
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+	}
+	
+	#################################
+	#   FOCUS MOBILIZE OUR ECONOMY  #
+	#################################
+	
+	focus = {
+		id = TUR_mobilize_our_economy
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = TUR_army_research}
+		x = 35
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		available = {
+		}
+		
+		completion_reward = {
+			add_ideas = war_economy
+		}
+
+	}
+	
+	############################################
+	#   FOCUS REACH AN AGREEMENT WITH LENDERS  #
+	############################################
+	
+	focus = {
+		id = TUR_reach_an_agreement_with_lenders
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = TUR_expand_military_industry}
+		x = 33
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 11
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			has_country_flag = TUR_debts_paid3
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_recovering_from_turkish_war_of_independence2
+				add_idea = TUR_recovering_from_turkish_war_of_independence3
+			}
+		}
+
+	}
+	
+	##################################
+	#   FOCUS PAY OFF OTTOMAN DEBTS  #
+	##################################
+	
+	focus = {
+		id = TUR_pay_off_ottoman_debts
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = TUR_study_the_new_warfare}
+		x = 33
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			has_country_flag = TUR_debts_paid5
+		}
+		
+		completion_reward = {
+			remove_ideas = TUR_recovering_from_turkish_war_of_independence3
+			set_country_flag = TUR_recovered_from_turkish_war_of_independence
+		}
+
+	}
+
+	#####################################
+	#   FOCUS EXPAND CIVILIAN INDUSTRY  #
+	#####################################
+	
+	focus = {
+		id = TUR_expand_civilian_industry
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = TUR_army_research}
+		x = 33
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	#####################
+	#   FOCUS ISLAMISM  #
+	#####################
+	
+	focus = {
+		id = TUR_embrace_islamism
+		icon = GFX_focus_generic_monarchy_1
+		mutually_exclusive = { focus = TUR_embrace_kemalism}
+		mutually_exclusive = { focus = TUR_embrace_pan_turkism}
+		x = 40
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available = {		
+
+		}
+		
+		completion_reward = {
+			add_stability = -0.1
+			
+			add_timed_idea = {
+				idea = TUR_boost_islamism
+				days = 1095
+			}
+			
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TUR_mehmet_akif_ersoy
+		}
+	}
+	
+	######################################
+	#   FOCUS UNITE ISLAMIST SUPPORTERS  #
+	######################################
+	
+	focus = {
+		id = TUR_unite_islamist_supporters
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = TUR_embrace_islamism}
+		x = 40
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {		
+			islamism > 0.1
+		}
+		
+		completion_reward = {
+			add_popularity = { ideology = islamism popularity = 0.1 }
+		}
+	}
+	
+	#####################################
+	#   FOCUS OVERTHROW THE GOVERNMENT  #
+	#####################################
+	
+	focus = {
+		id = TUR_overthrow_the_government
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = TUR_unite_islamist_supporters}
+		x = 40
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {		
+			islamism > 0.25
+		}
+		
+		bypass = {
+			has_government = islamism
+		}
+		
+		completion_reward = {		
+			custom_effect_tooltip = civil_war
+			
+			hidden_effect = {
+				set_capital = 341
+					
+				if = {
+					limit = { original_tag = TUR }
+					add_ideas = TUR_death_before_surrender
+				}	
+				
+				if = {
+					limit = {
+						has_government = democratic
+					}
+			
+					set_variable = {
+						var = civil_war_size_var
+						value = party_popularity@democratic
+					}
+				}
+		
+				if = {
+					limit = {
+						has_government = communism
+					}
+					
+					set_variable = {
+						var = civil_war_size_var
+						value = party_popularity@communism
+					}
+				}
+				
+				if = {
+					limit = {
+						has_government = fascism
+					}
+					
+					set_variable = {
+						var = civil_war_size_var
+						value = party_popularity@fascism
+					}
+				}
+		
+				if = {
+					limit = {
+						has_government = neutrality
+					}
+					
+					set_variable = {
+						var = civil_war_size_var
+						value = party_popularity@neutrality
+					}
+				}
+		
+				set_variable = {
+					var = islamism_support_size
+					value = party_popularity@islamism
+				}
+				
+				subtract_from_variable = {
+					var = islamism_support_size
+					value = 0.4
+				}
+				
+				subtract_from_variable = {
+					var = civil_war_size_var
+					value = islamism_support_size
+				}
+				
+				if = {
+					limit = {
+						check_variable = {
+							var = civil_war_size_var
+							value = 0.3
+							compare = less_than
+						}
+					}
+					
+					set_variable = {
+						var = civil_war_size_var
+						value = 0.3
+					}
+				}
+		
+				start_civil_war = {
+					ruling_party = islamism
+					ideology = neutrality
+					size = civil_war_size_var
+				}
+				
+				set_country_flag = islamist_civil_war
+			}
+		}
+	}
+	
+	##############################
+	#   FOCUS MASS MOBILIZATION  #
+	##############################
+	
+	focus = {
+		id = TUR_mass_mobilization
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = TUR_overthrow_the_government}
+		x = 40
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 11
+		}
+		
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		
+		available = {		
+			has_government = islamism
+		}
+		
+		completion_reward = {
+			add_ideas = TUR_islamist
+		}
+	}
+	
+	##############################
+	#   FOCUS PROPAGANDA EFFORT  #
+	##############################
+	
+	focus = {
+		id = TUR_propaganda_effort
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = TUR_mass_mobilization}
+		x = 40
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {		
+			has_government = islamism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_islamist
+				add_idea = TUR_islamist2
+			}
+		}
+	}
+	
+	##################
+	#   FOCUS JIHAD  #
+	##################
+	
+	focus = {
+		id = TUR_jihad
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = TUR_propaganda_effort}
+		x = 40
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 11
+		}
+		
+		available = {		
+			has_government = islamism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_islamist2
+				add_idea = TUR_islamist3
+			}
+		}
+	}
+	
+	###################################
+	#   FOCUS WAR SUPPORT PROPAGANDA  #
+	###################################
+	
+	focus = {
+		id = TUR_war_support_propaganda
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = TUR_jihad}
+		x = 40
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT}
+		
+		available = {		
+			has_government = islamism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_islamist3
+				add_idea = TUR_islamist4
+			}
+		}
+	}
+	
+	###########################
+	#   FOCUS MODERNIZE ARMY  #
+	###########################
+	
+	focus = {
+		id = TUR_modernize_army
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 50
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+	
+	################################
+	#   FOCUS MODERNIZE EQUIPMENT  #
+	################################
+	
+	focus = {
+		id = TUR_modernize_equipment
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = TUR_modernize_army}
+		x = 46
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+			
+		}
+	}
+	
+	###########################
+	#   FOCUS ARMY MANEUVERS  #
+	###########################
+	
+	focus = {
+		id = TUR_army_maneuvers
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = TUR_modernize_army}
+		x = 50
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+			
+		}
+	}
+	
+	###########################
+	#   FOCUS MOTORIZED ARMY  #
+	###########################
+	
+	focus = {
+		id = TUR_motorized_army
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = TUR_modernize_army}
+		x = 54
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 1.0
+				technology = motorised_infantry
+			}
+			
+		}
+	}
+	
+	###################################
+	#   FOCUS MASS WEAPON PRODUCTION  #
+	###################################
+	
+	focus = {
+		id = TUR_mass_weapon_production
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = TUR_army_maneuvers }
+		prerequisite = { focus = TUR_modernize_equipment}
+		mutually_exclusive = { focus = TUR_supportive_army}
+		x = 49
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			army_experience = 5
+			add_ideas = TUR_infantry_focus
+			
+		}
+	}
+	
+	############################
+	#   FOCUS SUPPORTIVE ARMY  #
+	############################
+	
+	focus = {
+		id = TUR_supportive_army
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = TUR_army_maneuvers}
+		prerequisite = { focus = TUR_motorized_army}
+		mutually_exclusive = { focus = TUR_mass_weapon_production}
+		x = 51
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			army_experience = 5
+			add_ideas = TUR_support_focus
+			
+		}
+	}
+	
+	##############################
+	#   FOCUS DEFENSIVE TACTICS  #
+	##############################
+	
+	focus = {
+		id = TUR_defensive_tactics
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = TUR_supportive_army focus = TUR_mass_weapon_production}
+		mutually_exclusive = { focus = TUR_aggressive_tactics}
+		x = 49
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 8.5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = TUR_defensive_focus
+				bonus = 1.0
+				uses = 2
+				category = cat_grand_battle_plan
+				category = cat_mass_assault
+			}
+			
+		}
+	}
+	
+	###############################
+	#   FOCUS AGGRESSIVE TACTICS  #
+	###############################
+	
+	focus = {
+		id = TUR_aggressive_tactics
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TUR_supportive_army focus = TUR_mass_weapon_production}
+		mutually_exclusive = { focus = TUR_defensive_tactics}
+		x = 51
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = TUR_offensive_focus
+				bonus = 1.0
+				uses = 2
+				category = cat_mobile_warfare
+				category = cat_superior_firepower
+			}
+			
+		}
+	}
+	
+	######################################
+	#   FOCUS NATIONAL TANK PRODUCTITON  #
+	######################################
+	
+	focus = {
+		id = TUR_national_tank_production
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = TUR_motorized_army}
+		x = 54
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			custom_effect_tooltip = TUR_ntc_tt
+		
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+			
+		}
+	}
+	
+	#######################################
+	#   FOCUS IMPROVED ARTILLERY SUPPORT  #
+	#######################################
+	
+	focus = {
+		id = TUR_improved_artillery_support
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = TUR_national_tank_production}
+		x = 54
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}	
+			
+		}
+	}
+
+	#################################
+	#   FOCUS TRAIN SPECIAL FORCES  #
+	#################################
+	
+	focus = {
+		id = TUR_train_special_forces
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = TUR_modernize_equipment}
+		x = 46
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+			
+		}
+	}
+	
+	############################################
+	#   FOCUS SUPPORT EQUIPMENT MODERNIZATION  #
+	############################################
+	
+	focus = {
+		id = TUR_support_equipment_modernization
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = TUR_train_special_forces}
+		x = 46
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = support_equipment_bonus
+				bonus = 1.0
+				uses = 2
+				category = support_tech
+			}
+			
+		}
+	}
+	
+	##########################
+	#   FOCUS ARMY TRAINING  #
+	##########################
+	
+	focus = {
+		id = TUR_army_training
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = TUR_defensive_tactics focus = TUR_aggressive_tactics}
+		x = 50
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available = {		
+		
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = TUR_army_training
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+			
+		}
+	}
+	
+	###################################
+	#   FOCUS EXPAND NAVAL DOCKYARDS  #
+	###################################
+	
+	focus = {
+		id = TUR_expand_naval_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 58
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = dockyard
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = dockyard
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR_naval_expansion
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = dockyard
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = dockyard
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR_naval_expansion
+			}
+		}
+	}
+	
+	#################################
+	#   FOCUS ESTABLISH LIGHT NAVY  #
+	#################################
+	
+	focus = {
+		id = TUR_establish_light_navy
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = TUR_expand_naval_dockyards}
+		mutually_exclusive = { focus = TUR_establish_large_navy}
+		x = 57
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 1.0
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+	
+	#################################
+	#   FOCUS ESTABLISH LARGE NAVY  #
+	#################################
+	
+	focus = {
+		id = TUR_establish_large_navy
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = TUR_expand_naval_dockyards}
+		mutually_exclusive = { focus = TUR_establish_light_navy}
+		x = 59
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 5.5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 1.0
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+	
+	######################################
+	#   FOCUS PRODUCTION OF LIGHT SHIPS  #
+	######################################
+	
+	focus = {
+		id = TUR_production_of_light_ships
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = TUR_establish_light_navy}
+		x = 57
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+	
+	######################################
+	#   FOCUS MODERNIZE DESTROYER FLEET  #
+	######################################
+	
+	focus = {
+		id = TUR_modernize_destroyer_fleet
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = TUR_production_of_light_ships}
+		x = 57
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+	
+	######################################
+	#   FOCUS PRODUCTION OF HEAVY SHIPS  #
+	######################################
+	
+	focus = {
+		id = TUR_production_of_heavy_ships
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = TUR_establish_large_navy}
+		x = 59
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+	
+	####################################
+	#   FOCUS MODERNIZE CRUISER FLEET  #
+	####################################
+	
+	focus = {
+		id = TUR_modernize_cruiser_fleet
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = TUR_production_of_heavy_ships}
+		x = 59
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+	
+	##########################################
+	#   FOCUS MASS PRODUCTION OF SUBMARINES  #
+	##########################################
+	
+	focus = {
+		id = TUR_mass_production_of_submarines
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = TUR_modernize_destroyer_fleet focus = TUR_modernize_cruiser_fleet}
+		mutually_exclusive = { focus = TUR_national_battleship_production}
+		x = 57
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_ideas = TUR_submarine_discount
+		}
+	}
+	
+	###########################################
+	#   FOCUS NATIONAL BATTLESHIP PRODUCTION  #
+	###########################################
+	
+	focus = {
+		id = TUR_national_battleship_production
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = TUR_modernize_destroyer_fleet focus = TUR_modernize_cruiser_fleet}
+		mutually_exclusive = { focus = TUR_mass_production_of_submarines}
+		x = 59
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_ideas = TUR_battleship_discount
+		}
+	}
+	
+	###########################
+	#   FOCUS NAVY MANEUVERS  #
+	###########################
+	
+	focus = {
+		id = TUR_navy_maneuvers
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = TUR_mass_production_of_submarines focus = TUR_national_battleship_production}
+		x = 58
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = naval_doc_bonus
+				bonus = 1.0
+				uses = 3
+				category = naval_doctrine
+			}
+		}
+	}
+	
+	###################################
+	#   FOCUS CONSTRUCT NEW AIRBASES  #
+	###################################
+	
+	focus = {
+		id = TUR_construct_new_airbases
+		icon = GFX_goal_generic_build_airforce
+		x = 64
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+		
+		available = {
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = air_base
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = air_base
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	
+	##########################
+	#   FOCUS SUBSIDIZE THK  #
+	##########################
+	
+	focus = {
+		id = TUR_subsidize_thk
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = TUR_construct_new_airbases}
+		mutually_exclusive = { focus = TUR_subsidize_demirags_efforts}
+		x = 63
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available_if_capitulated = yes
+		
+		available = {
+		}
+
+		completion_reward = {
+			hidden_effect = {
+				country_event = { id = turkey.4 days = 1 }
+			}
+			
+			custom_effect_tooltip = TUR_thk_tt
+			
+			random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	########################################
+	#   FOCUS SUBSIDIZE DEMIRAG'S EFFORTS  #
+	########################################
+	
+	focus = {
+		id = TUR_subsidize_demirags_efforts
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = TUR_construct_new_airbases}
+		mutually_exclusive = { focus = TUR_subsidize_thk}
+		x = 65
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available_if_capitulated = yes
+		
+		available = {
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TUR_nuri_demirag
+			custom_effect_tooltip = TUR_demirag_tt
+			
+			random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	########################################
+	#   FOCUS INCREASE FIGHTER PRODUCTION  #
+	########################################
+	
+	focus = {
+		id = TUR_increase_fighter_production
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = TUR_subsidize_thk focus = TUR_subsidize_demirags_efforts }
+		mutually_exclusive = { focus = TUR_increase_bomber_production}
+		x = 63
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+	
+	#######################################
+	#   FOCUS INCREASE BOMBER PRODUCTION  #
+	#######################################
+	
+	focus = {
+		id = TUR_increase_bomber_production
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = TUR_subsidize_thk focus = TUR_subsidize_demirags_efforts }
+		mutually_exclusive = { focus = TUR_increase_fighter_production}
+		x = 65
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+
+	#############################
+	#   FOCUS EXPAND AIR BASES  #
+	#############################
+	
+	focus = {
+		id = TUR_expand_air_bases
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = TUR_increase_bomber_production focus = TUR_increase_fighter_production }
+		x = 63
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 25
+
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = air_base
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = air_base
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	#############################
+	#   FOCUS TRAIN AIR FORCES  #
+	#############################
+	
+	focus = {
+		id = TUR_train_air_forces
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = TUR_increase_bomber_production focus = TUR_increase_fighter_production }
+		x = 61
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	
+	#####################################
+	#   FOCUS ENCOURAGE CAS PRODUCTION  #
+	#####################################
+	
+	focus = {
+		id = TUR_encourage_cas_production
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = TUR_increase_bomber_production focus = TUR_increase_fighter_production }
+		mutually_exclusive = { focus = TUR_encourage_naval_bomber_production}
+		x = 65
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	
+	##############################################
+	#   FOCUS ENCOURAGE NAVAL BOMBER PRODUCTION  #
+	##############################################
+	
+	focus = {
+		id = TUR_encourage_naval_bomber_production
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = TUR_increase_bomber_production focus = TUR_increase_fighter_production }
+		mutually_exclusive = { focus = TUR_encourage_cas_production}
+		x = 67
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+
+	########################################
+	#   FOCUS THE FUTURE IS IN THE SKIES!  #
+	########################################
+	
+	focus = {
+		id = TUR_the_future_is_in_the_skies
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = TUR_train_air_forces}
+		prerequisite = { focus = TUR_expand_air_bases}
+		prerequisite = { focus = TUR_encourage_naval_bomber_production focus = TUR_encourage_cas_production}
+		x = 64
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 25
+			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+	#######################################
+	#   FOCUS REESTABLISH OTTOMAN EMPIRE  #
+	#######################################
+	
+	focus = {
+		id = TUR_reestablish_ottoman_empire
+		icon = GFX_focus_TUR_pivot_to_the_past
+		prerequisite = { focus = TUR_montreux_convention}
+		mutually_exclusive = { focus = TUR_misaki_milli }
+		mutually_exclusive = { focus = TUR_turanism }
+		mutually_exclusive = { focus = TUR_treaty_of_saadabad }
+		x = 15
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				is_puppet = no
+			}
+			
+			has_government = islamism
+		}
+		
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	
+	###########################
+	#   FOCUS CONQUER GREECE  #
+	###########################
+	
+	focus = {
+		id = TUR_conquer_greece
+		icon = GFX_focus_generic_attack_greece
+		prerequisite = { focus = TUR_reestablish_ottoman_empire}
+		x = 15
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = GRE }
+		}
+	}
+	
+	#############################
+	#   FOCUS CONQUER BULGARIA  #
+	#############################
+	
+	focus = {
+		id = TUR_conquer_bulgaria
+		icon = GFX_focus_generic_attack_bulgaria
+		prerequisite = { focus = TUR_reestablish_ottoman_empire}
+		x = 17
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = BUL }
+		}
+	}
+	
+	#########################
+	#   FOCUS CONQUER IRAQ  #
+	#########################
+	
+	focus = {
+		id = TUR_conquer_iraq
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TUR_conquer_greece focus = TUR_conquer_bulgaria}
+		x = 16
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = IRQ }
+		}
+	}
+	
+	####################################
+	#   FOCUS CALIPH NOT JUST IN NAME  #
+	####################################
+	
+	focus = {
+		id = TUR_caliph_not_just_in_name
+		icon = GFX_focus_TUR_taking_over_defense_of_the_gulf
+		prerequisite = { focus = TUR_conquer_iraq}
+		x = 15
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = SAU }
+			create_wargoal = { type = annex_everything target = YEM }
+		}
+	}
+	
+	###########################
+	#   FOCUS ROAD TO VIENNA  #
+	###########################
+	
+	focus = {
+		id = TUR_road_to_vienna
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = TUR_caliph_not_just_in_name}
+		prerequisite = { focus = TUR_rule_the_middleeast}
+		x = 16
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = YUG }
+			create_wargoal = { type = annex_everything target = ROM }
+			create_wargoal = { type = annex_everything target = HUN }
+		}
+	}
+	
+	################################
+	#   FOCUS RULE THE MIDDLEEAST  #
+	################################
+	
+	focus = {
+		id = TUR_rule_the_middleeast
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = TUR_conquer_iraq}
+		x = 17
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = FRA
+				generator = { 797 677 800 680 553 554 }
+			}
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 454 455 }
+			}
+		}
+	}
+	
+	######################################
+	#   FOCUS HOLD REFERENDUM IN BATUMI  #
+	######################################
+	
+	focus = {
+		id = TUR_hold_referendum_in_batumi
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = TUR_revise_treaty_of_ankara}
+		x = 14
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = SOV
+					has_full_control_of_state = 811
+				}
+			}
+			
+			SOV = {
+				has_full_control_of_state = 811
+			}
+		}
+		
+		bypass = {
+			811 = {
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		
+		completion_reward = {
+			SOV = { country_event = {id = soviet.66 days = 1} }
+		}
+	}
+
+	##################
+	#   FOCUS TURAN  #
+	##################
+	
+	focus = {
+		id = TUR_turanism
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = TUR_montreux_convention }
+		mutually_exclusive = { focus = TUR_misaki_milli }
+		mutually_exclusive = { focus = TUR_treaty_of_saadabad }
+		mutually_exclusive = { focus = TUR_reestablish_ottoman_empire }
+		x = 19
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			ROOT = {
+				is_puppet = no
+			}
+			
+			has_government = fascism
+		}
+		
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			
+			create_faction = TUR_turanism
+		}
+	}
+	
+	#######################################
+	#   FOCUS PREPARE FOR TURAN UPRISING  #
+	#######################################
+	
+	focus = {
+		id = TUR_prepare_for_turan_uprising
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = TUR_turanism}
+		x = 19
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			SOV = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = needs_preparation
+			add_political_power = -120
+		}
+	}
+	
+	###############################
+	#   FOCUS UNITE CENTRAL ASIA  #
+	###############################
+	
+	focus = {
+		id = TUR_unite_central_asia
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = TUR_prepare_for_turan_uprising}
+		x = 18
+		y = 4
+		cost = 20
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			has_equipment = {
+				infantry_equipment > 89999
+			}
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = needs_preparation
+			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -90000
+				producer = TUR
+			}
+			
+		}
+	}
+	
+	###########################
+	#   FOCUS UNITE CAUCASUS  #
+	###########################
+	
+	focus = {
+		id = TUR_unite_caucasus
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = TUR_prepare_for_turan_uprising }
+		x = 20
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			has_equipment = {
+				infantry_equipment > 9999
+			}
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = needs_preparation
+			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -10000
+				producer = TUR
+			}
+			
+		}
+	}
+	
+	##################################
+	#   FOCUS LAUNCH TURAN UPRISING  #
+	##################################
+	
+	focus = {
+		id = TUR_launch_turan_uprising
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = TUR_unite_caucasus }
+		prerequisite = { focus = TUR_unite_central_asia }
+		x = 19
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 7
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = needs_equipment
+			SOV = {
+				if = {
+					limit = {
+						229 = { 
+							is_controlled_by = SOV 
+							is_owned_by = SOV
+						}
+					}
+					
+					release = AZR
+					
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							407 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							406 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							402 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							587 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							583 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							404 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							586 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							589 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							588 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							590 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+						}
+					}
+					
+					release = KAZ
+					
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							585 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+							
+							405 = { 
+								is_controlled_by = SOV 
+								is_owned_by = SOV
+							}
+						}
+					}
+					
+					release = UZB
+					
+				}
+				
+				if = {
+					limit = {
+						584 = { 
+							is_controlled_by = SOV 
+							is_owned_by = SOV
+						}
+					}
+					
+					release = TMS
+					
+				}
+				
+				if = {
+					limit = {
+						742 = { 
+							is_controlled_by = SOV 
+							is_owned_by = SOV
+						}
+					}
+					
+					release = TAJ
+					
+				}
+				
+				if = {
+					limit = {
+						732 = { 
+							is_controlled_by = SOV 
+							is_owned_by = SOV
+						}
+					}
+					
+					release = KYR
+					
+				}
+
+			}
+			
+			add_to_faction = AZR
+			add_to_faction = KAZ
+			add_to_faction = UZB
+			add_to_faction = TAJ
+			add_to_faction = TMS
+			add_to_faction = KYR
+			
+			hidden_effect = {
+			
+				230 = { add_claim_by = AZR }
+				232 = { add_claim_by = AZR }
+				236 = { add_claim_by = KAZ }
+				
+				AZR = {					
+					load_oob = AZR_1936
+					
+					declare_war_on = {
+						target = SOV
+						type = take_claimed_state
+					}
+
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 10000
+						producer = AZR
+					}
+					
+				}
+				
+				KAZ = {			
+					load_oob = KAZ_1936
+				
+					declare_war_on = {
+						target = SOV
+						type = take_claimed_state
+					}
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 30000
+						producer = KAZ
+					}
+					
+				}
+				
+				UZB = {
+					load_oob = UZB_1936
+					
+					declare_war_on = {
+						target = SOV
+						type = take_core_state
+					}
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 40000
+						producer = UZB
+					}
+					
+				}
+				
+				TAJ = {
+					load_oob = TAJ_1936
+				
+					declare_war_on = {
+						target = SOV
+						type = take_core_state
+					}
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 5000
+						producer = TAJ
+					}
+					
+				}
+				
+				TMS = {
+					load_oob = TMS_1936
+					
+					declare_war_on = {
+						target = SOV
+						type = take_core_state
+					}
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 10000
+						producer = TMS
+					}
+					
+				}
+				
+				KYR = {
+					load_oob = KYR_1936
+					
+					declare_war_on = {
+						target = SOV
+						type = take_core_state
+					}
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 5000
+						producer = KYR
+					}
+					
+				}
+				
+				declare_war_on = {
+					target = SOV
+					type = take_claimed_state
+				}
+			}
+		}
+	}
+	
+	##############################
+	#   FOCUS REACH CASPIAN SEA  #
+	##############################
+	
+	focus = {
+		id = TUR_reach_caspian_sea
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = TUR_turanism}
+		x = 21
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			add_state_claim = 419
+			add_state_claim = 420
+			add_state_claim = 266
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = PER
+				generator = { 419 420 266 }
+			}
+		}
+	}
+	
+	#########################
+	#   FOCUS ANNEX CYPRUS  #
+	#########################
+	
+	focus = {
+		id = TUR_annex_cyprus
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = TUR_reach_caspian_sea}
+		x = 21
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+		}
+		
+		completion_reward = {
+			add_state_claim = 183
+			
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 183 }
+			}
+		}
+	}
+	
+	#######################
+	#   FOCUS FORM TURAN  #
+	#######################
+	
+	focus = {
+		id = TUR_form_turan
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = TUR_launch_turan_uprising }
+		prerequisite = { focus = TUR_annex_cyprus }
+		x = 20
+		y = 6
+		cost = 1
+		ai_will_do = {
+			factor = 15
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			is_subject = no
+			OR = {
+				AND = {
+					NOT = { has_war_with = SOV }
+					
+					AZR = {
+						exists = yes
+						is_subject = no
+						NOT = { has_war_with = SOV }
+					}
+					
+					KAZ = {
+						exists = yes
+						is_subject = no
+						NOT = { has_war_with = SOV }
+					}
+					
+					UZB = {
+						exists = yes
+						is_subject = no
+						NOT = { has_war_with = SOV }
+					}
+					
+					TMS = {
+						exists = yes
+						is_subject = no
+						NOT = { has_war_with = SOV }
+					}
+					
+					KYR = {
+						exists = yes
+						is_subject = no
+						NOT = { has_war_with = SOV }
+					}
+					
+					TAJ = {
+						exists = yes
+						is_subject = no
+						NOT = { has_war_with = SOV }
+					}
+				}
+				
+				has_country_flag = TUR_peace_with_soviets
+			}
+			
+		}
+		
+		completion_reward = {			
+			set_cosmetic_tag = TUR_UNIFIED_TURAN
+			unlock_decision_tooltip = TUR_annex_azerbaijan
+			unlock_decision_tooltip = TUR_annex_kazakhstan
+			unlock_decision_tooltip = TUR_annex_uzbekistan
+			unlock_decision_tooltip = TUR_annex_turkmenistan
+			unlock_decision_tooltip = TUR_annex_tajikistan
+			unlock_decision_tooltip = TUR_annex_kyrgyzstan
+		}
+	}
+	
+	#####################################
+	#   FOCUS ENACT NEW CITIZENSHIP LAW #
+	#####################################
+	
+	focus = {
+		id = TUR_enact_new_citizenship_law
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = TUR_form_turan }
+		x = 20
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 15
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		available = {
+			229 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			584 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			585 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			587 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			406 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			402 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			583 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			590 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			588 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			589 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			404 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			586 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			732 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			742 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			405 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+			
+			419 = {
+				is_owned_by = TUR
+				is_controlled_by = TUR
+			}
+
+		}
+		
+		completion_reward = {
+			add_stability = 0.1
+			229 = { add_core_of = ROOT }
+			584 = { add_core_of = ROOT }
+			585 = { add_core_of = ROOT }
+			587 = { add_core_of = ROOT }
+			406 = { add_core_of = ROOT }
+			402 = { add_core_of = ROOT }
+			583 = { add_core_of = ROOT }
+			590 = { add_core_of = ROOT }
+			588 = { add_core_of = ROOT }
+			589 = { add_core_of = ROOT }
+			404 = { add_core_of = ROOT }
+			586 = { add_core_of = ROOT }
+			732 = { add_core_of = ROOT }
+			742 = { add_core_of = ROOT }
+			405 = { add_core_of = ROOT }
+			419 = { add_core_of = ROOT }
+			
+			if = {
+				limit = {
+					183 = {
+						is_owned_by = TUR
+						is_controlled_by = TUR
+					}
+				}
+				
+				183 = { add_core_of = TUR }
+				
+			}
+		}
+	}
+	
+	############################
+	#   FOCUS INVITE BULGARIA  #
+	############################
+	
+	focus = {
+		id = TUR_invite_bulgaria
+		icon = GFX_focus_generic_befriend_bulgaria
+		prerequisite = { focus = TUR_invite_romania focus = TUR_invite_greece focus = TUR_invite_yugoslavia}
+		x = 7
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available = {
+			ROOT = {
+				NOT = {
+					has_war_with = BUL
+				}
+			}
+			
+			BUL = {
+				is_in_faction = no
+				exists = yes
+				is_puppet = no
+				has_completed_focus = BUL_join_balkan_entente
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+		}
+		
+		bypass = {
+			BUL = {
+				OR = {
+					is_in_faction_with = TUR 
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		completion_reward = {
+			BUL = { country_event = {id = bulgaria.17 days = 1} }
+		}
+	}
+	
+	########################
+	#   FOCUS PAN-TURKISM  #
+	########################
+	
+	focus = {
+		id = TUR_embrace_pan_turkism
+		icon = GFX_focus_focus_fra_revolution_utmost
+		mutually_exclusive = { focus = TUR_embrace_kemalism}
+		mutually_exclusive = { focus = TUR_embrace_islamism }
+		x = 42
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available = {		
+
+		}
+		
+		completion_reward = {
+			add_stability = -0.05
+			
+			add_timed_idea = {
+				idea = nationalism
+				days = 1095
+			}
+			
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TUR_huseyin_nihal_atsiz
+		}
+	}
+	
+	####################################
+	#   FOCUS EXTEND CIVILIAN SUPPORT  #
+	####################################
+	
+	focus = {
+		id = TUR_extend_civilian_support
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TUR_embrace_pan_turkism }
+		x = 42
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {		
+			fascism > 0.25
+		}
+		
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.1 }
+		}
+	}
+	
+	############################
+	#   FOCUS ELECTION OR WAR  #
+	############################
+	
+	focus = {
+		id = TUR_election_or_war
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = TUR_extend_civilian_support }
+		x = 42
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {		
+			fascism > 0.5
+		}
+		
+		bypass = {
+			has_government = fascism
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = TUR_fascism_on_the_rise
+			
+			if = {
+				limit = { fascism < 0.55 }
+				
+				random_list = {
+					55 = {
+						set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}						
+					}
+					
+					45 = {
+						custom_effect_tooltip = possible_civil_war
+					
+						hidden_effect = {
+							set_politics = {
+								ruling_party = fascism
+								elections_allowed = no
+							}
+							
+							set_capital = 341
+							
+							country_event = { id = turkey.32 days = 1 }
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = { 
+					fascism > 0.5
+					fascism < 0.6 				
+				}
+				
+				random_list = {
+					60 = {
+						set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}						
+					}
+					
+					40 = {
+						custom_effect_tooltip = possible_civil_war
+					
+						hidden_effect = {
+							set_politics = {
+								ruling_party = fascism
+								elections_allowed = no
+							}
+							
+							set_capital = 341
+							
+							country_event = { id = turkey.32 days = 1 }
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					fascism > 0.6
+					fascism < 0.65 
+				}
+				
+				random_list = {
+					65 = {
+						set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}						
+					}
+					
+					35 = {
+						custom_effect_tooltip = possible_civil_war
+					
+						hidden_effect = {
+							set_politics = {
+								ruling_party = fascism
+								elections_allowed = no
+							}
+							
+							set_capital = 341
+							
+							country_event = { id = turkey.32 days = 1 }
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = { 
+					fascism > 0.65
+					fascism < 0.7 
+				}
+				
+				random_list = {
+					70 = {
+						set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}						
+					}
+					
+					30 = {
+						custom_effect_tooltip = possible_civil_war
+					
+						hidden_effect = {
+							set_politics = {
+								ruling_party = fascism
+								elections_allowed = no
+							}
+							
+							set_capital = 341
+							
+							country_event = { id = turkey.32 days = 1 }
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = { fascism > 0.75 }
+				
+				random_list = {
+					80 = {
+						set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}						
+					}
+					
+					20 = {
+					
+						custom_effect_tooltip = possible_civil_war
+					
+						hidden_effect = {
+							set_politics = {
+								ruling_party = fascism
+								elections_allowed = no
+							}
+							
+							set_capital = 341
+							
+							country_event = { id = turkey.32 days = 1 }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	######################
+	#   FOCUS IRON FIST  #
+	######################
+	
+	focus = {
+		id = TUR_iron_fist
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = TUR_election_or_war }
+		x = 42
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available = {
+			has_government  = fascism
+		}
+		
+		completion_reward = {		
+			add_ideas = TUR_turan
+		}
+	}
+	
+	##############################################
+	#   FOCUS ENACT COMPULSORY MILITARY SERVICE  #
+	##############################################
+	
+	focus = {
+		id = TUR_enact_compulsory_military_service
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = TUR_iron_fist }
+		x = 42
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		
+		available = {
+			has_government  = fascism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_turan
+				add_idea = TUR_turan2
+			}
+		}
+	}
+	
+	###################################
+	#   FOCUS MASSIVE WAR PROPAGANDA  #
+	###################################
+	
+	focus = {
+		id = TUR_massive_war_proganda
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = TUR_enact_compulsory_military_service }
+		x = 42
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		
+		available = {
+			has_government  = fascism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_turan2
+				add_idea = TUR_turan3
+			}
+		}
+	}
+	
+	###############################
+	#   FOCUS SKIP ARMY TRAINING  #
+	###############################
+	
+	focus = {
+		id = TUR_skip_army_training
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = TUR_massive_war_proganda }
+		x = 42
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			has_government  = fascism
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUR_turan3
+				add_idea = TUR_turan4
+			}
+		}
+	}
+	
+	#########################
+	# FOCUS SUPPORT STATISM #
+	#########################
+	
+	focus = {
+		id = TUR_support_statism
+		icon = GFX_goal_generic_consumer_goods
+		mutually_exclusive = { focus = TUR_embrace_liberal_economy}
+		x = 5
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_ideas = TUR_statism
+			add_ideas = closed_economy
+		}
+	}
+	
+	#################################
+	# FOCUS EMBRACE LIBERAL ECONOMY #
+	#################################
+	
+	focus = {
+		id = TUR_embrace_liberal_economy
+		icon = GFX_focus_mex_privatisation
+		mutually_exclusive = { focus = TUR_support_statism}
+		x = 3
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = TUR_liberalism		
+			add_timed_idea = { idea = TUR_economic_unstability days = 365 }	
+		}
+	}
+	
+	###############################
+	# FOCUS INDUSTRIAL REVOLUTION #
+	###############################
+	
+	focus = {
+		id = TUR_industrial_revolution
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = TUR_embrace_liberal_economy }
+		x = 3
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_ideas = TUR_industrial_revolution
+			custom_effect_tooltip = TUR_koc_tt
+		}
+	}
+	
+	#################################
+	# FOCUS PROPER USE OF RESOURCES #
+	#################################
+	
+	focus = {
+		id = TUR_proper_use_of_resources
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = TUR_support_statism }
+		x = 5
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_ideas = TUR_mta
+			custom_effect_tooltip = TUR_mta_tt
+		}
+	}
+	
+	#################################
+	# FOCUS IMPROVE RAILWAY NETWORK #
+	#################################
+	
+	focus = {
+		id = TUR_improve_railway_network
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TUR_industrial_revolution focus = TUR_proper_use_of_resources }
+		x = 4
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+						free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+
+				}
+
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+						free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+
+				}
+
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+						free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+
+				}
+
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+						free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+
+				}
+
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	#############################
+	# FOCUS EXPAND PORT NETWORK #
+	#############################
+	
+	focus = {
+		id = TUR_expand_port_network
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = TUR_improve_railway_network }
+		x = 4
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			810 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			342 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+			
+			344 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			810 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					province = 10112
+					instant_build = yes
+				}
+			}
+			
+			342 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					province = 1005
+					instant_build = yes
+				}
+			}
+			
+			344 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					province = 11746
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	###################################
+	# FOCUS PRIVATE SECTOR INVESTMENT #
+	###################################
+	
+	focus = {
+		id = TUR_private_sector_investment
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = TUR_expand_port_network }
+		prerequisite = { focus = TUR_industrial_revolution }
+		x = 3
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	####################################
+	# FOCUS STATE SPONSORED INVESTMENT #
+	####################################
+	
+	focus = {
+		id = TUR_state_sponsored_investment
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = TUR_expand_port_network }
+		prerequisite = { focus = TUR_proper_use_of_resources }
+		x = 5
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = arms_factory
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 1
+					 add_building_construction = {
+					 type = arms_factory
+					 level = 1
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+			
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = industrial_complex
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = industrial_complex
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	######################
+	# FOCUS WAR INDUSTRY #
+	######################
+	
+	focus = {
+		id = TUR_war_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TUR_private_sector_investment focus = TUR_state_sponsored_investment}
+		x = 4
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+					 free_building_slots = {
+					 building = arms_factory
+					 size > 0
+					 include_locked = yes
+					}
+
+				}
+
+					add_extra_state_shared_building_slots = 2
+					 add_building_construction = {
+					 type = arms_factory
+					 level = 2
+					 instant_build = yes
+					}
+
+				set_state_flag = TUR
+			}
+		}
+	}
+	
+	###############################
+	# FOCUS DIVRIGI STEEL FACTORY #
+	###############################
+	
+	focus = {
+		id = TUR_divrigi_steel_factory
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = TUR_war_industry}
+		x = 4
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			349 = {
+				is_controlled_by = TUR
+				is_owned_by = TUR
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			349 = {
+			
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+}

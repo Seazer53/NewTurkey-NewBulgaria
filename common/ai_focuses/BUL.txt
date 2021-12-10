@@ -1,0 +1,146 @@
+
+ai_historical_focus_list_BUL = {
+	ai_national_focuses = {
+		# grab as fast as you can if available
+		BUL_support_civilian_industry
+		BUL_establish_heavy_industry
+		BUL_expand_railway_network
+		BUL_sofia_university
+		BUL_export_focused_economy
+		BUL_mass_production
+		BUL_support_urbanization
+		BUL_industrialization
+		BUL_support_tsar
+		BUL_weakened_opposition
+		BUL_unite_tsars_supporters 
+		BUL_prepare_for_the_worst
+		BUL_suppress_army_officers
+		BUL_long_live_the_tsar
+		BUL_tsar_driven_politics
+		BUL_salonika_agreement
+		BUL_expand_sofia_university
+		BUL_golden_age_of_economy
+		BUL_secret_rearmament
+		BUL_improve_diplomatic_relations
+		BUL_greater_bulgaria
+		BUL_seek_foreign_support
+		BUL_ask_for_german_support
+		BUL_reassert_bulgarian_claims
+		BUL_fate_of_macedonia
+		BUL_demand_western_thrace
+		BUL_revise_bulgaria_greece_border
+		BUL_road_to_bosphorus
+		BUL_proclaim_second_bulgarian_empire
+		BUL_split_yugoslavia
+		BUL_fate_of_greece
+		BUL_crush_romania
+		BUL_fortify_romanian_border
+		BUL_build_military_factories
+		BUL_expand_civilian_industry
+		BUL_student_exchange_program
+		BUL_double_research_efforts
+		BUL_strengthen_army
+		BUL_build_naval_dockyards
+		BUL_construct_airbases
+	}
+}
+
+ai_focus_defense_BUL = {
+	research = {
+		defensive = 5.0	
+		radar_tech = 1.0
+		construction_tech = 2.0
+		artillery = 2.0
+	}
+}
+
+ai_focus_aggressive_BUL = {
+	research = {
+		offensive = 5.0
+		synth_resources = 1.0
+		motorized_equipment = 2.0
+		armor = 2.0
+	}
+}
+
+ai_focus_war_production_BUL = {
+	research = {
+		industry = 10.0
+		construction_tech = 2.0
+		electronics = 2.0
+		computing_tech = 2.0	
+	}
+}
+
+ai_focus_military_equipment_BUL = {
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+}
+
+ai_focus_military_advancements_BUL = {
+	research = {
+		armor = 10.0
+		jet_technology = 5.0
+		land_doctrine = 100.0
+		rocketry = 7.5
+		radar_tech = 3.0
+		encryption_tech = 7.5
+		decryption_tech = 7.5
+		synth_resources = 3.0
+		motorized_equipment = 4.0
+		nuclear = 5.0
+		night_vision = 5.0
+	}
+}
+
+ai_focus_peaceful_BUL = {
+	research = {
+		industry = 15.0
+		construction_tech = 5.0
+		electronics = 10.0
+		computing_tech = 10.0
+	}
+}
+
+ai_focus_naval_BUL = {
+	research = {
+		naval_equipment = 5.0
+		naval_doctrine = 100.0
+		marine_tech = 10.0
+		dd_tech = 3.0
+		cl_tech = 3.0
+		ca_tech = 3.0
+		bc_tech = 3.0
+		bb_tech = 3.0
+		shbb_tech = 3.0
+		tp_tech = 3.0
+		cv_tech = 3.0
+		ss_tech = 3.0
+	}
+}
+
+ai_focus_naval_air_BUL = {
+	research = {
+		naval_air = 4.0
+		naval_bomber = 3.0
+	}
+}
+
+ai_focus_aviation_BUL = {
+	research = {
+		air_doctrine = 50.0
+		light_air = 4.0
+		light_fighter = 4.0
+		jet_technology = 1.0
+		cas_bomber = 2.0		
+		medium_air = 4.0
+		tactical_bomber = 5.0
+		heavy_air = 1.5
+		air_equipment = 5.0
+		para_tech = 10
+	}
+}
