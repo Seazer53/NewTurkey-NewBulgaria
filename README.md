@@ -1,4 +1,4 @@
-# NewTurkey-NewBulgaria
+# New Turkey + New Bulgaria
 
 New Turkey + New Bulgaria is a Hearts of Iron IV mod. You can reach this mod via Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2214509620
 
